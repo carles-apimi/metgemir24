@@ -220,13 +220,22 @@ const tx=k=>TX[L][k];
 const FAV=new Set();try{JSON.parse(localStorage.getItem('mm24fav')||'[]').forEach(x=>FAV.add(x))}catch(e){}
 function favSave(){try{updTools()}catch(e){}try{localStorage.setItem('mm24fav',JSON.stringify([...FAV]))}catch(e){}const b=$('#b-fav');if(b){b.classList.toggle('has',FAV.size>0);b.querySelector('em').textContent=FAV.size||''}}
 function favBtn(id,cls=''){const on=FAV.has(id);return `<button class="hbtn ${cls} ${on?'on':''}" data-fav="${id}" aria-pressed="${on}" aria-label="${on?tx('favDel'):tx('favAdd')}">${HEART}</button>`}
-function favToggle(id){FAV.has(id)?FAV.delete(id):FAV.add(id);favSave();$$(`[data-fav="${id}"]`).forEach(b=>{const on=FAV.has(id);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);if(on){b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop')}});toast(FAV.has(id)?tx('added'):tx('removed'))}
+function favToggle(id){FAV.has(id)?FAV.delete(id):FAV.add(id);favSave();$$(`[data-fav="${id}"]`).forEach(b=>{const on=FAV.has(id);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);if(b.classList.contains('ufav'))b.classList.toggle('on',on);if(on){b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop')}});toast(FAV.has(id)?tx('added'):tx('removed'))}
 function favSheet(){const us=D.units.filter(u=>FAV.has(u.id)),ss=D.annexes.filter(s=>FAV.has(s.id));
   if(!us.length&&!ss.length){openSheet(`<div class="sh-h"><h2>${tx('fav')}</h2></div><p class="sub">${tx('favEmpty')}</p>`);return}
   const txt=[`Metge Mir 24 · ${tx('fav')}`,'',...us.map(u=>`${uName(u)} (${u.type}) · ${m2(u.built)} · ${eur(u.price)} ${t('plusVat')}`),...ss.map(s=>`${s.id} · ${t(s.kind)} · ${eur(s.price)} ${t('plusVat')}`)].join('\n');
   openSheet(`<div class="sh-h"><h2>${tx('fav')}</h2></div>${us.length?`<h3 class="fh">${tx('favU')}</h3><ul class="favl">${us.map(u=>`<li><button class="fi" data-unit="${u.id}"><img src="iso/${u.img}.webp" alt=""><span><b>${uName(u)}</b><small>${u.type} · ${u.beds} ${t('beds')} · ${m2(u.built)}</small></span><strong>${eur(u.price)}</strong></button>${favBtn(u.id)}</li>`).join('')}</ul>`:''}
   ${ss.length?`<h3 class="fh">${tx('favS')}</h3><ul class="favl">${ss.map(s=>`<li><button class="fi" data-favslot="${s.id}"><i class="sl ${s.kind}">${s.id}</i><span><b>${s.id}</b><small>${t(s.kind)}</small></span><strong>${eur(s.price)}</strong></button>${favBtn(s.id)}</li>`).join('')}</ul>`:''}
   <div class="row2" style="margin-top:14px">${us.length>=2?`<button class="btn" data-cmpfav>${tx('cmp')}</button>`:''}<a class="btn terra" href="${mailto(txt)}">${icon('mail')} ${tx('favSend')}</a></div>`)}
+/* triar amb què comparar */
+const PICK={base:null,sel:new Set()};
+function cmpPick(id){PICK.base=id;PICK.sel=new Set([...state.cmp].filter(x=>x!==id).slice(0,2));cmpPickDraw()}
+function cmpPickDraw(){const b=D.units.find(u=>u.id===PICK.base),fav=D.units.filter(u=>FAV.has(u.id)&&u.id!==b.id),rest=D.units.filter(u=>!FAV.has(u.id)&&u.id!==b.id),ca=L==='ca';
+  const li=u=>`<li><button class="fi pk ${PICK.sel.has(u.id)?'on':''}" data-pick="${u.id}" aria-pressed="${PICK.sel.has(u.id)}"><img src="iso/${u.img}.webp" alt=""><span><b>${uName(u)}</b><small>${u.type} · ${u.beds} ${t('beds')} · ${m2(u.built)}</small></span><strong>${eur(u.price)}</strong><i class="ck"></i></button></li>`;
+  openSheet(`<div class="sh-h"><h2>${ca?'Compara':'Compara'} ${uName(b)}</h2></div><p class="sub">${ca?'Tria un o dos habitatges per veure’ls de costat.':'Elige una o dos viviendas para verlas lado a lado.'}</p>
+  ${fav.length?`<h3 class="fh">${HEART} ${ca?'Els que t’han agradat':'Las que te han gustado'}</h3><ul class="favl">${fav.map(li).join('')}</ul>`:''}
+  <h3 class="fh">${fav.length?(ca?'Resta d’habitatges':'Resto de viviendas'):(ca?'Tots els habitatges':'Todas las viviendas')}</h3><ul class="favl">${rest.map(li).join('')}</ul>
+  <div class="pkbar"><button class="btn" data-pickgo ${PICK.sel.size?'':'disabled'}>${tx('cmp')}${PICK.sel.size?' ('+(PICK.sel.size+1)+')':''}</button></div>`)}
 /* comparador a pantalla partida */
 const CMP={ids:[],tab:'iso'};
 function openCmp(ids){const all=D.units.map(u=>u.id);ids=[...new Set(ids.filter(Boolean))];for(const id of all){if(ids.length>=2)break;if(!ids.includes(id))ids.push(id)}CMP.ids=ids.slice(0,innerWidth<700?2:3);renderCmp();$('#cmpv').classList.add('on')}
@@ -252,12 +261,12 @@ function zvInit(){const b=$('#uv .zv');if(!b||b.dataset.zvi)return;b.dataset.zvi
 function renderPis(){
   const u=state.unit;if(!u)return go('s-viv',false);
   $('#uv').innerHTML=`<div class="zv"><img src="${pisTab==='iso'?'iso':'plan'}/${u.img}.webp" alt="${pisTab==='iso'?t('plan3d'):t('plan')} ${uName(u)}" draggable="false"></div>
-  <div class="ztools">${favBtn(u.id,'pill round')}<button class="pill round" data-cmpu="${u.id}" aria-label="${tx('cmp')}" title="${tx('cmp')}"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7.5" height="16" rx="2"/><rect x="13.5" y="4" width="7.5" height="16" rx="2"/></svg></button><span class="zsep"></span><button class="pill round" data-zv="in" aria-label="${tx('zin')}">+</button><button class="pill round" data-zv="out" aria-label="${tx('zout')}">−</button><button class="pill round" data-zv="fit" aria-label="${tx('zfit')}"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>`;
+  <div class="ztools"><button class="pill round" data-zv="in" aria-label="${tx('zin')}">+</button><button class="pill round" data-zv="out" aria-label="${tx('zout')}">−</button><button class="pill round" data-zv="fit" aria-label="${tx('zfit')}"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>`;
   ZV.s=1;ZV.x=0;ZV.y=0;ZV.el=$('#uv .zv img');ZV.pts.clear();zvInit();ZV.el.complete?zvFit():ZV.el.onload=zvFit;
   const ag=state.agent?`<div class="agentacts"><button class="btn terra" data-ag="apalabrar">${t('apalabrar')}</button><button class="btn terra" data-ag="reservar">${t('reservar')}</button><button class="btn ghost" data-ag="docs">${t('docs')}</button></div>`:'';
   $('#ubar').innerHTML=`<div class="tabs"><button data-tab="iso" class="${pisTab==='iso'?'on':''}">${t('plan3d')}</button><button data-tab="plan" class="${pisTab==='plan'?'on':''}">${t('plan')}</button></div>
   <div class="info"><span><b>${uName(u)} · ${eur(u.price)}</b><small>${u.type} · ${u.beds} ${t('beds')}${u.studio?' '+t('studio'):''} · ${u.baths} ${L==='ca'?'banys':'baños'} · ${m2(u.built)} ${L==='ca'?'constr.':'constr.'}${u.ext?' · '+t(u.extKind)+' '+m2(u.ext):''} · ${t('plusVat')}</small></span><span class="badge ${u.status}"><i></i>${t('st.'+u.status)}</span></div>
-  <button class="btn ghost" data-facts="${u.id}">${t('ext')==='Exterior'?'+ info':'+ info'}</button><button class="btn" data-cfg="${u.id}">${t('config')}</button><button class="btn terra" data-contact="${u.id}">${t('contact')}</button>${ag}`;
+  <button class="btn ghost" data-facts="${u.id}">+ info</button><button class="btn ghost ufav ${FAV.has(u.id)?'on':''}" data-fav="${u.id}" aria-pressed="${FAV.has(u.id)}">${HEART}<span>${FAV.has(u.id)?(L==='ca'?'M’agrada':'Me gusta'):(L==='ca'?'M’agrada':'Me gusta')}</span></button><button class="btn ghost" data-cmpu="${u.id}"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7.5" height="16" rx="2"/><rect x="13.5" y="4" width="7.5" height="16" rx="2"/></svg>${tx('cmp')}</button><button class="btn" data-cfg="${u.id}">${t('config')}</button><button class="btn terra" data-contact="${u.id}">${t('contact')}</button>${ag}`;
 }
 function unitFacts(u){
   openSheet(`<div class="sh-h"><h2>${uName(u)}</h2><span class="badge ${u.status}"><i></i>${t('st.'+u.status)}</span></div><p class="sub">${fl(u.floor)} · ${u.type}${u.duplex?' · '+t('duplex'):''}</p>
@@ -532,7 +541,9 @@ document.addEventListener('click',e=>{
   if(g('#t-cmp')){openCmp([...state.cmp,...[...FAV].filter(id=>D.units.some(u=>u.id===id))]);return}
   if(el=g('[data-cmpt]')){const id=el.dataset.cmpt;if(state.cmp.has(id))state.cmp.delete(id);else if(state.cmp.size<3)state.cmp.add(id);else toast(L==='ca'?'Màxim 3 habitatges al comparador':'Máximo 3 viviendas en el comparador');renderViv();return}
   if(el=g('[data-zv]')){el.dataset.zv==='fit'?(ZV.s=1,ZV.x=0,ZV.y=0,zvApply(true)):zvZoom(el.dataset.zv==='in'?1.5:1/1.5);return}
-  if(el=g('[data-cmpu]')){openCmp([el.dataset.cmpu,...FAV,...state.cmp].filter(id=>D.units.some(u=>u.id===id)));return}
+  if(el=g('[data-cmpu]')){cmpPick(el.dataset.cmpu);return}
+  if(el=g('[data-pick]')){const id=el.dataset.pick;if(PICK.sel.has(id))PICK.sel.delete(id);else{if(PICK.sel.size>=2)PICK.sel.delete([...PICK.sel][0]);PICK.sel.add(id)}const sc=$('#sh-body').scrollTop;cmpPickDraw();$('#sh-body').scrollTop=sc;return}
+  if(g('[data-pickgo]')){closeSheet();openCmp([PICK.base,...PICK.sel]);return}
   if(g('[data-cmpfav]')){closeSheet();openCmp([...FAV].filter(id=>D.units.some(u=>u.id===id)));return}
   if(g('[data-cmpx]')){$('#cmpv').classList.remove('on');return}
   if(el=g('[data-ctab]')){CMP.tab=el.dataset.ctab;renderCmp();return}
