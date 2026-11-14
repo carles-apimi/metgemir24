@@ -195,7 +195,7 @@ function renderViv(){
   let us=D.units.filter(u=>(flt.floor==='all'||(flt.floor==='dup'?u.duplex:u.floor===flt.floor))&&(flt.beds==='all'||u.beds==+flt.beds));
   us.sort((a,b)=>flt.sort==='p'?a.price-b.price:flt.sort==='pd'?b.price-a.price:b.built-a.built);
   $('#f-count').textContent=`${us.length} ${t('units')}`;
-  $('#cards').innerHTML=us.map(u=>`<article class="card"><div class="ph" data-unit="${u.id}"><img src="iso/${u.img}.webp" alt="${t('plan3d')} ${uName(u)}" loading="lazy"><span class="badge ${u.status}"><i></i>${t('st.'+u.status)}</span></div>
+  $('#cards').innerHTML=us.map(u=>`<article class="card"><div class="ph" data-unit="${u.id}"><img src="iso/${u.img}.webp" alt="${t('plan3d')} ${uName(u)}" loading="lazy"><span class="badge ${u.status}"><i></i>${t('st.'+u.status)}</span>${favBtn(u.id,'onph')}</div>
   <div class="in"><h3>${uName(u)} <small>${u.type}${u.duplex?' · '+t('duplex'):''}</small></h3>
   <div class="chips"><span>${u.beds} ${t('beds')}${u.studio?' '+t('studio'):''}</span><span>${u.baths} ${L==='ca'?'banys':'baños'}</span><span>${m2(u.built)}</span>${u.ext?`<span>${t(u.extKind)} ${m2(u.ext)}</span>`:''}</div>
   <div class="price">${eur(u.price)} <small>${t('plusVat')} · ${eur(vat(u.price))} ${t('vatIncl')}</small></div>
@@ -213,9 +213,46 @@ function showCmp(){
 /* ---------- vivienda ---------- */
 let pisTab='plan';
 function openUnit(id){state.unit=D.units.find(u=>u.id===id);pisTab='iso';go('s-pis')}
+const HEART='<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"/></svg>';
+const TX={es:{fav:'Mis favoritos',favAdd:'Añadir a favoritos',favDel:'Quitar de favoritos',favEmpty:'Aún no has guardado nada. Toca el corazón en una vivienda o en una plaza para tenerla aquí.',favU:'Viviendas',favS:'Plazas y trastero',favSend:'Pedir información de mi selección',cmp:'Comparar',cmpH:'Comparador de viviendas',zin:'Acercar',zout:'Alejar',zfit:'Ver entero',pick:'Elegir vivienda',diff:'Diferencia de precio',m2p:'Precio por m²',added:'Guardado en favoritos',removed:'Quitado de favoritos'},ca:{fav:'Els meus favorits',favAdd:'Afegir a favorits',favDel:'Treure de favorits',favEmpty:'Encara no has desat res. Toca el cor en un habitatge o en una plaça per tenir-la aquí.',favU:'Habitatges',favS:'Places i traster',favSend:'Demanar informació de la meva selecció',cmp:'Comparar',cmpH:'Comparador d’habitatges',zin:'Apropar',zout:'Allunyar',zfit:'Veure sencer',pick:'Triar habitatge',diff:'Diferència de preu',m2p:'Preu per m²',added:'Desat a favorits',removed:'Tret de favorits'}};
+const tx=k=>TX[L][k];
+const FAV=new Set();try{JSON.parse(localStorage.getItem('mm24fav')||'[]').forEach(x=>FAV.add(x))}catch(e){}
+function favSave(){try{localStorage.setItem('mm24fav',JSON.stringify([...FAV]))}catch(e){}const b=$('#b-fav');if(b){b.classList.toggle('has',FAV.size>0);b.querySelector('em').textContent=FAV.size||''}}
+function favBtn(id,cls=''){const on=FAV.has(id);return `<button class="hbtn ${cls} ${on?'on':''}" data-fav="${id}" aria-pressed="${on}" aria-label="${on?tx('favDel'):tx('favAdd')}">${HEART}</button>`}
+function favToggle(id){FAV.has(id)?FAV.delete(id):FAV.add(id);favSave();$$(`[data-fav="${id}"]`).forEach(b=>{const on=FAV.has(id);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);if(on){b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop')}});toast(FAV.has(id)?tx('added'):tx('removed'))}
+function favSheet(){const us=D.units.filter(u=>FAV.has(u.id)),ss=D.annexes.filter(s=>FAV.has(s.id));
+  if(!us.length&&!ss.length){openSheet(`<div class="sh-h"><h2>${tx('fav')}</h2></div><p class="sub">${tx('favEmpty')}</p>`);return}
+  const txt=[`Metge Mir 24 · ${tx('fav')}`,'',...us.map(u=>`${uName(u)} (${u.type}) · ${m2(u.built)} · ${eur(u.price)} ${t('plusVat')}`),...ss.map(s=>`${s.id} · ${t(s.kind)} · ${eur(s.price)} ${t('plusVat')}`)].join('\n');
+  openSheet(`<div class="sh-h"><h2>${tx('fav')}</h2></div>${us.length?`<h3 class="fh">${tx('favU')}</h3><ul class="favl">${us.map(u=>`<li><button class="fi" data-unit="${u.id}"><img src="iso/${u.img}.webp" alt=""><span><b>${uName(u)}</b><small>${u.type} · ${u.beds} ${t('beds')} · ${m2(u.built)}</small></span><strong>${eur(u.price)}</strong></button>${favBtn(u.id)}</li>`).join('')}</ul>`:''}
+  ${ss.length?`<h3 class="fh">${tx('favS')}</h3><ul class="favl">${ss.map(s=>`<li><button class="fi" data-favslot="${s.id}"><i class="sl ${s.kind}">${s.id}</i><span><b>${s.id}</b><small>${t(s.kind)}</small></span><strong>${eur(s.price)}</strong></button>${favBtn(s.id)}</li>`).join('')}</ul>`:''}
+  <div class="row2" style="margin-top:14px">${us.length>=2?`<button class="btn" data-cmpfav>${tx('cmp')}</button>`:''}<a class="btn terra" href="${mailto(txt)}">${icon('mail')} ${tx('favSend')}</a></div>`)}
+/* comparador a pantalla partida */
+const CMP={ids:[],tab:'iso'};
+function openCmp(ids){const all=D.units.map(u=>u.id);ids=[...new Set(ids.filter(Boolean))];for(const id of all){if(ids.length>=2)break;if(!ids.includes(id))ids.push(id)}CMP.ids=ids.slice(0,innerWidth<700?2:3);renderCmp();$('#cmpv').classList.add('on')}
+function renderCmp(){const us=CMP.ids.map(id=>D.units.find(u=>u.id===id)),minP=Math.min(...us.map(u=>u.price)),maxB=Math.max(...us.map(u=>u.built)),maxE=Math.max(...us.map(u=>u.ext||0));
+  const rows=[[t('priceL')+' '+t('plusVat'),u=>`<b class="${u.price===minP?'best':''}">${eur(u.price)}</b>${u.price>minP?`<small>+ ${eur(u.price-minP)}</small>`:''}`],[tx('m2p'),u=>eur(u.price/u.built)],[t('built'),u=>`<span class="${u.built===maxB?'best':''}">${m2(u.built)}</span>`],[t('useful'),u=>m2(u.useful)],[t('ext'),u=>u.ext?`<span class="${u.ext===maxE?'best':''}">${m2(u.ext)} · ${t(u.extKind)}</span>`:'—'],[t('bedsL'),u=>u.beds+(u.studio?' '+t('studio'):'')],[t('bathsL'),u=>u.baths],[t('floorL'),u=>fl(u.floor)+(u.duplex?' · '+t('duplex'):'')],[t('typeL'),u=>u.type]];
+  $('#cmpv').innerHTML=`<div class="cv-top"><h2>${tx('cmpH')}</h2><div class="tabs"><button data-ctab="iso" class="${CMP.tab==='iso'?'on':''}">${t('plan3d')}</button><button data-ctab="plan" class="${CMP.tab==='plan'?'on':''}">${t('plan')}</button></div><button class="pill round" data-cmpx aria-label="${t('close')}">${icon('x')}</button></div>
+  <div class="cv-cols" style="--n:${us.length}">${us.map((u,i)=>`<section class="cv-col"><div class="cv-h"><select data-cpick="${i}" aria-label="${tx('pick')}">${D.units.map(x=>`<option value="${x.id}" ${x.id===u.id?'selected':''} ${CMP.ids.includes(x.id)&&x.id!==u.id?'disabled':''}>${uName(x)} · ${x.type}</option>`).join('')}</select>${favBtn(u.id)}</div>
+   <div class="cv-img" data-unit="${u.id}"><img src="${CMP.tab==='iso'?'iso':'plan'}/${u.img}.webp" alt="${uName(u)}"><span class="badge ${u.status}"><i></i>${t('st.'+u.status)}</span></div>
+   <dl>${rows.map(([l,f])=>`<div><dt>${l}</dt><dd>${f(u)}</dd></div>`).join('')}</dl>
+   <div class="cv-a"><button class="btn ghost" data-unit="${u.id}">${t('view')}</button><button class="btn" data-cfg="${u.id}">${t('config')}</button></div></section>`).join('')}</div>`}
+/* visor de plano con zoom */
+const ZV={s:1,x:0,y:0,el:null,pts:new Map(),d0:0,s0:1};
+function zvApply(anim){const im=ZV.el;if(!im)return;const b=im.parentElement,W=b.clientWidth,H=b.clientHeight,w=im.offsetWidth*ZV.s,h=im.offsetHeight*ZV.s,mx=Math.max(0,(w-W)/2),my=Math.max(0,(h-H)/2);ZV.x=Math.max(-mx,Math.min(mx,ZV.x));ZV.y=Math.max(-my,Math.min(my,ZV.y));im.style.transition=anim?'transform .3s cubic-bezier(.2,.8,.2,1)':'none';im.style.transform=`translate(${ZV.x}px,${ZV.y}px) scale(${ZV.s})`;b.classList.toggle('zoomed',ZV.s>1.01)}
+function zvFit(){const im=ZV.el;if(!im||!im.naturalWidth)return;const b=im.parentElement,k=Math.min(b.clientWidth/im.naturalWidth,b.clientHeight/im.naturalHeight);im.style.width=Math.floor(im.naturalWidth*k)+'px';im.style.height=Math.floor(im.naturalHeight*k)+'px';zvApply(false)}
+function zvZoom(f,cx,cy){const im=ZV.el;if(!im)return;const b=im.parentElement.getBoundingClientRect(),px=(cx??b.left+b.width/2)-b.left-b.width/2,py=(cy??b.top+b.height/2)-b.top-b.height/2,ns=Math.max(1,Math.min(5,ZV.s*f)),r=ns/ZV.s;ZV.x=px-(px-ZV.x)*r;ZV.y=py-(py-ZV.y)*r;ZV.s=ns;if(ns===1){ZV.x=0;ZV.y=0}zvApply(cx==null)}
+function zvInit(){const b=$('#uv .zv');if(!b||b.dataset.zvi)return;b.dataset.zvi=1;
+  b.addEventListener('wheel',e=>{e.preventDefault();zvZoom(e.deltaY<0?1.18:1/1.18,e.clientX,e.clientY)},{passive:false});
+  b.addEventListener('dblclick',e=>{ZV.s>1.01?(ZV.s=1,ZV.x=0,ZV.y=0,zvApply(true)):(zvZoom(2.4,e.clientX,e.clientY),zvApply(true))});
+  b.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;b.setPointerCapture(e.pointerId);ZV.pts.set(e.pointerId,[e.clientX,e.clientY]);if(ZV.pts.size===2){const p=[...ZV.pts.values()];ZV.d0=Math.hypot(p[0][0]-p[1][0],p[0][1]-p[1][1]);ZV.s0=ZV.s}});
+  b.addEventListener('pointermove',e=>{const o=ZV.pts.get(e.pointerId);if(!o)return;ZV.pts.set(e.pointerId,[e.clientX,e.clientY]);if(ZV.pts.size===2){const p=[...ZV.pts.values()],d=Math.hypot(p[0][0]-p[1][0],p[0][1]-p[1][1]);if(ZV.d0)zvZoom(ZV.s0*d/ZV.d0/ZV.s,(p[0][0]+p[1][0])/2,(p[0][1]+p[1][1])/2)}else if(ZV.s>1.01){ZV.x+=e.clientX-o[0];ZV.y+=e.clientY-o[1];zvApply(false)}});
+  ['pointerup','pointercancel'].forEach(n=>b.addEventListener(n,e=>{ZV.pts.delete(e.pointerId);ZV.d0=0}));
+  new ResizeObserver(()=>zvFit()).observe(b)}
 function renderPis(){
   const u=state.unit;if(!u)return go('s-viv',false);
-  $('#uv').innerHTML=`<img src="${pisTab==='iso'?'iso':'plan'}/${u.img}.webp" alt="${pisTab==='iso'?t('plan3d'):t('plan')} ${uName(u)}">`;
+  $('#uv').innerHTML=`<div class="zv"><img src="${pisTab==='iso'?'iso':'plan'}/${u.img}.webp" alt="${pisTab==='iso'?t('plan3d'):t('plan')} ${uName(u)}" draggable="false"></div>
+  <div class="ztools">${favBtn(u.id,'pill round')}<button class="pill round" data-cmpu="${u.id}" aria-label="${tx('cmp')}" title="${tx('cmp')}"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7.5" height="16" rx="2"/><rect x="13.5" y="4" width="7.5" height="16" rx="2"/></svg></button><span class="zsep"></span><button class="pill round" data-zv="in" aria-label="${tx('zin')}">+</button><button class="pill round" data-zv="out" aria-label="${tx('zout')}">−</button><button class="pill round" data-zv="fit" aria-label="${tx('zfit')}"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>`;
+  ZV.s=1;ZV.x=0;ZV.y=0;ZV.el=$('#uv .zv img');ZV.pts.clear();zvInit();ZV.el.complete?zvFit():ZV.el.onload=zvFit;
   const ag=state.agent?`<div class="agentacts"><button class="btn terra" data-ag="apalabrar">${t('apalabrar')}</button><button class="btn terra" data-ag="reservar">${t('reservar')}</button><button class="btn ghost" data-ag="docs">${t('docs')}</button></div>`:'';
   $('#ubar').innerHTML=`<div class="tabs"><button data-tab="iso" class="${pisTab==='iso'?'on':''}">${t('plan3d')}</button><button data-tab="plan" class="${pisTab==='plan'?'on':''}">${t('plan')}</button></div>
   <div class="info"><span><b>${uName(u)} · ${eur(u.price)}</b><small>${u.type} · ${u.beds} ${t('beds')}${u.studio?' '+t('studio'):''} · ${u.baths} ${L==='ca'?'banys':'baños'} · ${m2(u.built)} ${L==='ca'?'constr.':'constr.'}${u.ext?' · '+t(u.extKind)+' '+m2(u.ext):''} · ${t('plusVat')}</small></span><span class="badge ${u.status}"><i></i>${t('st.'+u.status)}</span></div>
@@ -241,7 +278,7 @@ function renderPark(){
   $('#pk-pan').innerHTML=`<span class="cat">${L==='ca'?'Soterrani':'Sótano'}</span><h2>${t('park')}</h2><p class="sub">${t('parkLead')}</p>
   <div class="seg">${[['all',t('all')],['parking',t('parking')],['moto',t('moto')],['storage',t('storage')]].map(([k,l])=>`<button data-pf="${k}" class="${P.filter===k?'on':''}">${l}</button>`).join('')}</div>
   <div class="legend"><span><i style="border-color:var(--green2)"></i>${cnt('parking')} × ${t('parking')} · ${eur(28000)}</span><span><i style="border-color:var(--terra)"></i>${cnt('moto')} × ${t('moto')} · ${eur(10000)}</span><span><i style="border-color:#3c5a8c"></i>${cnt('storage')} × ${t('storage')} · ${eur(6000)}</span></div>
-  ${s?`<div class="apc"><span><b>${s.id}</b><small>${kindL(s.kind)} · <span class="badge ${s.status}" style="height:20px"><i></i>${t('st.'+s.status)}</span></small></span><strong>${eur(s.price)}</strong></div><div class="row2"><button class="btn" data-addslot="${s.id}">${t('addToCfg')}</button><button class="btn ghost" data-askslot="${s.id}">${t('askSlot')}</button></div>`:`<p class="apc" style="display:block">${t('pickSlot')}</p>`}
+  ${s?`<div class="apc"><span><b>${s.id}</b><small>${kindL(s.kind)} · <span class="badge ${s.status}" style="height:20px"><i></i>${t('st.'+s.status)}</span></small></span><strong>${eur(s.price)}</strong>${favBtn(s.id)}</div><div class="row2"><button class="btn" data-addslot="${s.id}">${t('addToCfg')}</button><button class="btn ghost" data-askslot="${s.id}">${t('askSlot')}</button></div>`:`<p class="apc" style="display:block">${t('pickSlot')}</p>`}
   <p class="note">${t('parkNote')}</p>`;
   if(s)animCar(s);
 }
@@ -469,8 +506,16 @@ document.addEventListener('click',e=>{
   if(el=g('[data-go]')){$('#menu').classList.remove('on');if(el.dataset.go==='s-cfg'&&!state.cfg.unit&&state.unit)cfgInit(state.unit.id);go(el.dataset.go);return}
   if(el=g('[data-view]')){state.view=el.dataset.view;state.floor=null;closeSheet();renderEd();return}
   if(el=g('[data-floor]')){floorSheet(el.dataset.floor);return}
-  if(el=g('[data-unit]')){openUnit(el.dataset.unit);return}
-  if(el=g('[data-cfg]')){state.cfg.unit=el.dataset.cfg;state.cfg.step=1;cfgInit();go('s-cfg');return}
+  if(el=g('[data-fav]')){favToggle(el.dataset.fav);if($('#sheet').classList.contains('on')&&$('#sh-body .favl'))favSheet();return}
+  if(g('#b-fav')){favSheet();return}
+  if(el=g('[data-zv]')){el.dataset.zv==='fit'?(ZV.s=1,ZV.x=0,ZV.y=0,zvApply(true)):zvZoom(el.dataset.zv==='in'?1.5:1/1.5);return}
+  if(el=g('[data-cmpu]')){openCmp([el.dataset.cmpu,...FAV,...state.cmp].filter(id=>D.units.some(u=>u.id===id)));return}
+  if(g('[data-cmpfav]')){closeSheet();openCmp([...FAV].filter(id=>D.units.some(u=>u.id===id)));return}
+  if(g('[data-cmpx]')){$('#cmpv').classList.remove('on');return}
+  if(el=g('[data-ctab]')){CMP.tab=el.dataset.ctab;renderCmp();return}
+  if(el=g('[data-favslot]')){closeSheet();state.park.sel=el.dataset.favslot;go('s-park');return}
+  if(el=g('[data-unit]')){$('#cmpv').classList.remove('on');openUnit(el.dataset.unit);return}
+  if(el=g('[data-cfg]')){$('#cmpv').classList.remove('on');state.cfg.unit=el.dataset.cfg;state.cfg.step=1;cfgInit();go('s-cfg');return}
   if(el=g('[data-contact]')){state.unit=D.units.find(u=>u.id===el.dataset.contact);go('s-con');return}
   if(el=g('[data-facts]')){unitFacts(D.units.find(u=>u.id===el.dataset.facts));return}
   if(el=g('[data-tab]')){pisTab=el.dataset.tab;renderPis();return}
@@ -501,6 +546,7 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('change',e=>{
   const el=e.target;
+  if(el.dataset.cpick!=null&&el.dataset.cpick!==''&&el.matches('select')){CMP.ids[+el.dataset.cpick]=el.value;renderCmp();return}
   if(el.dataset.cmp){el.checked?state.cmp.add(el.dataset.cmp):state.cmp.delete(el.dataset.cmp);if(state.cmp.size>3){state.cmp.delete(el.dataset.cmp);el.checked=false}updCmp()}
   if(el.id==='f-floor'){flt.floor=el.value;renderViv()}if(el.id==='f-beds'){flt.beds=el.value;renderViv()}if(el.id==='f-sort'){flt.sort=el.value;renderViv()}
   if(el.dataset.annex){state.cfg[el.dataset.annex]=el.value||null;renderCfg()}
@@ -511,7 +557,7 @@ document.addEventListener('submit',e=>{if(e.target.id==='con-f'){e.preventDefaul
   const uid=$('#cf-u').value,u=D.units.find(x=>x.id===uid);const body=[`${t('name')}: ${n}`,`${t('phone')}: ${p}`,`${t('email')}: ${$('#cf-e').value}`,u?`${t('dock.viv')}: ${uName(u)} (${u.type}) · ${eur(u.price)} ${t('plusVat')}`:'','',$('#cf-m').value].join('\n');
   $('#cf-ok').innerHTML=`<p class="note">${t('sentOk')} <b>${D.contact.email}</b></p><div class="row2"><a class="btn" href="${mailto(body,'Metge Mir 24 · '+(L==='ca'?'Sol·licitud d’informació':'Solicitud de información'))}">${icon('mail')} ${t('sendMail')}</a><button type="button" class="btn ghost" id="cf-cp">${t('copy')}</button></div>`;
   $('#cf-cp').onclick=()=>copyText(body);}});
-$('#cmpbar').onclick=showCmp;
+$('#cmpbar').onclick=()=>openCmp([...state.cmp]);
 $('#b-menu').onclick=()=>$('#menu').classList.add('on');$('#m-x').onclick=()=>$('#menu').classList.remove('on');
 $('#b-back').onclick=back;$('#sh-x').onclick=closeSheet;$('#scrim').onclick=closeSheet;$('#mo-x').onclick=closeModal;
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
@@ -533,5 +579,5 @@ fetch('data/promocion.json').then(r=>r.json()).then(j=>{D=j;
   const mkv=(src,o={})=>{const v=document.createElement('video');Object.assign(v,{src,muted:true,loop:true,autoplay:true,playsInline:true},o);v.setAttribute('playsinline','');v.setAttribute('muted','');v.onerror=()=>v.remove();return v};
   if(D.media.intro){const v=mkv(D.media.intro,{poster:'video/intro.jpg',autoplay:!h});$('#intro .kb').after(v);const b=$('#snd');b.hidden=false;b.onclick=()=>{v.muted=!v.muted;if(!v.muted){v.currentTime=0;v.play()}b.classList.toggle('on',!v.muted);b.setAttribute('aria-pressed',!v.muted)}}
   if(D.media.general){$('#c-blur').appendChild(mkv(D.media.general));$('#bgv').appendChild(mkv(D.media.general,{autoplay:false,preload:'none'}))}
-  if(h){$('#intro').classList.add('out');NUDGE.t0=Date.now()}applyLang();bgSync(state.screen)}).catch(()=>{document.querySelector('.intro-c p').textContent=T[L].loadErr});
+  if(h){$('#intro').classList.add('out');NUDGE.t0=Date.now()}applyLang();favSave();bgSync(state.screen)}).catch(()=>{document.querySelector('.intro-c p').textContent=T[L].loadErr});
 }

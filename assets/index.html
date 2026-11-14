@@ -454,6 +454,43 @@ body.on-cfg #nudge,body.on-cfg #urg{display:none}.iop em{flex:none}.iop>span{min
 @media(max-width:620px){.gv{grid-column:1/-1}}
 .iklogo{height:20px;vertical-align:-4px;margin:0 3px;border-radius:2px}
 @media(prefers-reduced-motion:reduce){.rv,[class*=fx-]{animation:none!important}}
+
+/* v0.6: zoom de plano, favoritos, comparador */
+.uv{display:block}
+.zv{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;touch-action:none;cursor:zoom-in;border-radius:18px}
+.zv.zoomed{cursor:grab}.zv.zoomed:active{cursor:grabbing}
+.zv img{animation:none;mix-blend-mode:multiply;max-width:none;max-height:none;object-fit:fill;user-select:none;-webkit-user-drag:none;will-change:transform;transform-origin:50% 50%}
+.ztools{position:absolute;z-index:15;right:6px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px}
+.ztools .pill.round{font-size:22px;font-weight:500;line-height:1;color:var(--ink)}.zsep{height:6px}
+.hbtn{flex:none;width:40px;height:40px;border-radius:50%;border:0;display:grid;place-items:center;background:rgba(255,252,246,.94);color:var(--ink);cursor:pointer;box-shadow:0 4px 14px rgba(40,30,15,.16);transition:transform .15s,color .2s}
+.hbtn svg{fill:none;transition:fill .2s}.hbtn.on{color:#c0473c}.hbtn.on svg{fill:#c0473c}.hbtn:hover{transform:scale(1.08)}
+.hbtn.pop{animation:hpop .45s cubic-bezier(.3,1.6,.5,1)}@keyframes hpop{0%{transform:scale(.7)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+.hbtn.onph{position:absolute;top:10px;right:10px;z-index:2}.hbtn.pill.round{width:44px;height:44px}
+.favtop{position:relative;gap:5px;padding:0 11px}.favtop em{font-style:normal;font-size:12px;font-weight:700;min-width:0}.favtop.has{color:#c0473c}.favtop.has svg{fill:#c0473c}
+.fh{font-family:var(--fh);font-weight:500;font-size:15px;margin:16px 0 8px;color:var(--mute)}
+.favl{list-style:none;margin:0;padding:0;display:grid;gap:8px}.favl li{display:flex;align-items:center;gap:8px}
+.fi{flex:1;min-width:0;display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;text-align:left;padding:8px 12px 8px 8px;border-radius:16px;background:#fff;border:1.5px solid var(--line);cursor:pointer;font-family:inherit;color:inherit}
+.fi img,.fi .sl{width:56px;height:56px;border-radius:10px;object-fit:contain;background:#f1eadc}
+.fi .sl{display:grid;place-items:center;font-style:normal;font-weight:700;font-size:13px;color:var(--green)}.fi .sl.moto{color:var(--terra)}.fi .sl.storage{color:#3c5a8c}
+.fi b{display:block;font-family:var(--fh);font-weight:500;font-size:16px}.fi small{color:var(--mute);font-size:12px}.fi strong{white-space:nowrap;font-size:14px}
+#cmpv{position:fixed;inset:0;z-index:60;background:var(--paper);display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:scale(1.03);transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1),visibility .35s}
+#cmpv.on{opacity:1;visibility:visible;transform:none}
+.cv-top{flex:none;display:flex;align-items:center;gap:12px;padding:max(14px,env(safe-area-inset-top)) 16px 10px}
+.cv-top h2{flex:1;margin:0;font-family:var(--fh);font-weight:500;font-size:clamp(18px,2.4vw,26px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cv-top .tabs{display:flex;gap:3px;padding:3px;border-radius:999px;background:var(--dark)}
+.cv-top .tabs button{border:0;background:none;color:#fff;font-weight:600;font-size:12.5px;font-family:inherit;padding:7px 12px;border-radius:999px;cursor:pointer}.cv-top .tabs button.on{background:#fff;color:var(--ink)}
+.cv-cols{flex:1;min-height:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));overflow-y:auto}
+.cv-col{display:flex;flex-direction:column;gap:10px;padding:8px 16px 22px;border-left:1.5px solid var(--line);min-width:0}.cv-col:first-child{border-left:0}
+.cv-h{display:flex;gap:8px;align-items:center;position:sticky;top:0;z-index:2;background:var(--paper);padding:4px 0}
+.cv-h select{flex:1;min-width:0;height:44px;border-radius:999px;border:1.5px solid var(--line);background:#fff;padding:0 14px;font:600 14px inherit;font-family:inherit;color:var(--ink)}
+.cv-img{position:relative;aspect-ratio:4/3;border-radius:16px;background:#ece4d6;display:grid;place-items:center;cursor:pointer;overflow:hidden}
+.cv-img img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}.cv-img .badge{position:absolute;left:10px;top:10px}
+.cv-col dl{margin:0;display:grid}.cv-col dl>div{display:grid;gap:1px;padding:9px 0;border-bottom:1px solid var(--line)}
+.cv-col dt{font-size:11.5px;color:var(--mute);font-weight:600}.cv-col dd{margin:0;font-size:15px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.cv-col dd b{font-family:var(--fh);font-weight:500;font-size:21px}.cv-col dd small{color:var(--mute);font-size:12px}
+.cv-col .best{color:var(--green);font-weight:700}.cv-col dd b.best{font-weight:500}
+.cv-a{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}.cv-a .btn{min-height:44px;padding:0 10px;font-size:14px}
+@media(max-width:700px){.cv-col{padding:6px 8px 18px}.cv-col dd{font-size:13.5px}.cv-col dd b{font-size:17px}.cv-h select{height:40px;padding:0 8px;font-size:12.5px}.cv-h .hbtn{width:34px;height:34px}.cv-a{grid-template-columns:1fr}.cv-top h2{font-size:16px}.ztools{right:2px;gap:6px}.ztools .pill.round{width:38px;height:38px}}
 </style>
 </head>
 <body>
@@ -500,6 +537,7 @@ body.on-cfg #nudge,body.on-cfg #urg{display:none}.iop em{flex:none}.iop>span{min
     <span class="crumb" id="crumb">Metge Mir 24</span>
     <span class="sp"></span>
     <div class="langs" id="lang-top"></div>
+    <button class="pill sm favtop" id="b-fav" aria-label="Favoritos"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"/></svg><em></em></button>
     <button class="pill sm dark agentbtn" id="b-agent"><svg class="i"><use href="#i-user"/></svg><span data-t="agents"></span></button>
   </div>
 
@@ -592,6 +630,7 @@ body.on-cfg #nudge,body.on-cfg #urg{display:none}.iop em{flex:none}.iop>span{min
 </div>
 
 <div id="scrim"></div>
+<div id="cmpv" role="dialog" aria-modal="true"></div>
 <div id="sheet" role="dialog" aria-modal="false"><div class="grab"></div><button class="x" id="sh-x" aria-label="Cerrar"><svg class="i"><use href="#i-x"/></svg></button><div class="body" id="sh-body"></div></div>
 <div id="menu"><button class="pill round x" id="m-x" aria-label="Cerrar"><svg class="i"><use href="#i-x"/></svg></button><div class="logo"><b>METGE MIR</b><span>24 · SABADELL</span><i></i></div><div class="addr" id="m-addr"></div><nav id="m-nav"></nav><div class="foot" id="m-foot"></div></div>
 <div id="lb"><div class="st"><img id="lb-img" alt=""><button class="pill round x" id="lb-x" style="position:absolute;top:14px;right:14px" aria-label="Cerrar"><svg class="i"><use href="#i-x"/></svg></button><button class="pill round nav" id="lb-p" style="left:14px" aria-label="Anterior"><svg class="i"><use href="#i-l"/></svg></button><button class="pill round nav" id="lb-n" style="right:14px" aria-label="Siguiente"><svg class="i"><use href="#i-r"/></svg></button><span class="pill sm cap" id="lb-cap"></span></div></div>
