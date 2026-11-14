@@ -106,7 +106,7 @@ const state={screen:'s-ed',hist:[],unit:null,view:'v1',floor:null,cmp:new Set(),
 /* ---------- navigation ---------- */
 const crumbs={'s-ed':'Metge Mir 24','s-viv':'dock.viv','s-pis':'','s-park':'dock.park','s-cfg':'dock.cfg','s-ent':'dock.ent','s-sol':'dock.sol','s-obra':'dock.obra','s-cal':'dock.cal','s-gal':'dock.gal','s-con':'dock.con'};
 const renders={'s-ed':renderEd,'s-viv':renderViv,'s-pis':renderPis,'s-park':renderPark,'s-cfg':renderCfg,'s-ent':renderEnt,'s-sol':renderSol,'s-obra':renderObra,'s-cal':renderCal,'s-gal':renderGal,'s-con':renderCon};
-function bgSync(id){if(id!=='s-obra'){const ov=$('#obra-tl video');ov&&ov.pause()}const bv=$('#bgv video'),pg=$('#'+id).classList.contains('page');$('#bgv').classList.toggle('on',pg);if(bv){pg?bv.play().catch(()=>{}):bv.pause()}}
+function bgSync(id){{const ov=$('#obra-tl video');if(ov){id==='s-obra'?ov.play().catch(()=>{}):ov.pause()}}const bv=$('#bgv video'),pg=$('#'+id).classList.contains('page');$('#bgv').classList.toggle('on',pg);if(bv){pg?bv.play().catch(()=>{}):bv.pause()}}
 function go(id,push=true){
   if(push&&state.screen!==id)state.hist.push(state.screen);
   state.screen=id;closeSheet();bgSync(id);
@@ -394,21 +394,25 @@ function renderObra(){
 }
 function obraTL(){
   const ph=L==='ca'?['Estat actual','Enderroc i excavació','Estructura','Edifici acabat']:['Estado actual','Derribo y excavación','Estructura','Edificio terminado'];
-  const el=document.createElement('div');el.id='obra-tl';el.className='box otl';el.dataset.l=L;
-  el.innerHTML=`<div class="ovid"><video src="${D.media.obra}" poster="video/obra.jpg" muted playsinline preload="metadata"></video><button class="oplay" aria-label="${L==='ca'?'Reproduir':'Reproducir'}"><svg viewBox="0 0 24 24" width="26" height="26"><path class="pl" d="M8 5v14l11-7z" fill="currentColor"/><path class="pa" d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg></button><span class="otag">${L==='ca'?'Recreació il·lustrativa':'Recreación ilustrativa'}</span></div>
-  <div class="octl"><h2>${L==='ca'?'Timelapse de l’obra':'Timelapse de la obra'}</h2><p class="sub">${L==='ca'?'Del solar actual a l’edifici acabat. Arrossega per avançar o retrocedir.':'Del solar actual al edificio terminado. Arrastra para avanzar o retroceder.'}</p>
-  <input type="range" id="obra-r" min="0" max="1000" value="0" aria-label="Timelapse"><div class="oph">${ph.map((p,i)=>`<button data-ph="${i}">${p}</button>`).join('')}</div></div>`;
-  $('#obra-slot').replaceWith(el);
-  const v=el.querySelector('video'),r=el.querySelector('#obra-r'),bs=[...el.querySelectorAll('[data-ph]')],pb=el.querySelector('.oplay');
   const cuts=[0,.22,.5,.82];
-  const sync=()=>{const k=v.duration?v.currentTime/v.duration:0;if(document.activeElement!==r||!v.paused)r.value=k*1000;let n=0;cuts.forEach((c,i)=>{if(k>=c-.001)n=i});bs.forEach((b,i)=>b.classList.toggle('on',i===n));el.classList.toggle('playing',!v.paused)};
+  const el=document.createElement('div');el.id='obra-tl';el.className='otl';el.dataset.l=L;
+  el.innerHTML=`<div class="oshade"></div>
+  <div class="ohead"><small>${L==='ca'?'Timelapse · recreació il·lustrativa':'Timelapse · recreación ilustrativa'}</small><h2>${L==='ca'?'Del solar a casa teva':'Del solar a tu casa'}</h2></div>
+  <button class="oplay" aria-label="${L==='ca'?'Reproduir o aturar':'Reproducir o pausar'}"><svg viewBox="0 0 24 24" width="20" height="20"><path class="pl" d="M8 5v14l11-7z" fill="currentColor"/><path class="pa" d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg></button>
+  <div class="obar"><div class="otrack"><i></i>${cuts.slice(1).map(c=>`<b style="left:${c*100}%"></b>`).join('')}</div><div class="oph">${ph.map((p,i)=>`<button data-ph="${i}" style="left:${cuts[i]*100}%;width:${((cuts[i+1]||1)-cuts[i])*100}%"><span>${p}</span></button>`).join('')}</div></div>`;
+  const v=document.createElement('video');Object.assign(v,{src:D.media.obra,poster:'video/obra.webp',muted:true,loop:true,playsInline:true,preload:'auto'});v.setAttribute('playsinline','');v.setAttribute('muted','');el.prepend(v);
+  $('#obra-slot').replaceWith(el);
+  const fill=el.querySelector('.otrack i'),tr=el.querySelector('.otrack'),bs=[...el.querySelectorAll('[data-ph]')];
+  const sync=()=>{const k=v.duration?v.currentTime/v.duration:0;fill.style.width=k*100+'%';let n=0;cuts.forEach((c,i)=>{if(k>=c-.001)n=i});bs.forEach((b,i)=>b.classList.toggle('on',i===n));el.classList.toggle('playing',!v.paused)};
   const loop=()=>{sync();if(!v.paused)requestAnimationFrame(loop)};
-  v.addEventListener('play',loop);v.addEventListener('pause',sync);v.addEventListener('seeked',sync);v.addEventListener('loadedmetadata',sync);v.addEventListener('ended',sync);
-  const tog=()=>{if(v.paused){if(v.ended||v.currentTime>=v.duration-.05)v.currentTime=0;v.play().catch(()=>{})}else v.pause()};
-  pb.onclick=tog;v.onclick=tog;
-  r.oninput=()=>{v.pause();if(v.duration)v.currentTime=r.value/1000*v.duration};
-  bs.forEach((b,i)=>b.onclick=()=>{v.pause();if(v.duration)v.currentTime=Math.min(v.duration-.05,(i===3?.97:cuts[i]+.03)*v.duration)});
-  sync();
+  ['play','pause','seeked','loadedmetadata','timeupdate'].forEach(e=>v.addEventListener(e,e==='play'?loop:sync));
+  const tog=()=>{v.paused?v.play().catch(()=>{}):v.pause()};
+  el.querySelector('.oplay').onclick=tog;v.onclick=tog;
+  const seek=k=>{if(v.duration){v.currentTime=Math.max(0,Math.min(.985,k))*v.duration;sync()}};
+  let drag=false;const at=e=>{const r=tr.getBoundingClientRect();seek((e.clientX-r.left)/r.width)};
+  tr.addEventListener('pointerdown',e=>{drag=true;tr.setPointerCapture(e.pointerId);v.pause();at(e)});tr.addEventListener('pointermove',e=>drag&&at(e));['pointerup','pointercancel'].forEach(n=>tr.addEventListener(n,()=>drag=false));
+  bs.forEach((b,i)=>b.onclick=()=>{seek(cuts[i]+.005);v.play().catch(()=>{})});
+  sync();if(state.screen==='s-obra')v.play().catch(()=>{});
 }
 const CAL={es:[['Fachadas y zonas comunes',['Fachadas estucadas con zócalo cerámico en la fachada principal','Carpintería exterior de aluminio con rotura de puente térmico y aislamiento acústico','Persianas térmicas motorizadas','Vestíbulo con revestimiento de madera y gres porcelánico de gran formato','Ascensor OTIS o similar']],['Terrazas, aparcamiento y trasteros',['Pavimento de gres porcelánico antideslizante en terrazas y balcones','Punto de luz y enchufe en terrazas','Barandillas de hierro pintadas','Puerta de garaje automática y pavimento de hormigón','Trasteros enyesados y pintados con punto de luz']],['Interiores',['Parquet flotante laminado','Baños con revestimiento cerámico en todas las zonas','Platos de ducha de resinas minerales','Sanitarios ROCA y grifería IMEX o similar','Lavabo cerámico con mueble suspendido de dos cajones']],['Cocina',['Muebles altos y bajos según distribución','Placa de inducción, campana integrada y horno multifunción Balay o similar','Encimera y frontal de 70 cm en material tipo Corian','Fregadero de acero inoxidable encastado']],['Carpintería e instalaciones',['Puertas block de DM lacadas en blanco','Puerta de seguridad de acceso','Aerotermia para agua caliente sanitaria','Climatización por conductos frío/calor (fan-coil)','Videoportero y preinstalación de lavadora y secadora']]],
 ca:[['Façanes i zones comunes',['Façanes estucades amb sòcol ceràmic a la façana principal','Fusteria exterior d’alumini amb trencament de pont tèrmic i aïllament acústic','Persianes tèrmiques motoritzades','Vestíbul amb revestiment de fusta i gres porcel·lànic de gran format','Ascensor OTIS o similar']],['Terrasses, aparcament i trasters',['Paviment de gres porcel·lànic antilliscant a terrasses i balcons','Punt de llum i endoll a les terrasses','Baranes de ferro pintades','Porta de garatge automàtica i paviment de formigó','Trasters enguixats i pintats amb punt de llum']],['Interiors',['Parquet flotant laminat','Banys amb revestiment ceràmic a totes les zones','Plats de dutxa de resines minerals','Sanitaris ROCA i aixetes IMEX o similar','Lavabo ceràmic amb moble suspès de dos calaixos']],['Cuina',['Mobles alts i baixos segons distribució','Placa d’inducció, campana integrada i forn multifunció Balay o similar','Taulell i frontal de 70 cm en material tipus Corian','Aigüera d’acer inoxidable encastada']],['Fusteria i instal·lacions',['Portes block de DM lacades en blanc','Porta de seguretat d’accés','Aerotèrmia per a aigua calenta sanitària','Climatització per conductes fred/calor (fan-coil)','Videoporter i preinstal·lació de rentadora i assecadora']]]};
