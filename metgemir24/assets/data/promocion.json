@@ -1,0 +1,657 @@
+{
+ "schema": "ishowi-promocion/0.1",
+ "slug": "metge-mir-24",
+ "name": "Metge Mir 24",
+ "updated": "2026-11-14",
+ "address": "Carrer del Metge Mir, 24 · 08202 Sabadell",
+ "promoter": "Habitatges IBS Metge Mir 2024, S.L.",
+ "marketing": "Step by Step Habitatges",
+ "architects": "Nomen i Associats Arquitectes",
+ "contact": {
+  "email": "carles@apimi.com"
+ },
+ "vat": 0.1,
+ "pricing": {
+  "eur_m2": {
+   "PB": 3600,
+   "P1": 3800,
+   "P2": 3900,
+   "duplex": 4200
+  },
+  "ext_eur_m2": 1000,
+  "round": 1000
+ },
+ "units": [
+  {
+   "id": "PB-1a",
+   "floor": "PB",
+   "door": "1a",
+   "type": "T1",
+   "beds": 3,
+   "baths": 2,
+   "duplex": false,
+   "built": 80.78,
+   "useful": 67.57,
+   "ext": 0,
+   "extKind": "",
+   "img": "T1",
+   "price": 291000,
+   "status": "available",
+   "studio": false
+  },
+  {
+   "id": "PB-2a",
+   "floor": "PB",
+   "door": "2a",
+   "type": "T2",
+   "beds": 2,
+   "baths": 2,
+   "duplex": false,
+   "built": 70.99,
+   "useful": 60.62,
+   "ext": 0,
+   "extKind": "",
+   "img": "T2",
+   "price": 256000,
+   "status": "available",
+   "studio": false
+  },
+  {
+   "id": "PB-3a",
+   "floor": "PB",
+   "door": "3a",
+   "type": "T3",
+   "beds": 3,
+   "baths": 2,
+   "duplex": false,
+   "built": 85.23,
+   "useful": 72.45,
+   "ext": 14.59,
+   "extKind": "pati",
+   "img": "T3",
+   "price": 321000,
+   "status": "available",
+   "studio": false
+  },
+  {
+   "id": "1-1a",
+   "floor": "P1",
+   "door": "1a",
+   "type": "T4",
+   "beds": 3,
+   "baths": 2,
+   "duplex": false,
+   "built": 87.97,
+   "useful": 75.69,
+   "ext": 1.44,
+   "extKind": "balco",
+   "img": "T4",
+   "price": 336000,
+   "status": "available",
+   "studio": false
+  },
+  {
+   "id": "1-2a",
+   "floor": "P1",
+   "door": "2a",
+   "type": "T5",
+   "beds": 3,
+   "baths": 2,
+   "duplex": false,
+   "built": 87.32,
+   "useful": 76.15,
+   "ext": 3.0,
+   "extKind": "balco",
+   "img": "T5",
+   "price": 335000,
+   "status": "available",
+   "studio": false
+  },
+  {
+   "id": "1-3a",
+   "floor": "P1",
+   "door": "3a",
+   "type": "T6",
+   "beds": 2,
+   "baths": 2,
+   "duplex": false,
+   "built": 70.93,
+   "useful": 62.74,
+   "ext": 1.77,
+   "extKind": "balco",
+   "img": "T6",
+   "price": 271000,
+   "status": "available",
+   "studio": false
+  },
+  {
+   "id": "1-4a",
+   "floor": "P1",
+   "door": "4a",
+   "type": "T7",
+   "beds": 3,
+   "baths": 2,
+   "duplex": false,
+   "built": 86.43,
+   "useful": 73.72,
+   "ext": 1.67,
+   "extKind": "balco",
+   "img": "T7a",
+   "price": 330000,
+   "status": "available",
+   "studio": false
+  },
+  {
+   "id": "2-1a",
+   "floor": "P2",
+   "door": "1a",
+   "type": "T8",
+   "beds": 2,
+   "baths": 3,
+   "duplex": true,
+   "built": 103.94,
+   "useful": 82.69,
+   "ext": 31.08,
+   "extKind": "terrassa",
+   "img": "T8",
+   "price": 468000,
+   "status": "available",
+   "studio": false
+  },
+  {
+   "id": "2-2a",
+   "floor": "P2",
+   "door": "2a",
+   "type": "T9",
+   "beds": 3,
+   "baths": 3,
+   "duplex": true,
+   "built": 110.72,
+   "useful": 90.96,
+   "ext": 78.51,
+   "extKind": "terrassa",
+   "img": "T9",
+   "price": 544000,
+   "status": "available",
+   "studio": false
+  },
+  {
+   "id": "2-3a",
+   "floor": "P2",
+   "door": "3a",
+   "type": "T10",
+   "beds": 2,
+   "baths": 2,
+   "duplex": false,
+   "built": 75.96,
+   "useful": 67.18,
+   "ext": 3.14,
+   "extKind": "balco",
+   "img": "T10",
+   "price": 299000,
+   "status": "available",
+   "studio": false
+  },
+  {
+   "id": "2-4a",
+   "floor": "P2",
+   "door": "4a",
+   "type": "T11",
+   "beds": 2,
+   "baths": 3,
+   "duplex": true,
+   "built": 108.7,
+   "useful": 87.63,
+   "ext": 40.19,
+   "extKind": "terrassa",
+   "img": "T11",
+   "price": 497000,
+   "status": "available",
+   "studio": true
+  },
+  {
+   "id": "2-5a",
+   "floor": "P2",
+   "door": "5a",
+   "type": "T7",
+   "beds": 3,
+   "baths": 2,
+   "duplex": false,
+   "built": 86.45,
+   "useful": 73.66,
+   "ext": 1.37,
+   "extKind": "balco",
+   "img": "T7b",
+   "price": 339000,
+   "status": "available",
+   "studio": false
+  }
+ ],
+ "annexes": [
+  {
+   "id": "P01",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    280,
+    50,
+    205,
+    128
+   ]
+  },
+  {
+   "id": "P02",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    280,
+    182,
+    205,
+    110
+   ]
+  },
+  {
+   "id": "P03",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    283,
+    300,
+    205,
+    98
+   ]
+  },
+  {
+   "id": "P04",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    285,
+    400,
+    240,
+    120
+   ]
+  },
+  {
+   "id": "P05",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    760,
+    52,
+    240,
+    120
+   ]
+  },
+  {
+   "id": "P06",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    760,
+    180,
+    240,
+    118
+   ]
+  },
+  {
+   "id": "P07",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    760,
+    305,
+    240,
+    105
+   ]
+  },
+  {
+   "id": "P08",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    760,
+    415,
+    240,
+    117
+   ]
+  },
+  {
+   "id": "P09",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    760,
+    545,
+    240,
+    115
+   ]
+  },
+  {
+   "id": "P10",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    760,
+    665,
+    240,
+    105
+   ]
+  },
+  {
+   "id": "P11",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    760,
+    842,
+    240,
+    108
+   ]
+  },
+  {
+   "id": "P12",
+   "kind": "parking",
+   "price": 28000,
+   "status": "available",
+   "rect": [
+    760,
+    955,
+    240,
+    105
+   ]
+  },
+  {
+   "id": "M01",
+   "kind": "moto",
+   "price": 10000,
+   "status": "available",
+   "rect": [
+    772,
+    778,
+    100,
+    55
+   ]
+  },
+  {
+   "id": "M02",
+   "kind": "moto",
+   "price": 10000,
+   "status": "available",
+   "rect": [
+    874,
+    778,
+    100,
+    55
+   ]
+  },
+  {
+   "id": "M03",
+   "kind": "moto",
+   "price": 10000,
+   "status": "available",
+   "rect": [
+    125,
+    48,
+    118,
+    60
+   ]
+  },
+  {
+   "id": "M04",
+   "kind": "moto",
+   "price": 10000,
+   "status": "available",
+   "rect": [
+    125,
+    110,
+    118,
+    56
+   ]
+  },
+  {
+   "id": "T01",
+   "kind": "storage",
+   "price": 6000,
+   "status": "available",
+   "rect": [
+    125,
+    175,
+    115,
+    118
+   ]
+  }
+ ],
+ "sun": {
+  "lat": 41.5492,
+  "lon": 2.1133,
+  "facades": [
+   {
+    "id": "MM",
+    "es": "Fachada Metge Mir",
+    "ca": "Façana Metge Mir",
+    "az": 341
+   },
+   {
+    "id": "BV",
+    "es": "Fachada Bonavista",
+    "ca": "Façana Bonavista",
+    "az": 71
+   },
+   {
+    "id": "PI",
+    "es": "Patio y fachada posterior",
+    "ca": "Pati i façana posterior",
+    "az": 161
+   }
+  ],
+  "height_m": 12,
+  "footprint_m": [
+   17.7,
+   18.3
+  ],
+  "validated": false
+ },
+ "source": {
+  "prices": "https://docs.google.com/spreadsheets/d/1yXoyWeXY8QzMsyr-UkGwDrN8U4f2arvmaQKDMDzvI34",
+  "finishes": "MetgeMir_iShowi_Manifest_acabats_PROVISIONALS_v01"
+ },
+ "finishes": {
+  "status": "provisional",
+  "options": [
+   {
+    "cat": "paviment",
+    "code": "SV.A",
+    "name": "Roble Makro Claro",
+    "ref": "",
+    "img": "SV_A.webp"
+   },
+   {
+    "cat": "paviment",
+    "code": "SV.B",
+    "name": "Everest Oak Naturaleza",
+    "ref": "",
+    "img": "SV_B.webp"
+   },
+   {
+    "cat": "paviment",
+    "code": "SV.C",
+    "name": "Roble Rama oscuro",
+    "ref": "",
+    "img": "SV_C.webp"
+   },
+   {
+    "cat": "cuina_frontals_baixos",
+    "code": "FB.A",
+    "name": "Gris Arena",
+    "ref": "",
+    "img": "FB_A.webp"
+   },
+   {
+    "cat": "cuina_frontals_baixos",
+    "code": "FB.B",
+    "name": "Blanco Iceberg",
+    "ref": "",
+    "img": "FB_B.webp"
+   },
+   {
+    "cat": "cuina_frontals_baixos",
+    "code": "FB.C",
+    "name": "Roble Claro Sinc",
+    "ref": "",
+    "img": "FB_C.webp"
+   },
+   {
+    "cat": "cuina_frontals_baixos",
+    "code": "FB.D",
+    "name": "Roble Natural",
+    "ref": "",
+    "img": "FB_D.webp"
+   },
+   {
+    "cat": "cuina_frontals_alts",
+    "code": "FA.A",
+    "name": "Gris Arena",
+    "ref": "",
+    "img": "FA_A.webp"
+   },
+   {
+    "cat": "cuina_frontals_alts",
+    "code": "FA.B",
+    "name": "Blanco Iceberg",
+    "ref": "",
+    "img": "FA_B.webp"
+   },
+   {
+    "cat": "cuina_frontals_alts",
+    "code": "FA.C",
+    "name": "Roble Claro Sinc",
+    "ref": "",
+    "img": "FA_C.webp"
+   },
+   {
+    "cat": "cuina_frontals_alts",
+    "code": "FA.D",
+    "name": "Roble Natural",
+    "ref": "",
+    "img": "FA_D.webp"
+   },
+   {
+    "cat": "cuina_taulell",
+    "code": "EC.A",
+    "name": "Corian Abalone",
+    "ref": "Solid Surface · ZPC001 ABE",
+    "img": "EC_A.webp"
+   },
+   {
+    "cat": "cuina_taulell",
+    "code": "EC.B",
+    "name": "Corian Ash Concrete",
+    "ref": "Solid Surface · ZPC006 HXE",
+    "img": "EC_B.webp"
+   },
+   {
+    "cat": "cuina_led",
+    "code": "IL.A",
+    "name": "Sense LED sota mobles",
+    "ref": "",
+    "img": ""
+   },
+   {
+    "cat": "cuina_led",
+    "code": "IL.B",
+    "name": "Amb LED sota mobles",
+    "ref": "12 V · IP38 segons fitxa d’origen",
+    "img": ""
+   },
+   {
+    "cat": "bany_paviment",
+    "code": "SB.A",
+    "name": "Lambda Rho Blanco",
+    "ref": "Vives",
+    "img": "SB_A.webp"
+   },
+   {
+    "cat": "bany_paviment",
+    "code": "SB.B",
+    "name": "Dome Bone Rectificado",
+    "ref": "Baldocer",
+    "img": "SB_B.webp"
+   },
+   {
+    "cat": "bany_parets",
+    "code": "PV.A",
+    "name": "Rho Blanco",
+    "ref": "Vives",
+    "img": "PV_A.webp"
+   },
+   {
+    "cat": "bany_parets",
+    "code": "PV.B",
+    "name": "Dome Bone Rectificado",
+    "ref": "Baldocer",
+    "img": "PV_B.webp"
+   },
+   {
+    "cat": "bany_parets",
+    "code": "PV.C",
+    "name": "Eleganza Saggio",
+    "ref": "Pamesa",
+    "img": "PV_C.webp"
+   },
+   {
+    "cat": "bany_paret_especial",
+    "code": "PE.A",
+    "name": "Nimos Rho Blanco",
+    "ref": "Vives",
+    "img": "PE_A.webp"
+   },
+   {
+    "cat": "bany_paret_especial",
+    "code": "PE.B",
+    "name": "Blind Dome Bone",
+    "ref": "Baldocer",
+    "img": "PE_B.webp"
+   },
+   {
+    "cat": "bany_moble",
+    "code": "MB.A",
+    "name": "Ambient TECA",
+    "ref": "Vidrabany",
+    "img": "MB_A.webp"
+   },
+   {
+    "cat": "bany_moble",
+    "code": "MB.B",
+    "name": "Ambient OLMO",
+    "ref": "Vidrabany",
+    "img": "MB_B.webp"
+   },
+   {
+    "cat": "fusteria_vidres",
+    "code": "CR.A",
+    "name": "Vidre doble",
+    "ref": "",
+    "img": "CR_A.webp"
+   },
+   {
+    "cat": "fusteria_vidres",
+    "code": "CR.B",
+    "name": "Vidre triple",
+    "ref": "",
+    "img": "CR_B.webp"
+   }
+  ]
+ }
+}
