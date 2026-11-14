@@ -2,13 +2,13 @@
 /**
  * Plugin Name: iShowi · Metge Mir 24
  * Description: Showroom iShowi de la promoció Metge Mir 24 (Sabadell). Serveix el showroom a /metge-mir/ amb les dades de assets/data/promocion.json (futur: iShowi Hub).
- * Version: 0.4.0
+ * Version: 0.5.0
  * Author: BoomBizz · iShowi
  * License: Proprietary
  */
 if (!defined('ABSPATH')) exit;
 define('MM24_SLUG', 'metge-mir');
-define('MM24_VER', '0.4.0');
+define('MM24_VER', '0.5.0');
 
 add_action('init', function () {
     add_rewrite_rule('^' . MM24_SLUG . '/?$', 'index.php?mm24=1', 'top');

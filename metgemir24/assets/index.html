@@ -409,7 +409,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 #nudge.open .nb{opacity:1;transform:none;pointer-events:auto}
 #nudge .nb b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#1faa59;margin-bottom:2px}
 #nudge-x,#urg-x{position:absolute;right:6px;top:4px;width:24px;height:24px;border:0;background:none;font-size:18px;line-height:1;color:#7b827c;cursor:pointer}
-body.on-cfg #nudge{display:none}.iop em{flex:none}.iop>span{min-width:0}@media(max-width:560px){.iroom .capt{display:none}}
+body.on-cfg #nudge,body.on-cfg #urg{display:none}.iop em{flex:none}.iop>span{min-width:0}@media(max-width:560px){.iroom .capt{display:none}}
 #urg{position:absolute;z-index:45;inset:0;display:grid;place-items:end center;padding:0 16px max(96px,calc(env(safe-area-inset-bottom) + 96px));pointer-events:none;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
 #urg.on{opacity:1;visibility:visible}
 #urg .uc{pointer-events:auto;position:relative;width:min(560px,100%);background:#16201a;color:#fff;border-radius:22px;padding:20px 22px;display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:center;box-shadow:0 24px 70px rgba(0,0,0,.45);transform:translateY(24px);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
@@ -418,6 +418,42 @@ body.on-cfg #nudge{display:none}.iop em{flex:none}.iop>span{min-width:0}@media(m
 #urg p{margin:0;font-family:var(--fh);font-size:clamp(18px,2.4vw,22px);line-height:1.2}
 #urg .btn{background:#b8613a;white-space:nowrap}#urg-x{color:#fff;opacity:.7}.oph button,.oplay{font-family:inherit}
 @media(max-width:560px){#urg .uc{grid-template-columns:1fr}#urg .btn{width:100%}}
+
+/* v0.5 transitions */
+#app{overflow:hidden}
+#fx-ov{position:absolute;inset:0;z-index:9;pointer-events:none;opacity:0}
+#fx-ov.flash{background:#fff;animation:fxflash .95s ease-out both}
+#fx-ov.dark{background:radial-gradient(circle at 50% 50%,rgba(10,16,12,0) 0,rgba(10,16,12,1) 62%),#0a100c;animation:fxdark 1.5s ease both}
+@keyframes fxflash{0%{opacity:0}48%{opacity:0}62%{opacity:.96}100%{opacity:0}}
+@keyframes fxdark{0%{opacity:0}55%{opacity:.85}66%{opacity:1}100%{opacity:0}}
+.screen.fx-out{visibility:visible!important;z-index:6;pointer-events:none;transition:none!important;will-change:transform,opacity}
+.fx-o-soft{animation:o-soft .5s ease both}.fx-i-soft{animation:i-soft .6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes o-soft{from{opacity:1}to{opacity:0;transform:scale(1.035)}}
+@keyframes i-soft{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.fx-o-drone{animation:o-drone 1s cubic-bezier(.5,0,.75,.2) both;transform-origin:50% 62%}.fx-i-drone{animation:i-drone 1.35s cubic-bezier(.16,.84,.3,1) both}
+@keyframes o-drone{from{opacity:1}60%{opacity:1}to{opacity:0;transform:perspective(1200px) translateY(9%) rotateX(22deg) scale(.42);filter:blur(5px)}}
+@keyframes i-drone{from{opacity:0;transform:scale(1.7)}35%{opacity:0;transform:scale(1.55)}to{opacity:1;transform:none}}
+.fx-o-meld{animation:o-meld 1.1s ease both}.fx-i-meld{animation:i-meld 1.1s ease both}.fx-i-meld .otl{animation:otlin 1.35s cubic-bezier(.2,.75,.2,1) both;transform-origin:50% 30%}
+@keyframes o-meld{from{opacity:1}to{opacity:0;transform:scale(1.07);filter:blur(3px)}}
+@keyframes i-meld{from{opacity:0}to{opacity:1}}
+@keyframes otlin{from{transform:scale(1.32) translateY(4%);border-radius:0;box-shadow:none}to{transform:none}}
+.fx-o-enter{animation:o-enter .78s cubic-bezier(.6,0,.9,.25) both;transform-origin:50% 58%}.fx-i-enter{animation:i-enter 1.05s ease both}
+@keyframes o-enter{from{opacity:1}75%{opacity:1}to{opacity:0;transform:scale(3.1);filter:blur(4px)}}
+@keyframes i-enter{0%,52%{opacity:0;transform:scale(.97)}100%{opacity:1;transform:none}}
+.fx-o-dive{animation:o-dive 1s cubic-bezier(.65,0,.9,.3) both}.fx-i-dive{animation:i-dive 1.6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes o-dive{from{opacity:1}85%{opacity:1}to{opacity:0;transform:scale(4.2);filter:blur(7px)}}
+@keyframes i-dive{0%,60%{opacity:0;transform:scale(1.18)}100%{opacity:1;transform:none}}
+.fx-o-orbit{animation:o-orbit .9s cubic-bezier(.5,0,.8,.3) both}.fx-i-orbit{animation:i-orbit 1.1s ease both}
+@keyframes o-orbit{from{opacity:1}to{opacity:0;transform:scale(.55);filter:blur(4px)}}
+@keyframes i-orbit{0%,25%{opacity:0}100%{opacity:1}}
+.rv{animation:rv .65s cubic-bezier(.2,.75,.2,1) both;animation-delay:var(--rd,0ms)}
+@keyframes rv{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.gv{margin:0;grid-column:span 2;position:relative;border-radius:16px;overflow:hidden;background:#111;aspect-ratio:16/9}
+.gv video{width:100%;height:100%;object-fit:cover;display:block}
+.gv figcaption{position:absolute;left:12px;top:10px;font-size:12px;font-weight:600;color:#fff;background:rgba(0,0,0,.5);padding:5px 11px;border-radius:999px;pointer-events:none}
+@media(max-width:620px){.gv{grid-column:1/-1}}
+.iklogo{height:20px;vertical-align:-4px;margin:0 3px;border-radius:2px}
+@media(prefers-reduced-motion:reduce){.rv,[class*=fx-]{animation:none!important}}
 </style>
 </head>
 <body>
@@ -453,6 +489,7 @@ body.on-cfg #nudge{display:none}.iop em{flex:none}.iop>span{min-width:0}@media(m
 </div>
 
 <div id="app">
+  <div id="fx-ov"></div>
   <div id="nudge" role="button" tabindex="0"><span class="nb"><b>WhatsApp</b><span id="nudge-m"></span><button id="nudge-x" aria-label="Cerrar">×</button></span><span class="ni"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 19z"/><path d="M9 10.5h6M9 13.5h4"/></svg></span></div>
   <div id="urg"><div class="uc"><button id="urg-x" aria-label="Cerrar">×</button><small>Metge Mir 24</small><p id="urg-t"></p><button class="btn" id="urg-go"></button></div></div>
   <div id="bgv"></div>
