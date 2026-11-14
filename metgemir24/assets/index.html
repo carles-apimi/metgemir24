@@ -37,7 +37,10 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
 /* intro */
 #intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:#000;transition:opacity .7s,visibility .7s;overflow:hidden}
 #intro.out{opacity:0;visibility:hidden}
-#intro .kb{position:absolute;inset:-4%;background:url(img/fac_hero.webp) center/cover;animation:kb 22s ease-in-out infinite alternate}
+#intro video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#intro.zoom{transform:scale(2.6);opacity:0;transition:transform 1s cubic-bezier(.6,0,.9,.4),opacity .9s .1s}
+#intro.zoom .intro-c{opacity:0;transition:opacity .25s}
+#intro .kb{position:absolute;inset:-4%;background:url(sun/s1.webp) center/cover;animation:kb 22s ease-in-out infinite alternate}
 @keyframes kb{from{transform:scale(1) translate(0,0)}to{transform:scale(1.12) translate(-2%,-1.5%)}}
 #intro::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(10,20,14,.62),rgba(10,20,14,.25) 70%),linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.55))}
 .intro-c{position:relative;z-index:2;text-align:center;color:#fff;padding:24px;display:flex;flex-direction:column;align-items:center;gap:20px}
@@ -68,7 +71,7 @@ body.on-cfg .crumb{display:none}
 .stage{position:absolute;inset:0;overflow:hidden}
 .view{position:absolute;inset:0;opacity:0;transition:opacity .7s}
 .view.on{opacity:1}
-.view img{width:100%;height:100%;object-fit:cover}
+.view img,.view video{width:100%;height:100%;object-fit:cover;display:block}
 .view.on img{animation:drift 30s ease-in-out infinite alternate}
 @keyframes drift{from{transform:scale(1.02)}to{transform:scale(1.08)}}
 #ovl{position:absolute;inset:0;width:100%;height:100%}
@@ -276,7 +279,24 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 #s-cfg{background:#16201a;display:grid;grid-template-rows:minmax(0,1fr) auto;grid-template-columns:minmax(0,1fr)}
 .c-stage{position:relative;min-height:0;overflow:hidden}
 .c-stage .blur{position:absolute;inset:-40px;background:center/cover;filter:blur(30px) brightness(.5)}
-.c-board{position:absolute;inset:118px 12px 12px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:10px}
+.c-board{position:absolute;inset:118px 12px 12px;display:grid;place-items:center}
+.room{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#ddd}
+.room img{position:absolute;inset:0;width:100%;height:100%;display:block;transition:opacity .45s}
+.room.enter{animation:fadeup .5s both}
+.room .capt{position:absolute;left:10px;bottom:10px;font-size:11px;background:rgba(0,0,0,.55);color:#fff;padding:4px 10px;border-radius:999px}
+.room .cmpb{position:absolute;right:10px;bottom:10px;touch-action:none;user-select:none}
+.room .shine{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.room .shine::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:translateX(-120%) skewX(-18deg)}
+.room .shine.go::after{animation:sweep .8s ease-out}
+@keyframes sweep{from{transform:translateX(-120%) skewX(-18deg)}to{transform:translateX(260%) skewX(-18deg)}}
+.rooms4{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.rooms4 figure{margin:0}.rooms4 .room{width:100%;border-radius:12px;box-shadow:none}.rooms4 figcaption{font-size:11px;color:var(--mute);font-weight:600;margin-top:3px}
+#c-blur video{width:100%;height:100%;object-fit:cover}
+#en-map{position:absolute;inset:60px 0 0;overflow:hidden;background:#0f1612}
+#en-map img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .7s}
+#en-map img.new.out{transform:scale(1.7);opacity:0}#en-map img.new.in{transform:scale(.5);opacity:0}#en-map img.gone.out{transform:scale(.35);opacity:0}#en-map img.gone.in{transform:scale(2);opacity:0}
+#sol-3d{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#sol-ph{position:absolute;inset:0;display:none;background:#111}#sol-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .25s}
+.stg.photo #sol-ph{display:block}.stg.photo #sol-3d{visibility:hidden}
 .c-board .amb{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
 .c-board .amb img{width:100%;height:100%;object-fit:cover}
 .c-board .amb .capt{position:absolute;left:10px;bottom:10px;font-size:11px;background:rgba(0,0,0,.55);color:#fff;padding:4px 10px;border-radius:999px}
@@ -434,13 +454,13 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 
   <!-- Entorno -->
   <section class="screen split" id="s-ent">
-    <div class="stg"><svg id="en-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet"></svg><div id="en-marks"></div></div>
+    <div class="stg"><div id="en-map"></div></div>
     <aside class="pan" id="en-pan"></aside>
   </section>
 
   <!-- Sol -->
   <section class="screen split" id="s-sol">
-    <div class="stg"><svg id="sol-svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet"></svg><div class="readout" id="sol-read"></div></div>
+    <div class="stg"><canvas id="sol-3d"></canvas><div id="sol-ph"><img src="sun/s1.webp" alt="" loading="lazy"><img src="sun/s2.webp" alt="" loading="lazy"><img src="sun/s3.webp" alt="" loading="lazy"><img src="sun/s4.webp" alt="" loading="lazy"></div><div class="readout" id="sol-read"></div></div>
     <aside class="pan" id="sol-pan"></aside>
   </section>
 
@@ -461,6 +481,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 <div id="modal"><div class="mb"><button class="x" id="mo-x" aria-label="Cerrar"><svg class="i"><use href="#i-x"/></svg></button><div id="mo-body"></div></div></div>
 <div class="agentbar" id="agentbar" hidden></div>
 <div class="pill dark" id="toast"></div>
+<script src="lib/three.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

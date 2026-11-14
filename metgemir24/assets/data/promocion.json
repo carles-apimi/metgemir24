@@ -652,6 +652,16 @@
     "ref": "",
     "img": "CR_B.webp"
    }
-  ]
+  ],
+  "defaults": {
+   "paviment": "SV.C",
+   "cuina_frontals_baixos": "FB.B",
+   "cuina_frontals_alts": "FA.B"
+  }
+ },
+ "media": {
+  "intro": null,
+  "general": null,
+  "dianit": "video/dianit.mp4"
  }
 }

@@ -19,22 +19,22 @@ views:{v1:'Esquina',v2:'Acceso',v3:'Fachada',v4:'Balcones',v5:'Ático',v6:'Terra
 floorUnits:'Viviendas en esta planta',park:'Aparcamiento',parkLead:'Plazas de coche, de moto y trastero en el sótano. Toca una plaza para verla y su recorrido desde la rampa.',
 parking:'Plaza de coche',moto:'Plaza de moto',storage:'Trastero',addToCfg:'Añadir a mi configuración',askSlot:'Preguntar por esta plaza',pickSlot:'Elige una plaza en el plano',
 parkNote:'Precios sin IVA. Las plazas y el trastero se venden como anexo de una vivienda (IVA 10 %); vendidos por separado tributan al 21 %.',
-cfgSteps:['Vivienda','Suelo','Cocina','Baños','Otros','Tus datos','Resumen'],
+cfgSteps:['Vivienda','Suelo','Cocina','Baño 1','Baño 2','Otros','Tus datos','Resumen'],roomCap:{S:'Salón-comedor',K:'Cocina',B1:'Baño 1',B2:'Baño 2 (suite)'},holdBase:'Mantén para ver la base',bath3:'El tercer baño del dúplex sigue los acabados del baño 2.',sol3d:'Maqueta 3D',solPhoto:'Imagen real',solPlay:'Día completo',
 cfgProv:'Acabados provisionales pendientes de validación del promotor. Los suplementos se confirmarán antes de la reserva.',
-cfgAmb:'Imagen de ambiente de referencia',chooseUnit:'¿Qué vivienda quieres configurar?',
+cfgAmb:'simulación orientativa',chooseUnit:'¿Qué vivienda quieres configurar?',
 cat:{paviment:'Pavimento general',cuina_frontals_baixos:'Frentes bajos de cocina',cuina_frontals_alts:'Frentes altos de cocina',cuina_taulell:'Encimera',cuina_led:'Iluminación LED',bany_paviment:'Pavimento de baño',bany_parets:'Revestimiento de paredes',bany_paret_especial:'Pared especial (ducha)',bany_moble:'Mueble de lavabo',fusteria_vidres:'Acristalamiento'},
-ref:'Opción de referencia',supp:'Suplemento a confirmar',next:'Siguiente',prev:'Atrás',seeSum:'Ver resumen',total:'Precio vivienda + anexos',
+ref:'De serie',supp:'Suplemento a confirmar',next:'Siguiente',prev:'Atrás',seeSum:'Ver resumen',total:'Precio vivienda + anexos',
 annexes:'Anexos',noSlot:'Sin plaza',noMoto:'Sin plaza de moto',noStore:'Sin trastero',
 gate:'Para ver el resumen y recibirlo, déjanos tus datos.',name:'Nombre y apellidos',phone:'Teléfono / WhatsApp',email:'Correo electrónico',msg:'Mensaje (opcional)',
 consent:'Acepto que Metge Mir 24 trate mis datos para responder a mi solicitud, según la política de privacidad.',privacy:'Ver política de privacidad',
 sumTitle:'Resumen de tu configuración',finishes:'Acabados elegidos',sendMail:'Enviar por correo',copy:'Copiar resumen',copied:'Resumen copiado',
 mailHint:'Si tu dispositivo no abre el correo, escríbenos a',sumNote:'Configuración orientativa sin valor contractual. Precio de la vivienda y anexos sin IVA; acabados con suplemento a confirmar.',
 ent:'Entorno',entLead:'Todo lo del día a día a pie: tren R4, bus, campus UAB, supermercados y el centro de Sabadell.',scale:['A pie','Sabadell','Área metropolitana'],
-entNote:'Esquema orientativo, no a escala exacta. Distancias y tiempos estimados, pendientes de confirmar puerta a puerta.',walk:'a pie',car:'en coche',train:'en tren',
+entNote:'Mapas de referencia del estudio de entorno. Distancias y tiempos estimados, pendientes de confirmar puerta a puerta.',walk:'a pie',car:'en coche',train:'en tren',
 cats:{tr:'Conexiones',sh:'Compras',ed:'Educación',he:'Salud',le:'Ocio y parques',ce:'Centro y cultura'},allCats:'Todo',
-sol:'Sol',solLead:'Mira por qué fachada entra el sol según el mes y la hora.',month:'Mes',hour:'Hora',
+sol:'Sol',solLead:'Gira la maqueta y mueve el mes y la hora para ver el sol y las sombras sobre el edificio.',month:'Mes',hour:'Hora',
 months:['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],sunUp:'Sol a',elev:'de altura',night:'El sol está bajo el horizonte',
-litToday:'Horas de sol directo hoy (cielo despejado, sin edificios vecinos)',solNote:'Simulación orientativa: orientación del edificio estimada sobre cartografía, no validada por el arquitecto. No tiene en cuenta las sombras de los edificios vecinos.',
+litToday:'Horas de sol directo ese día por fachada (cielo despejado)',solNote:'Simulación orientativa. Maqueta construida con las medidas del modelo 3D del proyecto (17,7 × 18,3 m, 4 niveles) y vecinos aproximados; orientación estimada sobre cartografía (Metge Mir 341°, Bonavista 71°), pendiente de validar por el arquitecto. Las imágenes reales corresponden al mes de mayo.',
 obraTitle:'Obra y forma de pago',obraLead:'Calendario y forma de pago orientativos, pendientes de confirmar por el promotor.',
 miles:[['Licencia de obras','En tramitación'],['Inicio de obras','Por confirmar'],['Estructura','Por confirmar'],['Cubierta y cerramientos','Por confirmar'],['Entrega de llaves','Por confirmar']],
 payTitle:'Forma de pago orientativa',pay:[['Reserva','Se descuenta del primer pago',null],['Contrato privado (arras)','A la firma',.10],['Durante la obra','Según hitos de obra',.10],['Durante la obra','Cubierta',.20],['Escritura','A la entrega',.60]],
@@ -63,22 +63,22 @@ views:{v1:'Cantonada',v2:'Accés',v3:'Façana',v4:'Balcons',v5:'Àtic',v6:'Terra
 floorUnits:'Habitatges d’aquesta planta',park:'Aparcament',parkLead:'Places de cotxe, de moto i traster al soterrani. Toca una plaça per veure-la i el recorregut des de la rampa.',
 parking:'Plaça de cotxe',moto:'Plaça de moto',storage:'Traster',addToCfg:'Afegir a la meva configuració',askSlot:'Preguntar per aquesta plaça',pickSlot:'Tria una plaça al plànol',
 parkNote:'Preus sense IVA. Les places i el traster es venen com a annex d’un habitatge (IVA 10 %); venuts per separat tributen al 21 %.',
-cfgSteps:['Habitatge','Terra','Cuina','Banys','Altres','Les teves dades','Resum'],
+cfgSteps:['Habitatge','Terra','Cuina','Bany 1','Bany 2','Altres','Les teves dades','Resum'],roomCap:{S:'Saló-menjador',K:'Cuina',B1:'Bany 1',B2:'Bany 2 (suite)'},holdBase:'Mantén per veure la base',bath3:'El tercer bany del dúplex segueix els acabats del bany 2.',sol3d:'Maqueta 3D',solPhoto:'Imatge real',solPlay:'Dia complet',
 cfgProv:'Acabats provisionals pendents de validació del promotor. Els suplements es confirmaran abans de la reserva.',
-cfgAmb:'Imatge d’ambient de referència',chooseUnit:'Quin habitatge vols configurar?',
+cfgAmb:'simulació orientativa',chooseUnit:'Quin habitatge vols configurar?',
 cat:{paviment:'Paviment general',cuina_frontals_baixos:'Frontals baixos de cuina',cuina_frontals_alts:'Frontals alts de cuina',cuina_taulell:'Taulell',cuina_led:'Il·luminació LED',bany_paviment:'Paviment del bany',bany_parets:'Revestiment de parets',bany_paret_especial:'Paret especial (dutxa)',bany_moble:'Moble de lavabo',fusteria_vidres:'Vidres'},
-ref:'Opció de referència',supp:'Suplement a confirmar',next:'Següent',prev:'Enrere',seeSum:'Veure resum',total:'Preu habitatge + annexos',
+ref:'De sèrie',supp:'Suplement a confirmar',next:'Següent',prev:'Enrere',seeSum:'Veure resum',total:'Preu habitatge + annexos',
 annexes:'Annexos',noSlot:'Sense plaça',noMoto:'Sense plaça de moto',noStore:'Sense traster',
 gate:'Per veure el resum i rebre’l, deixa’ns les teves dades.',name:'Nom i cognoms',phone:'Telèfon / WhatsApp',email:'Correu electrònic',msg:'Missatge (opcional)',
 consent:'Accepto que Metge Mir 24 tracti les meves dades per respondre la meva sol·licitud, segons la política de privacitat.',privacy:'Veure política de privacitat',
 sumTitle:'Resum de la teva configuració',finishes:'Acabats escollits',sendMail:'Enviar per correu',copy:'Copiar el resum',copied:'Resum copiat',
 mailHint:'Si el teu dispositiu no obre el correu, escriu-nos a',sumNote:'Configuració orientativa sense valor contractual. Preu de l’habitatge i annexos sense IVA; acabats amb suplement a confirmar.',
 ent:'Entorn',entLead:'Tot el del dia a dia a peu: tren R4, bus, campus UAB, supermercats i el centre de Sabadell.',scale:['A peu','Sabadell','Àrea metropolitana'],
-entNote:'Esquema orientatiu, no a escala exacta. Distàncies i temps estimats, pendents de confirmar porta a porta.',walk:'a peu',car:'en cotxe',train:'en tren',
+entNote:'Mapes de referència de l’estudi d’entorn. Distàncies i temps estimats, pendents de confirmar porta a porta.',walk:'a peu',car:'en cotxe',train:'en tren',
 cats:{tr:'Connexions',sh:'Compres',ed:'Educació',he:'Salut',le:'Lleure i parcs',ce:'Centre i cultura'},allCats:'Tot',
-sol:'Sol',solLead:'Mira per quina façana entra el sol segons el mes i l’hora.',month:'Mes',hour:'Hora',
+sol:'Sol',solLead:'Gira la maqueta i mou el mes i l’hora per veure el sol i les ombres sobre l’edifici.',month:'Mes',hour:'Hora',
 months:['gen','febr','març','abr','maig','juny','jul','ag','set','oct','nov','des'],sunUp:'Sol a',elev:'d’altura',night:'El sol és sota l’horitzó',
-litToday:'Hores de sol directe avui (cel serè, sense edificis veïns)',solNote:'Simulació orientativa: orientació de l’edifici estimada sobre cartografia, no validada per l’arquitecte. No té en compte les ombres dels edificis veïns.',
+litToday:'Hores de sol directe aquell dia per façana (cel serè)',solNote:'Simulació orientativa. Maqueta construïda amb les mides del model 3D del projecte (17,7 × 18,3 m, 4 nivells) i veïns aproximats; orientació estimada sobre cartografia (Metge Mir 341°, Bonavista 71°), pendent de validar per l’arquitecte. Les imatges reals corresponen al mes de maig.',
 obraTitle:'Obra i forma de pagament',obraLead:'Calendari i forma de pagament orientatius, pendents de confirmar pel promotor.',
 miles:[['Llicència d’obres','En tràmit'],['Inici d’obres','Per confirmar'],['Estructura','Per confirmar'],['Coberta i tancaments','Per confirmar'],['Lliurament de claus','Per confirmar']],
 payTitle:'Forma de pagament orientativa',pay:[['Reserva','Es descompta del primer pagament',null],['Contracte privat (arres)','A la signatura',.10],['Durant l’obra','Segons fites d’obra',.10],['Durant l’obra','Coberta',.20],['Escriptura','Al lliurament',.60]],
@@ -101,7 +101,7 @@ const fl=f=>({PB:L==='ca'?'Planta baixa':'Planta baja',P1:L==='ca'?'Planta prime
 const uName=u=>`${u.floor==='PB'?'PB':u.floor==='P1'?'1º':'2º'} ${u.door}`.replace('º',L==='ca'?(u.floor==='P1'?'r':'n'):'º');
 const vat=n=>n*(1+D.vat);
 const toast=m=>{const e=$('#toast');e.textContent=m;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),3200)};
-const state={screen:'s-ed',hist:[],unit:null,view:'v1',floor:null,cmp:new Set(),agent:false,cfg:{step:0,unit:null,sel:{},park:null,moto:null,store:null,lead:null},park:{sel:null,filter:'all'},ent:{scale:0,cat:'all',sel:null},sol:{m:new Date().getMonth(),h:12}};
+const state={screen:'s-ed',hist:[],unit:null,view:'v1',floor:null,cmp:new Set(),agent:false,cfg:{step:0,unit:null,sel:{},park:null,moto:null,store:null,lead:null},park:{sel:null,filter:'all'},ent:{scale:0,cat:'all',sel:null},sol:{m:4,h:12,mode:'3d',play:false}};
 
 /* ---------- navigation ---------- */
 const crumbs={'s-ed':'Metge Mir 24','s-viv':'dock.viv','s-pis':'','s-park':'dock.park','s-cfg':'dock.cfg','s-ent':'dock.ent','s-sol':'dock.sol','s-obra':'dock.obra','s-cal':'dock.cal','s-gal':'dock.gal','s-con':'dock.con'};
@@ -113,7 +113,7 @@ function go(id,push=true){
   $('#b-back').hidden=id==='s-ed';document.body.classList.toggle('on-cfg',id==='s-cfg');
   document.body.classList.toggle('lightTop',['s-viv','s-obra','s-cal','s-gal','s-con','s-pis','s-park','s-sol'].includes(id));
   const c=crumbs[id];$('#crumb').textContent=id==='s-pis'&&state.unit?`${t('dock.viv')} · ${uName(state.unit)}`:(c.includes('.')?t(c):c);
-  renders[id]&&renders[id]();if(id==='s-ent')requestAnimationFrame(()=>renderEnt());
+  renders[id]&&renders[id]();
   $$('#m-nav a').forEach(a=>a.classList.toggle('on',a.dataset.go===id));
   try{history.replaceState(null,'','#'+id.slice(2))}catch(e){}
 }
@@ -140,14 +140,14 @@ function applyLang(){
 }
 
 /* ---------- building ---------- */
-const VIEWS=[['v1','fac_hero'],['v2','fac_acces'],['v3','fac_frontal'],['v4','fac_balcons'],['v5','fac_atic'],['v6','fac_terrassa']];
+const VIEWS=[['v1','VIDEO'],['v2','fac_acces'],['v3','fac_frontal'],['v4','fac_balcons'],['v5','fac_atic'],['v6','fac_terrassa']];
 const BANDS={AT:[[240,150],[500,108],[820,62],[1100,108],[1410,140],[1410,192],[820,142],[235,203]],
 P2:[[235,205],[820,145],[1410,195],[1410,420],[820,430],[235,410]],
 P1:[[235,410],[820,430],[1410,420],[1410,560],[820,600],[235,555]],
 PB:[[235,555],[820,600],[1410,560],[1410,640],[820,850],[235,640]]};
 function renderEd(){
   const st=$('#ed-stage');
-  if(!st.children.length)st.innerHTML=VIEWS.map(([k,f])=>`<div class="view" data-v="${k}"><img src="img/${f}.webp" alt="" ${k==='v1'?'':'loading="lazy"'}></div>`).join('');
+  if(!st.children.length)st.innerHTML=VIEWS.map(([k,f])=>f==='VIDEO'?`<div class="view" data-v="${k}"><video src="${D.media.dianit}" poster="sun/s2.webp" autoplay muted loop playsinline></video></div>`:`<div class="view" data-v="${k}"><img src="img/${f}.webp" alt="" loading="lazy"></div>`).join('');
   $$('.view').forEach(v=>v.classList.toggle('on',v.dataset.v===state.view));
   $('#views').innerHTML=VIEWS.map(([k])=>`<button data-view="${k}" class="${k===state.view?'on':''}">${t('views.'+k)}</button>`).join('');
   const show=state.view==='v1';
@@ -236,88 +236,77 @@ function animCar(s){
 }
 
 /* ---------- configurador ---------- */
-const CFG_STEPS=[[],['paviment'],['cuina_frontals_baixos','cuina_frontals_alts','cuina_taulell','cuina_led'],['bany_paviment','bany_parets','bany_paret_especial','bany_moble'],['fusteria_vidres'],[],[]];
-const AMB=['int_salo','int_salo','int_salo','int_dorm','int_terr','int_terr','int_salo'];
+const BATH=['bany_paviment','bany_parets','bany_paret_especial','bany_moble'];
+const ROOMS={S:{w:1280,h:960,cats:['paviment']},K:{w:1400,h:788,cats:['paviment','cuina_frontals_baixos','cuina_frontals_alts','cuina_taulell','cuina_led']},B1:{w:1280,h:960,cats:BATH},B2:{w:1280,h:960,cats:BATH}};
+const CSTEP=[{room:'S',cats:[]},{room:'S',cats:['paviment']},{room:'K',cats:['cuina_frontals_baixos','cuina_frontals_alts','cuina_taulell','cuina_led']},{room:'B1',cats:BATH},{room:'B2',cats:BATH},{room:'K',cats:['fusteria_vidres']},{room:'S',cats:[]},{room:'S',cats:[]}];
+const DEF={paviment:'SV.C',cuina_frontals_baixos:'FB.B',cuina_frontals_alts:'FA.B',cuina_taulell:'EC.A',cuina_led:'IL.B'};
+const skey=(room,cat)=>room[0]==='B'&&BATH.includes(cat)?room+':'+cat:cat;
 const opts=c=>D.finishes.options.filter(o=>o.cat===c);
-function cfgInit(id){const c=state.cfg;if(id){c.unit=id;if(c.step===0)c.step=1}D.finishes.options.forEach(o=>{if(!c.sel[o.cat])c.sel[o.cat]=o.code})}
-function renderCfg(){
-  cfgInit();const c=state.cfg,u=D.units.find(x=>x.id===c.unit);
-  $('#c-blur').style.backgroundImage=`url(int/${AMB[c.step]}.webp)`;
-  $('#c-steps').innerHTML=t('cfgSteps').map((s,i)=>`<button data-step="${i}" class="${i===c.step?'on':''} ${i<c.step?'done':''}" ${(i>0&&!c.unit)||(i===6&&!c.lead)?'disabled':''}><i>${i<c.step?'✓':i+1}</i>${s}</button>`).join('');
-  // board
-  const cats=CFG_STEPS[c.step];
-  let tiles;
-  if(c.step===0)tiles=D.units.slice(0,4).map(x=>`<div class="tile" style="background:#efe6d6 url(iso/${x.img}.webp) center/contain no-repeat"><span>${uName(x)}<small>${x.type}</small></span></div>`).join('');
-  else if(cats.length)tiles=cats.map(cat=>{const o=D.finishes.options.find(z=>z.code===c.sel[cat]);return o.img?`<div class="tile" style="background-image:url(sw/${o.img})"><span>${esc(o.name)}<small>${t('cat.'+cat)}</small></span></div>`:`<div class="tile led ${o.code==='IL.B'?'on':''}"><span>${esc(o.name)}<small>${t('cat.'+cat)}</small></span></div>`}).join('');
-  else tiles=Object.entries(c.sel).slice(0,4).map(([cat,code])=>{const o=D.finishes.options.find(z=>z.code===code);return o.img?`<div class="tile" style="background-image:url(sw/${o.img})"><span>${esc(o.name)}<small>${t('cat.'+cat)}</small></span></div>`:''}).join('');
-  $('#c-board').innerHTML=`<div class="amb"><img src="int/${AMB[c.step]}.webp" alt=""><span class="capt">${t('cfgAmb')}</span></div><div class="tiles">${tiles}</div>`;
-  // panel
-  const sc=$('#c-scroll');let h='';
+const optOf=code=>D.finishes.options.find(o=>o.code===code);
+const lyFile=(room,code)=>code==='IL.B'||!code?'':`cfg/${room}_${code.replace('.','_')}.webp`;
+function cfgInit(id){const c=state.cfg;if(id){c.unit=id;if(c.step===0)c.step=1}
+  D.finishes.options.forEach(o=>{[o.cat,'B1:'+o.cat,'B2:'+o.cat].forEach(k=>{if(k.includes(':')&&!BATH.includes(o.cat))return;if(!c.sel[k])c.sel[k]=DEF[o.cat]||opts(o.cat)[0].code})})}
+function roomHTML(room,cls=''){const r=ROOMS[room],c=state.cfg;return `<div class="room ${cls}" data-room="${room}" style="aspect-ratio:${r.w}/${r.h}"><img src="cfg/${room}_base.webp" alt="">${r.cats.map(cat=>{const f=lyFile(room,c.sel[skey(room,cat)]);return f?`<img class="ly" data-ly="${cat}" src="${f}" alt="">`:`<img class="ly" data-ly="${cat}" alt="" hidden>`}).join('')}</div>`}
+function fitRoom(){const b=$('#c-board'),rm=b&&b.querySelector('.room');if(!rm)return;const r=ROOMS[rm.dataset.room],W=b.clientWidth,H=b.clientHeight,s=Math.min(W/r.w,H/r.h);rm.style.width=Math.floor(r.w*s)+'px';rm.style.height=Math.floor(r.h*s)+'px'}
+function setLayer(room,cat){const rm=$('#c-board .room');if(!rm||rm.dataset.room!==room)return;const old=rm.querySelector(`[data-ly="${cat}"]`),f=lyFile(room,state.cfg.sel[skey(room,cat)]);
+  const sh=rm.querySelector('.shine');if(sh){sh.classList.remove('go');void sh.offsetWidth;sh.classList.add('go')}
+  if(!f){if(old){old.style.opacity=0;setTimeout(()=>{old.hidden=true;old.removeAttribute('src')},450)}return}
+  const n=new Image();n.className='ly';n.dataset.ly=cat;n.alt='';n.style.opacity=0;n.onload=()=>{requestAnimationFrame(()=>{n.style.opacity=1});setTimeout(()=>old&&old.remove(),500)};n.src=f;old?old.after(n):rm.appendChild(n)}
+function renderCfg(){cfgInit();const c=state.cfg,st=CSTEP[c.step],u=D.units.find(x=>x.id===c.unit);
+  $('#c-blur').style.backgroundImage=`url(cfg/${st.room}_base.webp)`;
+  $('#c-steps').innerHTML=t('cfgSteps').map((s,i)=>`<button data-step="${i}" class="${i===c.step?'on':''} ${i<c.step?'done':''}" ${(i>0&&!c.unit)||(i===7&&!c.lead)?'disabled':''}><i>${i<c.step?'✓':i+1}</i>${s}</button>`).join('');
+  const on=$('#c-steps .on');on&&on.scrollIntoView({inline:'center',block:'nearest'});
+  $('#c-board').innerHTML=roomHTML(st.room,'enter')+'';const rm=$('#c-board .room');rm.insertAdjacentHTML('beforeend',`<div class="shine"></div><span class="capt">${t('roomCap.'+st.room)} · ${t('cfgAmb')}</span><button class="pill sm cmpb" data-hold>${t('holdBase')}</button>`);fitRoom();
+  renderCfgPanel(true)}
+function renderCfgPanel(anim){const c=state.cfg,st=CSTEP[c.step],u=D.units.find(x=>x.id===c.unit),sc=$('#c-scroll');let h='';const keep=sc.scrollTop;
   if(c.step===0){h=`<span class="cat">1 · ${t('cfgSteps')[0]}</span><h2>${t('chooseUnit')}</h2><ul class="ulist">${D.units.map(x=>`<li><button data-cfgunit="${x.id}" style="${x.id===c.unit?'outline:2px solid var(--green);background:#fff':''}"><span class="badge ${x.status}"><i></i>${t('st.'+x.status)}</span><span><b>${uName(x)}</b><small>${x.type} · ${x.beds} ${t('beds')} · ${m2(x.built)}</small></span><span class="pr">${eur(x.price)}<small>${t('plusVat')}</small></span></button></li>`).join('')}</ul>`}
-  else if(cats.length){h=`<span class="cat">${c.step+1} · ${t('cfgSteps')[c.step]} · ${uName(u)}</span><h2>${t('cfgSteps')[c.step]}</h2><p class="prov" style="margin-top:8px">${t('cfgProv')}</p>`+cats.map(cat=>`<div class="grp"><h3>${t('cat.'+cat)}</h3><div class="ops">${opts(cat).map((o,i)=>`<button class="op ${c.sel[cat]===o.code?'on':''}" data-opt="${cat}|${o.code}"><div class="sw" style="${o.img?`background-image:url(sw/${o.img})`:o.code==='IL.B'?'background:linear-gradient(180deg,#fff6d8 0 20%,#3b3b3b 55%)':'background:#3b3b3b'}"></div><b>${esc(o.name)}</b><small>${esc(o.ref||o.code)}</small><em>${i===0?t('ref'):t('supp')}</em></button>`).join('')}</div></div>`).join('');
-    if(c.step===4)h+=`<div class="grp"><h3>${t('annexes')}</h3>${selAnnex('parking','park',t('noSlot'))}${selAnnex('moto','moto',t('noMoto'))}${selAnnex('storage','store',t('noStore'))}<button class="btn ghost" data-go="s-park" style="width:100%;margin-top:4px">${icon('car')} ${t('park')}</button></div>`}
-  else if(c.step===5){const ld=c.lead||{};h=`<span class="cat">6 · ${t('cfgSteps')[5]}</span><h2>${t('cfgSteps')[5]}</h2><p class="sub">${t('gate')}</p><form id="lead-f" novalidate>
+  else if(c.step<=5){h=`<span class="cat">${c.step+1} / 8 · ${uName(u)} · ${u.type}</span><h2>${t('cfgSteps')[c.step]}</h2><p class="prov" style="margin-top:8px">${t('cfgProv')}</p>`+(c.step===4&&u.baths>2?`<p class="note">${t('bath3')}</p>`:'')+st.cats.map(cat=>{const k=skey(st.room,cat);return `<div class="grp"><h3>${t('cat.'+cat)} <small>${esc(optOf(c.sel[k]).name)}</small></h3><div class="ops">${opts(cat).map(o=>{const d=(DEF[cat]||opts(cat)[0].code)===o.code;return `<button class="op ${c.sel[k]===o.code?'on':''}" data-opt="${cat}|${o.code}"><div class="sw" style="${o.img?`background-image:url(sw/${o.img})`:o.code==='IL.B'?'background:linear-gradient(180deg,#fff6d8 0 20%,#3b3b3b 55%)':'background:#3b3b3b'}"></div><b>${esc(o.name)}</b><small>${esc(o.ref||o.code)}</small><em>${d?t('ref'):t('supp')}</em></button>`}).join('')}</div></div>`}).join('');
+    if(c.step===5)h+=`<div class="grp"><h3>${t('annexes')}</h3>${selAnnex('parking','park',t('noSlot'))}${selAnnex('moto','moto',t('noMoto'))}${selAnnex('storage','store',t('noStore'))}<button class="btn ghost" data-go="s-park" style="width:100%;margin-top:4px">${icon('car')} ${t('park')}</button></div>`}
+  else if(c.step===6){const ld=c.lead||{};h=`<span class="cat">7 / 8</span><h2>${t('cfgSteps')[6]}</h2><p class="sub">${t('gate')}</p><form id="lead-f" novalidate>
    <div class="field"><label for="ld-n">${t('name')}</label><input id="ld-n" required autocomplete="name" value="${esc(ld.n||'')}"></div>
    <div class="field"><label for="ld-p">${t('phone')}</label><input id="ld-p" type="tel" required autocomplete="tel" value="${esc(ld.p||'')}"></div>
    <div class="field"><label for="ld-e">${t('email')}</label><input id="ld-e" type="email" autocomplete="email" value="${esc(ld.e||'')}"></div>
    <label class="chk"><input type="checkbox" id="ld-c" ${ld.c?'checked':''}><span>${t('consent')} <button type="button" data-legal style="text-decoration:underline">${t('privacy')}</button></span></label></form>`}
   else h=summaryHTML();
-  sc.innerHTML=h;sc.classList.remove('anim');void sc.offsetWidth;sc.classList.add('anim');sc.scrollTop=0;
+  sc.innerHTML=h;if(anim){sc.classList.remove('anim');void sc.offsetWidth;sc.classList.add('anim');sc.scrollTop=0}else{sc.classList.remove('anim');sc.scrollTop=keep}
   const tot=u?u.price+annexSum():0;
-  $('#c-bar').innerHTML=`<div class="tot"><small>${t('total')} · ${t('plusVat')}</small><b>${u?eur(tot):'—'}</b></div>${c.step>0?`<button class="btn ghost" data-cstep="-1">${t('prev')}</button>`:''}${c.step<5?`<button class="btn" data-cstep="1" ${!c.unit?'disabled':''}>${t('next')}</button>`:c.step===5?`<button class="btn" id="ld-go">${t('seeSum')}</button>`:''}`;
-}
+  $('#c-bar').innerHTML=`<div class="tot"><small>${t('total')} · ${t('plusVat')}</small><b>${u?eur(tot):'—'}</b></div>${c.step>0?`<button class="btn ghost" data-cstep="-1">${t('prev')}</button>`:''}${c.step<6?`<button class="btn" data-cstep="1" ${!c.unit?'disabled':''}>${t('next')}</button>`:c.step===6?`<button class="btn" id="ld-go">${t('seeSum')}</button>`:''}`}
 function selAnnex(kind,key,none){const c=state.cfg;const sl=D.annexes.filter(s=>s.kind===kind&&s.status==='available');return `<div class="field"><label>${t(kind)} · ${eur(sl[0]?.price)}</label><select data-annex="${key}"><option value="">${none}</option>${sl.map(s=>`<option value="${s.id}" ${c[key]===s.id?'selected':''}>${s.id}</option>`).join('')}</select></div>`}
 function annexSum(){const c=state.cfg;return ['park','moto','store'].reduce((a,k)=>a+(c[k]?D.annexes.find(s=>s.id===c[k]).price:0),0)}
-function summaryLines(){const c=state.cfg;return Object.entries(c.sel).map(([cat,code])=>({cat,o:D.finishes.options.find(z=>z.code===code)}))}
+function summaryLines(){const c=state.cfg,out=[];[['S',['paviment']],['K',CSTEP[2].cats],['B1',BATH],['B2',BATH],['K',['fusteria_vidres']]].forEach(([room,cats])=>cats.forEach(cat=>out.push({room,cat,o:optOf(c.sel[skey(room,cat)])})));return out}
 function summaryHTML(){
-  const c=state.cfg,u=D.units.find(x=>x.id===c.unit),ld=c.lead;
+  const c=state.cfg,u=D.units.find(x=>x.id===c.unit);
   const ann=['park','moto','store'].filter(k=>c[k]).map(k=>D.annexes.find(s=>s.id===c[k]));
-  return `<span class="cat">7 · ${t('cfgSteps')[6]}</span><h2>${t('sumTitle')}</h2><div class="sum">
+  return `<span class="cat">8 / 8</span><h2>${t('sumTitle')}</h2><div class="sum">
+  <div class="rooms4">${['S','K','B1','B2'].map(r=>`<figure>${roomHTML(r)}<figcaption>${t('roomCap.'+r)}</figcaption></figure>`).join('')}</div>
   <div class="blk"><h3>${uName(u)} · ${u.type} <small>${t('plusVat')}</small></h3><div class="ln"><i style="background-image:url(iso/${u.img}.webp);background-size:contain;background-repeat:no-repeat"></i><span>${u.beds} ${t('beds')} · ${m2(u.built)}${u.ext?' · '+t(u.extKind)+' '+m2(u.ext):''}</span><b>${eur(u.price)}</b></div>
   ${ann.map(s=>`<div class="ln"><i></i><span>${s.id}<small>${t(s.kind)}</small></span><b>${eur(s.price)}</b></div>`).join('')}</div>
-  <div class="blk"><h3>${t('finishes')} <small>${t('supp')}</small></h3>${summaryLines().map(({cat,o})=>`<div class="ln"><i style="${o.img?`background-image:url(sw/${o.img})`:''}"></i><span>${esc(o.name)}<small>${t('cat.'+cat)}</small></span><b>${o.code}</b></div>`).join('')}</div>
+  <div class="blk"><h3>${t('finishes')} <small>${t('supp')}</small></h3>${summaryLines().map(({room,cat,o})=>`<div class="ln"><i style="${o.img?`background-image:url(sw/${o.img})`:''}"></i><span>${esc(o.name)}<small>${t('roomCap.'+room)} · ${t('cat.'+cat)}</small></span><b>${o.code}</b></div>`).join('')}</div>
   <div class="grand"><small>${t('total')} · ${t('plusVat')}</small><small style="text-align:right">${t('vatIncl')}</small><b>${eur(u.price+annexSum())}</b><b style="text-align:right;font-size:18px">${eur(vat(u.price+annexSum()))}</b></div>
   <div class="row2"><a class="btn" href="${mailto(summaryText())}">${icon('mail')} ${t('sendMail')}</a><button class="btn ghost" data-copy="sum">${t('copy')}</button></div>
   <p class="note">${t('mailHint')} <b>${D.contact.email}</b></p><p class="note">${t('sumNote')}</p></div>`;
 }
 function summaryText(){const c=state.cfg,u=D.units.find(x=>x.id===c.unit),ld=c.lead||{};
   const ann=['park','moto','store'].filter(k=>c[k]).map(k=>D.annexes.find(s=>s.id===c[k]));
-  return [`Metge Mir 24 · ${t('sumTitle')}`,'',`${t('name')}: ${ld.n||''}`,`${t('phone')}: ${ld.p||''}`,`${t('email')}: ${ld.e||''}`,'',`${uName(u)} (${u.type}) · ${m2(u.built)} · ${eur(u.price)} ${t('plusVat')}`,...ann.map(s=>`${s.id} · ${t(s.kind)} · ${eur(s.price)} ${t('plusVat')}`),`${t('total')}: ${eur(u.price+annexSum())} ${t('plusVat')}`,'',t('finishes')+':',...summaryLines().map(({cat,o})=>`- ${t('cat.'+cat)}: ${o.name} (${o.code})`),'',t('sumNote')].join('\n')}
+  return [`Metge Mir 24 · ${t('sumTitle')}`,'',`${t('name')}: ${ld.n||''}`,`${t('phone')}: ${ld.p||''}`,`${t('email')}: ${ld.e||''}`,'',`${uName(u)} (${u.type}) · ${m2(u.built)} · ${eur(u.price)} ${t('plusVat')}`,...ann.map(s=>`${s.id} · ${t(s.kind)} · ${eur(s.price)} ${t('plusVat')}`),`${t('total')}: ${eur(u.price+annexSum())} ${t('plusVat')}`,'',t('finishes')+':',...summaryLines().map(({room,cat,o})=>`- ${t('roomCap.'+room)} · ${t('cat.'+cat)}: ${o.name} (${o.code})`),'',t('sumNote')].join('\n')}
 const mailto=(body,subj)=>`mailto:${D.contact.email}?subject=${encodeURIComponent(subj||'Metge Mir 24 · iShowi')}&body=${encodeURIComponent(body)}`;
 async function copyText(s){try{await navigator.clipboard.writeText(s);toast(t('copied'))}catch(e){modal(`<h2>${t('copy')}</h2><textarea style="width:100%;height:260px;border-radius:12px;border:1.5px solid var(--line);padding:10px;font-size:13px" readonly>${esc(s)}</textarea>`)}}
 
 /* ---------- entorno ---------- */
 const POI=[
-['tr','Sabadell Centre · Rodalies R4',230,320,'3–5 min','walk',1],['tr','Bus urbano TUS · Estació Centre',236,330,'3–5 min','walk',0],['tr','Estació d’autobusos interurbans',200,400,'4–7 min','walk',0],['tr','FGC Sabadell Plaça Major (S2)',215,1150,'13–17 min','walk',1],
-['sh','Supermercat · zona Alfons Sala',250,220,'2–4 min','walk',0],['sh','Mercadona · c/ de Lacy',175,500,'6–8 min','walk',1],['sh','Mercat Central',222,1450,'17–21 min','walk',1],
-['ed','UAB · Campus Sabadell',100,300,'3–5 min','walk',1],['ed','Col·legi Sagrada Família',240,650,'7–10 min','walk',0],['ed','Escola Sant Nicolau',198,800,'9–12 min','walk',0],['ed','ESDi · Escola Superior de Disseny',232,1000,'12–15 min','walk',1],
-['he','Farmàcia · c/ de Covadonga',262,280,'3–5 min','walk',1],['he','CAP Sabadell Centre',226,1700,'19–25 min','walk',0],['he','Hospital Parc Taulí',330,2050,'8–12 min','car',1],
-['le','Riu Ripoll · Mirador',60,260,'3–4 min','walk',1],['le','Plaça d’Antoni Llonch',210,450,'5–7 min','walk',0],['le','Plaça de Sant Salvador',300,420,'5–7 min','walk',0],['le','Parc de Catalunya',250,3500,'10–15 min','car',1],
-['ce','Biblioteca',230,480,'5–7 min','walk',0],['ce','Fira Sabadell',190,750,'8–11 min','walk',0],['ce','Rambla de Sabadell',225,1000,'12–15 min','walk',1],['ce','Plaça Major',220,1120,'12–17 min','walk',1],
-['tr','UAB · Campus Bellaterra',160,9500,'15–20 min','car',2],['tr','Barcelona · Plaça Catalunya',165,23000,'32–36 min','train',2],['tr','Aeroport del Prat · T1',190,40000,'35–55 min','car',2]];
+['tr','Sabadell Centre · Rodalies R4',350,'3–5 min','walk',0],['tr','Bus urbà TUS · Estació Centre',350,'3–5 min','walk',0],['tr','Estació d’autobusos interurbans',400,'4–7 min','walk',0],['sh','Supermercat · zona Alfons Sala',220,'2–4 min','walk',0],['sh','Mercadona · c/ de Lacy',500,'6–8 min','walk',0],['ed','UAB · Campus Sabadell',300,'3–5 min','walk',0],['he','Farmàcia · c/ de Covadonga',280,'3–5 min','walk',0],['le','Plaça de Sant Salvador',420,'5–7 min','walk',0],['le','Plaça d’Antoni Llonch',450,'5–7 min','walk',0],['ce','Biblioteca',480,'5–7 min','walk',0],['ed','Col·legi Sagrada Família',650,'7–10 min','walk',0],['ed','Escola Sant Nicolau',800,'9–12 min','walk',0],
+['ce','Fira Sabadell',750,'8–11 min','walk',1],['ed','ESDi · Escola Superior de Disseny',1000,'12–15 min','walk',1],['ce','Rambla de Sabadell',1000,'12–15 min','walk',1],['ce','Plaça Major',1120,'12–17 min','walk',1],['tr','FGC Sabadell Plaça Major (S2)',1150,'13–17 min','walk',1],['sh','Mercat Central',1450,'17–21 min','walk',1],['he','CAP Sabadell Centre',1700,'19–25 min','walk',1],['he','Hospital Parc Taulí',2050,'8–12 min','car',1],['le','Parc de Catalunya',3500,'10–15 min','car',1],
+['ed','UAB · Campus Bellaterra',9500,'15–20 min','car',2],['tr','Barcelona · Plaça Catalunya (R4)',23000,'32–36 min','train',2],['tr','Aeroport del Prat · T1',40000,'35–55 min','car',2]];
 const CC={tr:'#2e6bd8',sh:'#c08a1e',ed:'#7a4fc2',he:'#c0473c',le:'#2b8a55',ce:'#b8613a'};
-const SC=[1150,4200,45000];
-const pr=(d,sc)=>{const R=430;return sc===2?R*Math.sqrt(d/SC[2]):R*Math.min(d/SC[sc],1.06)};
+let entShown=-1;
 function renderEnt(){
-  const E=state.ent,sc=E.scale;
-  const rings=sc===0?[250,500,1000]:sc===1?[1000,2000,4000]:[5000,20000,40000];
-  $('#en-svg').innerHTML=`<defs><radialGradient id="rg"><stop offset="0" stop-color="#b8613a" stop-opacity=".35"/><stop offset="1" stop-color="#b8613a" stop-opacity="0"/></radialGradient></defs>
-  <circle cx="500" cy="500" r="${pr(sc===0?300:sc===1?1200:12000,sc)}" fill="url(#rg)"/>
-  ${rings.map(r=>`<circle cx="500" cy="500" r="${pr(r,sc)}" fill="none" stroke="rgba(255,255,255,.22)" stroke-dasharray="4 6"/><text class="ringl" x="${500+pr(r,sc)*0.71+6}" y="${500-pr(r,sc)*0.71}">${r>=1000?(r/1000)+' km':r+' m'}</text>`).join('')}
-  <path d="M500 40 l10 24 h-20z" fill="rgba(255,255,255,.7)"/><text x="500" y="84" text-anchor="middle" class="ringl">N</text>
-  <path d="M500 500 L ${500+Math.sin(-19*Math.PI/180)*440} ${500-Math.cos(-19*Math.PI/180)*440}" stroke="rgba(255,255,255,.08)" stroke-width="22"/>`;
-  const box=$('#en-svg').getBoundingClientRect();const s=Math.min(box.width,box.height)/1000,ox=(box.width-1000*s)/2,oy=(box.height-1000*s)/2;
-  const pos=(b,d)=>{const r=pr(d,sc),a=b*Math.PI/180;return [ox+(500+Math.sin(a)*r)*s,oy+(500-Math.cos(a)*r)*s]};
-  const mk=$('#en-marks');
-  if(!mk.children.length)mk.innerHTML=`<div class="mk home" style="left:50%;top:50%">Metge Mir 24</div>`+POI.map((p,i)=>`<button class="mk compact" data-poi="${i}" style="--c:${CC[p[0]]}"><i></i><span>${esc(p[1])}</span></button>`).join('');
-  const h=mk.querySelector('.home');h.style.left=(ox+500*s)+'px';h.style.top=(oy+500*s)+'px';
-  mk.querySelectorAll('[data-poi]').forEach(el=>{const p=POI[+el.dataset.poi];const vis=(sc===2?p[6]===2||p[3]>3000:p[6]<2&&p[3]<=SC[sc]*1.05)&&(E.cat==='all'||E.cat===p[0]);
-    const [x,y]=pos(p[2],p[3]);el.style.left=x+'px';el.style.top=y+'px';el.classList.toggle('hide',!vis);el.classList.toggle('sel',E.sel===+el.dataset.poi);el.querySelector('i').textContent=p[5]==='walk'?'':p[5]==='car'?'C':'T';});
-  const list=POI.map((p,i)=>[p,i]).filter(([p])=>(sc===2?p[6]===2||p[3]>3000:p[6]<2&&p[3]<=SC[sc]*1.05)&&(E.cat==='all'||E.cat===p[0])).sort((a,b)=>a[0][3]-b[0][3]);
+  const E=state.ent,sc=E.scale,st=$('#en-map');
+  if(entShown!==sc){const dir=sc>entShown?'out':'in';const old=st.querySelector('img');const n=new Image();n.alt=t('scale')[sc];n.className='new '+dir;n.onload=()=>{st.appendChild(n);requestAnimationFrame(()=>requestAnimationFrame(()=>{n.classList.remove('new');if(old){old.classList.add('gone',dir);setTimeout(()=>old.remove(),900)}}))};n.src=`map/e${sc+1}.webp`;entShown=sc}
+  const list=POI.filter(p=>p[5]===sc&&(E.cat==='all'||E.cat===p[0])).sort((a,b)=>a[2]-b[2]);
   $('#en-pan').innerHTML=`<span class="cat">Sabadell</span><h2>${t('ent')}</h2><p class="sub">${t('entLead')}</p>
   <div class="seg">${t('scale').map((l,i)=>`<button data-esc="${i}" class="${sc===i?'on':''}">${l}</button>`).join('')}</div>
   <div class="cats"><button data-ecat="all" class="${E.cat==='all'?'on':''}" style="--c:#555"><i>·</i>${t('allCats')}</button>${Object.keys(CC).map(k=>`<button data-ecat="${k}" class="${E.cat===k?'on':''}" style="--c:${CC[k]}"><i></i>${t('cats.'+k)}</button>`).join('')}</div>
-  <ul class="plist">${list.map(([p,i])=>`<li><button data-poi="${i}" class="${E.sel===i?'sel':''}" style="--c:${CC[p[0]]}"><i>${p[5]==='walk'?'':p[5]==='car'?'C':'T'}</i><span><b>${esc(p[1])}</b><small>${t('cats.'+p[0])} · ${p[3]>=1000?(p[3]/1000).toLocaleString(L)+' km':p[3]+' m'}</small></span><strong>${p[4]}<br><small>${t(p[5])}</small></strong></button></li>`).join('')}</ul>
+  <ul class="plist">${list.map(p=>`<li><button style="--c:${CC[p[0]]}"><i>${p[4]==='walk'?'':p[4]==='car'?'C':'T'}</i><span><b>${esc(p[1])}</b><small>${t('cats.'+p[0])} · ${p[2]>=1000?(p[2]/1000).toLocaleString(L)+' km':p[2]+' m'}</small></span><strong>${p[3]}<br><small>${t(p[4])}</small></strong></button></li>`).join('')}</ul>
   <p class="note">${t('entNote')}</p>`;
 }
 
@@ -328,41 +317,67 @@ function sunPos(ms,lat,lon){const n=ms/86400000+2440587.5-2451545;const Lm=(280.
   const el=Math.asin(Math.sin(la)*Math.sin(dec)+Math.cos(la)*Math.cos(dec)*Math.cos(H));const az=Math.atan2(-Math.sin(H),Math.tan(dec)*Math.cos(la)-Math.sin(la)*Math.cos(H));return {el:el/R,az:(az/R+360)%360}}
 function lastSun(y,m){const d=new Date(Date.UTC(y,m+1,0));return d.getUTCDate()-d.getUTCDay()}
 function madridMs(m,h){const y=2026,dst=(m>2&&m<9)||(m===2&&21>=lastSun(y,2))||(m===9&&21<lastSun(y,9));const off=dst?2:1;return Date.UTC(y,m,21,0,0)+(h-off)*3600000}
-function renderSol(){
-  const S=state.sol,sun=D.sun,p=sunPos(madridMs(S.m,S.h),sun.lat,sun.lon);
-  const sx=6,W=sun.footprint_m[0]*sx,H=sun.footprint_m[1]*sx,rot=sun.facades[0].az-360; // -19
-  const up=p.el>0, Ls=up?Math.min(sun.height_m/Math.tan(Math.max(p.el,3)*R),60)*sx:0, sa=(p.az+180)*R, dx=Math.sin(sa)*Ls, dy=-Math.cos(sa)*Ls;
-  // footprint in world coords (rotated)
-  const c=[300,300],cr=Math.cos(rot*R),sr=Math.sin(rot*R);const loc=[[-W/2,-H/2],[W/2,-H/2],[W/2,H/2],[-W/2,H/2]];const fp=loc.map(([x,y])=>[c[0]+x*cr-y*sr,c[1]+x*sr+y*cr]);
-  const sh=fp.map(([x,y])=>[x+dx,y+dy]);const quads=[0,1,2,3].map(i=>{const j=(i+1)%4;return [fp[i],fp[j],sh[j],sh[i]]});
-  const P=a=>a.map(q=>q.map(v=>v.toFixed(1)).join(',')).join(' ');
+let S3=null;
+function sol3dInit(){
+  if(S3||!window.THREE)return;const T=THREE,cv=$('#sol-3d');
+  const rn=new T.WebGLRenderer({canvas:cv,antialias:true});rn.setPixelRatio(Math.min(devicePixelRatio,2));rn.shadowMap.enabled=true;rn.shadowMap.type=T.PCFSoftShadowMap;
+  const sc=new T.Scene(),cam=new T.PerspectiveCamera(38,1,1,600);
+  const hemi=new T.HemisphereLight(0xdfe9f5,0x8a7a66,.75);sc.add(hemi);
+  const sun=new T.DirectionalLight(0xfff1d6,1.25);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-60,right:60,top:60,bottom:-60,near:1,far:300});sun.shadow.bias=-.0006;sc.add(sun);sc.add(sun.target);sun.target.position.set(-9,0,-9);
+  const M=c=>new T.MeshLambertMaterial({color:c});
+  const box=(x0,x1,y0,y1,z0,z1,m,cast=true)=>{const g=new T.Mesh(new T.BoxGeometry(x1-x0,y1-y0,z1-z0),m);g.position.set((x0+x1)/2,(y0+y1)/2,(z0+z1)/2);g.castShadow=cast;g.receiveShadow=true;sc.add(g);return g};
+  const gr=new T.Mesh(new T.PlaneGeometry(260,260),M(0xb9b3a8));gr.rotation.x=-Math.PI/2;gr.receiveShadow=true;sc.add(gr);
+  const road=M(0x6f6f72);box(0,8,0,.03,-60,60,road,false);box(-60,60,0,.03,0,8,road,false);
+  const est=M(0xeadcc0),soc=M(0xd9c7a6),grn=M(0x1f4d36),ter=M(0xb8613a),vei=M(0xcfc9c1),vei2=M(0xbdb6ad);
+  box(-17.7,0,0,2.96,-18.3,0,soc);box(-17.7,0,2.96,9.2,-18.3,0,est);
+  box(-17.7,0,9.2,10.1,-18.3,-18.0,est);box(-17.7,-17.4,9.2,10.1,-18.3,0,est);box(-.3,0,9.2,10.1,-18.3,0,est);box(-17.7,0,9.2,10.1,-.3,0,est);
+  box(-17.5,-3.8,9.2,11.3,-18.1,-4.4,est);
+  const roof=new T.Mesh(new T.ConeGeometry(1,1.3,4),ter);roof.rotation.y=Math.PI/4;roof.scale.set(13.7/1.414,1,13.7/1.414);roof.position.set(-10.65,11.95,-11.25);roof.castShadow=true;sc.add(roof);
+  for(let f=0;f<3;f++)for(let i=0;i<5;i++){const y=f===0?.6:3.6+(f-1)*3.05,h=f===0?1.9:2.3;box(0,.08,y,y+h,-16.6+i*3.4,-15.2+i*3.4,grn,false);box(-16.6+i*3.4,-15.2+i*3.4,y,y+h,0,.08,grn,false)}
+  [[-9,-5.5,3.5],[-9,-5.5,6.55]].forEach(([a,b,y])=>box(a,b,y,y+.12,0,.9,M(0x8d8d8d)));[[-12,-8.5,3.5],[-12,-8.5,6.55]].forEach(([a,b,y])=>box(0,.6,y,y+.12,a,b,M(0x8d8d8d)));
+  box(-29,-17.7,0,8.6,-18.3,0,vei);box(-17.7,0,0,9.5,-29.4,-18.3,vei2);box(-29,-17.7,0,8.2,-29.4,-18.3,vei);
+  box(8,16.5,0,8.2,-29,0,vei2);box(8,16.5,0,8.6,8,13.9,vei);box(-29,0,0,8.4,8,13.9,vei);
+  const label=(txt,x,y,z,s=7)=>{const c=document.createElement('canvas');c.width=512;c.height=96;const g=c.getContext('2d');g.fillStyle='rgba(255,252,246,.95)';g.beginPath();g.roundRect(4,4,504,88,44);g.fill();g.fillStyle='#1b211d';g.font='600 40px Plus Jakarta Sans, sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillText(txt,256,50);const sp=new T.Sprite(new T.SpriteMaterial({map:new T.CanvasTexture(c),depthTest:false}));sp.scale.set(s,s*96/512,1);sp.position.set(x,y,z);sc.add(sp);return sp};
+  label('C/ Metge Mir',4,1.2,-9);label('C/ Bonavista',-9,1.2,4);
+  const nd=[Math.cos(-341*R),Math.sin(-341*R)];const ar=new T.ArrowHelper(new T.Vector3(nd[0],0,nd[1]),new T.Vector3(10,.2,12),7,0xc0473c,2.2,1.4);sc.add(ar);label('N',10+nd[0]*8.5,1,12+nd[1]*8.5,2.2);
+  const sph=new T.Mesh(new T.SphereGeometry(1.6,20,20),new T.MeshBasicMaterial({color:0xf6c443}));sc.add(sph);
+  S3={rn,sc,cam,sun,hemi,sph,th:.85,ph:.95,rad:74};
+  let drag=null;cv.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY];cv.setPointerCapture(e.pointerId)});cv.addEventListener('pointermove',e=>{if(!drag)return;S3.th-=(e.clientX-drag[0])*.008;S3.ph=Math.max(.25,Math.min(1.45,S3.ph-(e.clientY-drag[1])*.006));drag=[e.clientX,e.clientY];sol3dDraw()});
+  ['pointerup','pointercancel'].forEach(v=>cv.addEventListener(v,()=>drag=null));cv.addEventListener('wheel',e=>{e.preventDefault();S3.rad=Math.max(40,Math.min(130,S3.rad+e.deltaY*.05));sol3dDraw()},{passive:false});
+  new ResizeObserver(()=>sol3dDraw()).observe(cv.parentElement);
+}
+function sol3dDraw(){if(!S3||state.screen!=='s-sol')return;const {rn,sc,cam,sun,hemi,sph}=S3,cv=rn.domElement,W=cv.parentElement.clientWidth,H=cv.parentElement.clientHeight;if(!W||!H)return;
+  rn.setSize(W,H,false);cam.aspect=W/H;cam.updateProjectionMatrix();
+  const c=[-9,4,-9];cam.position.set(c[0]+S3.rad*Math.sin(S3.ph)*Math.cos(S3.th),c[1]+S3.rad*Math.cos(S3.ph),c[2]+S3.rad*Math.sin(S3.ph)*Math.sin(S3.th));cam.lookAt(c[0],c[1],c[2]);
+  const p=S3.p||{el:40,az:180},a=(p.az-341)*R,e=Math.max(p.el,-10)*R,d=[Math.cos(a)*Math.cos(e),Math.sin(e),Math.sin(a)*Math.cos(e)];
+  sun.position.set(c[0]+d[0]*120,d[1]*120,c[2]+d[2]*120);sph.position.set(c[0]+d[0]*52,Math.max(d[1]*52,-5),c[2]+d[2]*52);sph.visible=p.el>-2;
+  const k=Math.max(0,Math.min(1,p.el/12));sun.intensity=1.3*k;sun.color.setHSL(.1,.75,.55+.35*Math.min(1,p.el/35));hemi.intensity=.22+.55*k;
+  sc.background=new THREE.Color().setHSL(.58,.45,.1+.72*k);rn.render(sc,cam)}
+const PH=[[6,3],[8.5,0],[13.5,1],[19.5,2],[21.8,3]];
+function renderSol(panel=true){
+  const S=state.sol,sun=D.sun,p=sunPos(madridMs(S.m,S.h),sun.lat,sun.lon),up=p.el>0;
+  const st=$('#s-sol .stg');st.classList.toggle('photo',S.mode==='photo');
+  if(S.mode==='photo'){let i=0;while(i<PH.length-2&&S.h>PH[i+1][0])i++;const a=PH[i],b=PH[i+1],f=Math.max(0,Math.min(1,(S.h-a[0])/(b[0]-a[0])));$$('#sol-ph img').forEach((im,k)=>{im.style.opacity=k===b[1]?f:k===a[1]?1:0;im.style.zIndex=k===b[1]?2:k===a[1]?1:0})}
+  else{sol3dInit();if(S3){S3.p=p;sol3dDraw()}}
   const lit=f=>up&&Math.cos((p.az-f.az)*R)>0;
-  const sunR=230,spx=300+Math.sin(p.az*R)*sunR*Math.cos(Math.max(p.el,0)*R),spy=300-Math.cos(p.az*R)*sunR*Math.cos(Math.max(p.el,0)*R);
-  const edge=(i,cls,label,off)=>{const a=fp[i],b=fp[(i+1)%4],mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,nx=mx-300,ny=my-300,nl=Math.hypot(nx,ny);return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${cls?'#f0b63a':'#7b827c'}" stroke-width="${cls?7:3}" stroke-linecap="round"/><text x="${mx+nx/nl*off}" y="${my+ny/nl*off}" text-anchor="middle" font-size="13" font-weight="700" fill="#1b211d" style="font-family:var(--f)">${label}</text>`};
-  $('#sol-svg').innerHTML=`<circle cx="300" cy="300" r="250" fill="rgba(255,255,255,.55)" stroke="#c9c2b4"/>
-  ${[['N',0],['E',90],['S',180],['O',270]].map(([l,a])=>`<text x="${300+Math.sin(a*R)*270}" y="${306-Math.cos(a*R)*270}" text-anchor="middle" font-size="14" font-weight="700" fill="#4a524c">${L==='ca'&&l==='O'?'O':l}</text>`).join('')}
-  <g opacity="${up?.28:0}" fill="#1b2a22">${quads.map(q=>`<polygon points="${P(q)}"/>`).join('')}<polygon points="${P(sh)}"/></g>
-  <polygon points="${P(fp)}" fill="#f1e5cf" stroke="#1f4d36" stroke-width="2"/>
-  ${edge(0,lit(sun.facades[0]),'Metge Mir',34)}${edge(1,lit(sun.facades[1]),'Bonavista',40)}${edge(2,lit(sun.facades[2]),L==='ca'?'Pati':'Patio',30)}
-  <line x1="300" y1="300" x2="${spx}" y2="${spy}" stroke="${up?'#f0b63a':'transparent'}" stroke-width="2" stroke-dasharray="5 5"/>
-  <circle cx="${spx}" cy="${spy}" r="${up?16:0}" fill="#f6c443" stroke="#fff" stroke-width="3"/>`;
   $('#sol-read').innerHTML=up?`<span class="pill">${t('sunUp')} <b>${Math.round(p.az)}°</b></span><span class="pill"><b>${Math.round(p.el)}°</b> ${t('elev')}</span>`:`<span class="pill dark">${t('night')}</span>`;
-  // daily hours per facade
+  const hh=Math.floor(S.h),mi=Math.round((S.h-hh)*60),hs=`${String(hh).padStart(2,'0')}:${String(mi).padStart(2,'0')}`;
+  if(!panel){$('#sol-ho').textContent=hs;$('#sol-h').value=S.h;$$('#sol-fac div').forEach((d,i)=>d.classList.toggle('lit',lit(sun.facades[i])));const cx=(S.h-5)/17.5*400,cy=140-Math.max(p.el,-5)/75*130;const dot=$('#sol-dot');dot&&(dot.setAttribute('cx',cx),dot.setAttribute('cy',cy));return}
   const hrs=sun.facades.map(f=>{let n=0;for(let mm=0;mm<24*60;mm+=5){const q=sunPos(madridMs(S.m,mm/60),sun.lat,sun.lon);if(q.el>0&&Math.cos((q.az-f.az)*R)>0)n+=5}return n});
   const fmt=n=>`${Math.floor(n/60)} h ${String(n%60).padStart(2,'0')}`;
-  const hh=Math.floor(S.h),mi=Math.round((S.h-hh)*60);
-  $('#sol-pan').innerHTML=`<span class="cat">${L==='ca'?'Simulació':'Simulación'}</span><h2>${t('sol')}</h2><p class="sub">${t('solLead')}</p>
-  <div class="sl"><span>${t('month')}</span><input type="range" class="mo" min="0" max="11" step="1" value="${S.m}" id="sol-m" aria-label="${t('month')}"><output>${t('months')[S.m]}</output></div>
-  <div class="sl"><span>${t('hour')}</span><input type="range" min="6" max="22" step=".25" value="${S.h}" id="sol-h" aria-label="${t('hour')}"><output>${String(hh).padStart(2,'0')}:${String(mi).padStart(2,'0')}</output></div>
-  <svg id="sol-chart" viewBox="0 0 400 150" preserveAspectRatio="none"></svg>
-  <p class="sub" style="margin-top:12px">${t('litToday')}</p>
-  <div class="fac">${sun.facades.map((f,i)=>`<div class="${lit(f)?'lit':''}"><u></u><span><b>${f[L]}</b><small>${L==='ca'?'Orientació':'Orientación'} ${f.az}°</small></span><strong>${fmt(hrs[i])}</strong></div>`).join('')}</div>
-  <p class="note">${t('solNote')}</p>`;
-  // chart elevation
   const pts=[];for(let hr=5;hr<=22.5;hr+=.25){const q=sunPos(madridMs(S.m,hr),sun.lat,sun.lon);pts.push([(hr-5)/17.5*400,140-Math.max(q.el,-5)/75*130])}
   const cx=(S.h-5)/17.5*400,cy=140-Math.max(p.el,-5)/75*130;
-  $('#sol-chart').innerHTML=`<line x1="0" y1="140" x2="400" y2="140" stroke="#9aa"/><path d="M${pts.map(q=>q.map(v=>v.toFixed(1)).join(',')).join(' L')}" fill="none" stroke="#e0a85a" stroke-width="3"/><circle cx="${cx}" cy="${cy}" r="6" fill="#f6c443" stroke="#fff" stroke-width="2"/>${[8,12,16,20].map(h=>`<text x="${(h-5)/17.5*400}" y="148" font-size="9" text-anchor="middle" fill="#667">${h}h</text>`).join('')}`;
+  $('#sol-pan').innerHTML=`<span class="cat">${L==='ca'?'Simulació 3D':'Simulación 3D'}</span><h2>${t('sol')}</h2><p class="sub">${t('solLead')}</p>
+  <div class="seg"><button data-solmode="3d" class="${S.mode!=='photo'?'on':''}">${t('sol3d')}</button><button data-solmode="photo" class="${S.mode==='photo'?'on':''}">${t('solPhoto')}</button><button data-solplay class="${S.play?'on':''}">${S.play?'❚❚':'▶'} ${t('solPlay')}</button></div>
+  <div class="sl"><span>${t('month')}</span><input type="range" class="mo" min="0" max="11" step="1" value="${S.m}" id="sol-m" aria-label="${t('month')}"><output>${t('months')[S.m]}</output></div>
+  <div class="sl"><span>${t('hour')}</span><input type="range" min="6" max="22" step=".25" value="${S.h}" id="sol-h" aria-label="${t('hour')}"><output id="sol-ho">${hs}</output></div>
+  <svg id="sol-chart" viewBox="0 0 400 150" preserveAspectRatio="none"><line x1="0" y1="140" x2="400" y2="140" stroke="#9aa"/><path d="M${pts.map(q=>q.map(v=>v.toFixed(1)).join(',')).join(' L')}" fill="none" stroke="#e0a85a" stroke-width="3"/><circle id="sol-dot" cx="${cx}" cy="${cy}" r="6" fill="#f6c443" stroke="#fff" stroke-width="2"/>${[8,12,16,20].map(h=>`<text x="${(h-5)/17.5*400}" y="148" font-size="9" text-anchor="middle" fill="#667">${h}h</text>`).join('')}</svg>
+  <p class="sub" style="margin-top:12px">${t('litToday')}</p>
+  <div class="fac" id="sol-fac">${sun.facades.map((f,i)=>`<div class="${lit(f)?'lit':''}"><u></u><span><b>${f[L]}</b><small>${L==='ca'?'Orientació':'Orientación'} ${f.az}°</small></span><strong>${fmt(hrs[i])}</strong></div>`).join('')}</div>
+  <p class="note">${t('solNote')}</p>`;
 }
+let solTimer=null;
+function solPlay(on){state.sol.play=on;clearInterval(solTimer);if(on)solTimer=setInterval(()=>{if(state.screen!=='s-sol'){solPlay(false);return}state.sol.h+=.125;if(state.sol.h>22)state.sol.h=6;renderSol(false)},60);renderSol()}
 
 /* ---------- obra, calidades, galería, contacto ---------- */
 function renderObra(){
@@ -376,8 +391,8 @@ function renderObra(){
 const CAL={es:[['Fachadas y zonas comunes',['Fachadas estucadas con zócalo cerámico en la fachada principal','Carpintería exterior de aluminio con rotura de puente térmico y aislamiento acústico','Persianas térmicas motorizadas','Vestíbulo con revestimiento de madera y gres porcelánico de gran formato','Ascensor OTIS o similar']],['Terrazas, aparcamiento y trasteros',['Pavimento de gres porcelánico antideslizante en terrazas y balcones','Punto de luz y enchufe en terrazas','Barandillas de hierro pintadas','Puerta de garaje automática y pavimento de hormigón','Trasteros enyesados y pintados con punto de luz']],['Interiores',['Parquet flotante laminado','Baños con revestimiento cerámico en todas las zonas','Platos de ducha de resinas minerales','Sanitarios ROCA y grifería IMEX o similar','Lavabo cerámico con mueble suspendido de dos cajones']],['Cocina',['Muebles altos y bajos según distribución','Placa de inducción, campana integrada y horno multifunción Balay o similar','Encimera y frontal de 70 cm en material tipo Corian','Fregadero de acero inoxidable encastado']],['Carpintería e instalaciones',['Puertas block de DM lacadas en blanco','Puerta de seguridad de acceso','Aerotermia para agua caliente sanitaria','Climatización por conductos frío/calor (fan-coil)','Videoportero y preinstalación de lavadora y secadora']]],
 ca:[['Façanes i zones comunes',['Façanes estucades amb sòcol ceràmic a la façana principal','Fusteria exterior d’alumini amb trencament de pont tèrmic i aïllament acústic','Persianes tèrmiques motoritzades','Vestíbul amb revestiment de fusta i gres porcel·lànic de gran format','Ascensor OTIS o similar']],['Terrasses, aparcament i trasters',['Paviment de gres porcel·lànic antilliscant a terrasses i balcons','Punt de llum i endoll a les terrasses','Baranes de ferro pintades','Porta de garatge automàtica i paviment de formigó','Trasters enguixats i pintats amb punt de llum']],['Interiors',['Parquet flotant laminat','Banys amb revestiment ceràmic a totes les zones','Plats de dutxa de resines minerals','Sanitaris ROCA i aixetes IMEX o similar','Lavabo ceràmic amb moble suspès de dos calaixos']],['Cuina',['Mobles alts i baixos segons distribució','Placa d’inducció, campana integrada i forn multifunció Balay o similar','Taulell i frontal de 70 cm en material tipus Corian','Aigüera d’acer inoxidable encastada']],['Fusteria i instal·lacions',['Portes block de DM lacades en blanc','Porta de seguretat d’accés','Aerotèrmia per a aigua calenta sanitària','Climatització per conductes fred/calor (fan-coil)','Videoporter i preinstal·lació de rentadora i assecadora']]]};
 function renderCal(){$('#cal').innerHTML=`<h1>${t('calTitle')}</h1><p class="lead">${t('calLead')}</p><div class="grid2">${CAL[L].map(([h,l])=>`<div class="box"><h2>${h}</h2><ul>${l.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')}</div><p class="note">${L==='ca'?'SUBJECTE A MODIFICACIONS PER NECESSITATS DE L’OBRA':'SUJETO A MODIFICACIONES POR NECESIDADES DE LA OBRA'}</p>`}
-const GAL=[['img/fac_hero.webp','v1',1],['img/fac_atic.webp','v5',0],['img/fac_balcons.webp','v4',0],['int/int_salo.webp','salo',1],['int/int_dorm.webp','dorm',0],['int/int_terr.webp','terr',0],['img/fac_acces.webp','v2',0],['img/fac_frontal.webp','v3',0],['img/fac_terrassa.webp','v6',1]];
-const galCap=k=>({salo:L==='ca'?'Sala d’estar del dúplex':'Salón del dúplex',dorm:L==='ca'?'Dormitori':'Dormitorio',terr:L==='ca'?'Sortida a la terrassa':'Salida a la terraza'})[k]||t('views.'+k);
+const GAL=[['sun/s2.webp','v1',1],['sun/s4.webp','nit',0],['img/fac_atic.webp','v5',0],['img/fac_balcons.webp','v4',0],['int/int_salo.webp','salo',1],['int/int_dorm.webp','dorm',0],['int/int_terr.webp','terr',0],['img/fac_acces.webp','v2',0],['img/fac_frontal.webp','v3',0],['img/fac_terrassa.webp','v6',1]];
+const galCap=k=>({nit:L==='ca'?'De nit':'De noche',salo:L==='ca'?'Sala d’estar del dúplex':'Salón del dúplex',dorm:L==='ca'?'Dormitori':'Dormitorio',terr:L==='ca'?'Sortida a la terrassa':'Salida a la terraza'})[k]||t('views.'+k);
 function renderGal(){$('#gal').innerHTML=GAL.map((g,i)=>`<button class="${g[2]?'w':''}" data-lb="${i}"><img src="${g[0]}" alt="${galCap(g[1])}" loading="lazy"><span>${galCap(g[1])}</span></button>`).join('')}
 let lbI=0;function lb(i){lbI=(i+GAL.length)%GAL.length;$('#lb-img').src=GAL[lbI][0];$('#lb-cap').textContent=galCap(GAL[lbI][1]);$('#lb').classList.add('on')}
 function renderCon(){const u=state.unit;$('#con').innerHTML=`<h1>${t('conTitle')}</h1><p class="lead">${t('conLead')}</p><div class="grid2"><form class="box" id="con-f" novalidate>
@@ -406,20 +421,21 @@ document.addEventListener('click',e=>{
   if(el=g('[data-ag]')){toast(t('agentToast'));return}
   if(el=g('[data-slot]')){state.park.sel=el.dataset.slot;renderPark();return}
   if(el=g('[data-pf]')){state.park.filter=el.dataset.pf;renderPark();return}
-  if(el=g('[data-addslot]')){const s=D.annexes.find(x=>x.id===el.dataset.addslot);state.cfg[{parking:'park',moto:'moto',storage:'store'}[s.kind]]=s.id;if(!state.cfg.unit){state.cfg.step=0}else state.cfg.step=4;go('s-cfg');return}
+  if(el=g('[data-addslot]')){const s=D.annexes.find(x=>x.id===el.dataset.addslot);state.cfg[{parking:'park',moto:'moto',storage:'store'}[s.kind]]=s.id;if(!state.cfg.unit){state.cfg.step=0}else state.cfg.step=5;go('s-cfg');return}
   if(el=g('[data-askslot]')){go('s-con');setTimeout(()=>{$('#cf-m').value=`${el.dataset.askslot} · `},50);return}
   if(el=g('[data-step]')){if(!el.disabled){state.cfg.step=+el.dataset.step;renderCfg()}return}
   if(el=g('[data-cfgunit]')){state.cfg.unit=el.dataset.cfgunit;renderCfg();return}
-  if(el=g('[data-opt]')){const [c,o]=el.dataset.opt.split('|');state.cfg.sel[c]=o;renderCfg();return}
-  if(el=g('[data-cstep]')){state.cfg.step=Math.max(0,Math.min(6,state.cfg.step+ +el.dataset.cstep));renderCfg();return}
+  if(el=g('[data-opt]')){const [c,o]=el.dataset.opt.split('|'),rm=CSTEP[state.cfg.step].room;state.cfg.sel[skey(rm,c)]=o;setLayer(rm,c);renderCfgPanel(false);return}
+  if(el=g('[data-solmode]')){state.sol.mode=el.dataset.solmode;renderSol();return}
+  if(el=g('[data-solplay]')){solPlay(!state.sol.play);return}
+  if(el=g('[data-cstep]')){state.cfg.step=Math.max(0,Math.min(7,state.cfg.step+ +el.dataset.cstep));renderCfg();return}
   if(el=g('#ld-go')){const n=$('#ld-n').value.trim(),p=$('#ld-p').value.trim(),em=$('#ld-e').value.trim(),c=$('#ld-c').checked;
     if(!n||p.replace(/\D/g,'').length<9||!c){toast(L==='ca'?'Omple nom, telèfon i accepta la privacitat':'Rellena nombre, teléfono y acepta la privacidad');return}
-    state.cfg.lead={n,p,e:em,c};state.cfg.step=6;renderCfg();return}
+    state.cfg.lead={n,p,e:em,c};state.cfg.step=7;renderCfg();return}
   if(el=g('[data-copy]')){copyText(el.dataset.copy==='sum'?summaryText():D.contact.email);return}
   if(el=g('[data-esc]')){state.ent.scale=+el.dataset.esc;state.ent.sel=null;renderEnt();return}
   if(el=g('[data-ecat]')){state.ent.cat=el.dataset.ecat;renderEnt();return}
-  if(el=g('[data-poi]')){state.ent.sel=+el.dataset.poi;renderEnt();return}
-  if(el=g('[data-lb]')){lb(+el.dataset.lb);return}
+    if(el=g('[data-lb]')){lb(+el.dataset.lb);return}
 });
 document.addEventListener('change',e=>{
   const el=e.target;
@@ -428,7 +444,7 @@ document.addEventListener('change',e=>{
   if(el.dataset.annex){state.cfg[el.dataset.annex]=el.value||null;renderCfg()}
   if(el.id==='pay-u'){state.unit=D.units.find(u=>u.id===el.value);renderObra()}
 });
-document.addEventListener('input',e=>{if(e.target.id==='sol-m'){state.sol.m=+e.target.value;renderSol();$('#sol-m').focus()}if(e.target.id==='sol-h'){state.sol.h=+e.target.value;renderSol();$('#sol-h').focus()}});
+document.addEventListener('input',e=>{if(e.target.id==='sol-m'){state.sol.m=+e.target.value;renderSol();$('#sol-m').focus()}if(e.target.id==='sol-h'){state.sol.h=+e.target.value;renderSol(false)}});
 document.addEventListener('submit',e=>{if(e.target.id==='con-f'){e.preventDefault();const n=$('#cf-n').value.trim(),p=$('#cf-p').value.trim();if(!n||p.replace(/\D/g,'').length<9||!$('#cf-c').checked){toast(L==='ca'?'Omple nom, telèfon i accepta la privacitat':'Rellena nombre, teléfono y acepta la privacidad');return}
   const uid=$('#cf-u').value,u=D.units.find(x=>x.id===uid);const body=[`${t('name')}: ${n}`,`${t('phone')}: ${p}`,`${t('email')}: ${$('#cf-e').value}`,u?`${t('dock.viv')}: ${uName(u)} (${u.type}) · ${eur(u.price)} ${t('plusVat')}`:'','',$('#cf-m').value].join('\n');
   $('#cf-ok').innerHTML=`<p class="note">${t('sentOk')} <b>${D.contact.email}</b></p><div class="row2"><a class="btn" href="${mailto(body,'Metge Mir 24 · '+(L==='ca'?'Sol·licitud d’informació':'Solicitud de información'))}">${icon('mail')} ${t('sendMail')}</a><button type="button" class="btn ghost" id="cf-cp">${t('copy')}</button></div>`;
@@ -443,11 +459,15 @@ $('#b-agent').onclick=()=>{if(state.agent){state.agent=false;$('#agentbar').hidd
   $('#ag-go').onclick=()=>{state.agent=true;closeModal();$('#agentbar').hidden=false;$('#b-agent span').textContent=t('logout');toast(t('agentDemo'));state.screen==='s-pis'&&renderPis()}};
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeSheet();$('#lb').classList.remove('on');$('#menu').classList.remove('on')}
   if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.slot){state.park.sel=e.target.dataset.slot;renderPark()}});
-new ResizeObserver(()=>{state.screen==='s-ent'&&renderEnt()}).observe($('#s-ent .stg'));
-$('#enter').onclick=()=>{$('#intro').classList.add('out')};
+new ResizeObserver(()=>fitRoom()).observe($('#c-board'));
+$('#enter').onclick=()=>{const i=$('#intro');i.classList.add('zoom');const v=$('#intro video');v&&v.pause();setTimeout(()=>i.classList.add('out'),900)};
+const hold=(e,on)=>{const b=e.target.closest&&e.target.closest('[data-hold]');if(b||!on)$$('#c-board .ly').forEach(l=>l.style.visibility=on&&b?'hidden':'')};
+document.addEventListener('pointerdown',e=>hold(e,true));document.addEventListener('pointerup',e=>hold(e,false));document.addEventListener('pointercancel',e=>hold(e,false));
 
 /* ---------- boot ---------- */
 fetch('data/promocion.json').then(r=>r.json()).then(j=>{D=j;
   const h=(location.hash||'').slice(1);if(h&&$('#s-'+h))state.screen='s-'+h;
+  if(D.media.intro){const v=document.createElement('video');Object.assign(v,{src:D.media.intro,muted:true,loop:true,autoplay:true,playsInline:true});v.onerror=()=>v.remove();$('#intro .kb').after(v)}
+  if(D.media.general){const v=document.createElement('video');Object.assign(v,{src:D.media.general,muted:true,loop:true,autoplay:true,playsInline:true});v.onerror=()=>v.remove();$('#c-blur').appendChild(v)}
   if(h)$('#intro').classList.add('out');applyLang()}).catch(()=>{document.querySelector('.intro-c p').textContent=T[L].loadErr});
 }
