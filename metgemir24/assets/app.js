@@ -19,7 +19,7 @@ views:{v1:'Esquina',v2:'Acceso',v3:'Fachada',v4:'Balcones',v5:'Ático',v6:'Terra
 floorUnits:'Viviendas en esta planta',park:'Aparcamiento',parkLead:'Plazas de coche, de moto y trastero en el sótano. Toca una plaza para verla y su recorrido desde la rampa.',
 parking:'Plaza de coche',moto:'Plaza de moto',storage:'Trastero',addToCfg:'Añadir a mi configuración',askSlot:'Preguntar por esta plaza',pickSlot:'Elige una plaza en el plano',
 parkNote:'Precios sin IVA. Las plazas y el trastero se venden como anexo de una vivienda (IVA 10 %); vendidos por separado tributan al 21 %.',
-cfgSteps:['Vivienda','Suelo','Cocina','Baño 1','Baño 2','Otros','Tus datos','Resumen'],roomCap:{S:'Salón-comedor',K:'Cocina',B1:'Baño 1',B2:'Baño 2 (suite)'},holdBase:'Mantén para ver la base',bath3:'El tercer baño del dúplex sigue los acabados del baño 2.',sol3d:'Maqueta 3D',solPhoto:'Imagen real',solPlay:'Día completo',
+cfgSteps:['Vivienda','Suelo','Cocina','Baño 1','Baño 2','Interiorismo','Otros','Tus datos','Resumen'],roomCap:{S:'Salón-comedor',K:'Cocina',B1:'Baño 1',B2:'Baño 2 (suite)'},holdBase:'Mantén para ver la base',bath3:'El tercer baño del dúplex sigue los acabados del baño 2.',sol3d:'Maqueta 3D',solPhoto:'Imagen real',solPlay:'Día completo',
 cfgProv:'Acabados provisionales pendientes de validación del promotor. Los suplementos se confirmarán antes de la reserva.',
 cfgAmb:'simulación orientativa',chooseUnit:'¿Qué vivienda quieres configurar?',
 cat:{paviment:'Pavimento general',cuina_frontals_baixos:'Frentes bajos de cocina',cuina_frontals_alts:'Frentes altos de cocina',cuina_taulell:'Encimera',cuina_led:'Iluminación LED',bany_paviment:'Pavimento de baño',bany_parets:'Revestimiento de paredes',bany_paret_especial:'Pared especial (ducha)',bany_moble:'Mueble de lavabo',fusteria_vidres:'Acristalamiento'},
@@ -36,7 +36,7 @@ sol:'Sol',solLead:'Gira la maqueta y mueve el mes y la hora para ver el sol y la
 months:['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],sunUp:'Sol a',elev:'de altura',night:'El sol está bajo el horizonte',
 litToday:'Horas de sol directo ese día por fachada (cielo despejado)',solNote:'Simulación orientativa. Modelo 3D del proyecto con su entorno; orientación estimada sobre cartografía (Metge Mir 341°, Bonavista 71°), pendiente de validar por el arquitecto. Las imágenes reales corresponden al mes de mayo.',
 obraTitle:'Obra y forma de pago',obraLead:'Calendario y forma de pago orientativos, pendientes de confirmar por el promotor.',
-miles:[['Licencia de obras','En tramitación'],['Inicio de obras','Por confirmar'],['Estructura','Por confirmar'],['Cubierta y cerramientos','Por confirmar'],['Entrega de llaves','Por confirmar']],
+miles:[['Licencia de obras','Concedida','done'],['Inicio de obras','En curso','next'],['Estructura','Por confirmar'],['Cubierta y cerramientos','Por confirmar'],['Entrega de llaves','Por confirmar']],
 payTitle:'Forma de pago orientativa',pay:[['Reserva','Se descuenta del primer pago',null],['Contrato privado (arras)','A la firma',.10],['Durante la obra','Según hitos de obra',.10],['Durante la obra','Cubierta',.20],['Escritura','A la entrega',.60]],
 payNote:'Ejemplo calculado sobre la vivienda seleccionada, sin IVA. Las cantidades entregadas a cuenta se garantizan según la normativa vigente. Condiciones definitivas a confirmar por el promotor.',
 payFor:'Ejemplo para',calTitle:'Memoria de calidades',calLead:'Resumen de la memoria de calidades del dossier comercial. Sujeta a modificaciones por necesidades de la obra.',
@@ -63,7 +63,7 @@ views:{v1:'Cantonada',v2:'Accés',v3:'Façana',v4:'Balcons',v5:'Àtic',v6:'Terra
 floorUnits:'Habitatges d’aquesta planta',park:'Aparcament',parkLead:'Places de cotxe, de moto i traster al soterrani. Toca una plaça per veure-la i el recorregut des de la rampa.',
 parking:'Plaça de cotxe',moto:'Plaça de moto',storage:'Traster',addToCfg:'Afegir a la meva configuració',askSlot:'Preguntar per aquesta plaça',pickSlot:'Tria una plaça al plànol',
 parkNote:'Preus sense IVA. Les places i el traster es venen com a annex d’un habitatge (IVA 10 %); venuts per separat tributen al 21 %.',
-cfgSteps:['Habitatge','Terra','Cuina','Bany 1','Bany 2','Altres','Les teves dades','Resum'],roomCap:{S:'Saló-menjador',K:'Cuina',B1:'Bany 1',B2:'Bany 2 (suite)'},holdBase:'Mantén per veure la base',bath3:'El tercer bany del dúplex segueix els acabats del bany 2.',sol3d:'Maqueta 3D',solPhoto:'Imatge real',solPlay:'Dia complet',
+cfgSteps:['Habitatge','Terra','Cuina','Bany 1','Bany 2','Interiorisme','Altres','Les teves dades','Resum'],roomCap:{S:'Saló-menjador',K:'Cuina',B1:'Bany 1',B2:'Bany 2 (suite)'},holdBase:'Mantén per veure la base',bath3:'El tercer bany del dúplex segueix els acabats del bany 2.',sol3d:'Maqueta 3D',solPhoto:'Imatge real',solPlay:'Dia complet',
 cfgProv:'Acabats provisionals pendents de validació del promotor. Els suplements es confirmaran abans de la reserva.',
 cfgAmb:'simulació orientativa',chooseUnit:'Quin habitatge vols configurar?',
 cat:{paviment:'Paviment general',cuina_frontals_baixos:'Frontals baixos de cuina',cuina_frontals_alts:'Frontals alts de cuina',cuina_taulell:'Taulell',cuina_led:'Il·luminació LED',bany_paviment:'Paviment del bany',bany_parets:'Revestiment de parets',bany_paret_especial:'Paret especial (dutxa)',bany_moble:'Moble de lavabo',fusteria_vidres:'Vidres'},
@@ -80,7 +80,7 @@ sol:'Sol',solLead:'Gira la maqueta i mou el mes i l’hora per veure el sol i le
 months:['gen','febr','març','abr','maig','juny','jul','ag','set','oct','nov','des'],sunUp:'Sol a',elev:'d’altura',night:'El sol és sota l’horitzó',
 litToday:'Hores de sol directe aquell dia per façana (cel serè)',solNote:'Simulació orientativa. Model 3D del projecte amb el seu entorn; orientació estimada sobre cartografia (Metge Mir 341°, Bonavista 71°), pendent de validar per l’arquitecte. Les imatges reals corresponen al mes de maig.',
 obraTitle:'Obra i forma de pagament',obraLead:'Calendari i forma de pagament orientatius, pendents de confirmar pel promotor.',
-miles:[['Llicència d’obres','En tràmit'],['Inici d’obres','Per confirmar'],['Estructura','Per confirmar'],['Coberta i tancaments','Per confirmar'],['Lliurament de claus','Per confirmar']],
+miles:[['Llicència d’obres','Concedida','done'],['Inici d’obres','En curs','next'],['Estructura','Per confirmar'],['Coberta i tancaments','Per confirmar'],['Lliurament de claus','Per confirmar']],
 payTitle:'Forma de pagament orientativa',pay:[['Reserva','Es descompta del primer pagament',null],['Contracte privat (arres)','A la signatura',.10],['Durant l’obra','Segons fites d’obra',.10],['Durant l’obra','Coberta',.20],['Escriptura','Al lliurament',.60]],
 payNote:'Exemple calculat sobre l’habitatge seleccionat, sense IVA. Les quantitats lliurades a compte es garanteixen segons la normativa vigent. Condicions definitives a confirmar pel promotor.',
 payFor:'Exemple per a',calTitle:'Memòria de qualitats',calLead:'Resum de la memòria de qualitats del dossier comercial. Subjecta a modificacions per necessitats de l’obra.',
@@ -93,7 +93,7 @@ agentOn:'Mode agent (demo)',logout:'Sortir',apalabrar:'Aparaular 72 h',reservar:
 home:'Edifici',cmpTitle:'Comparar habitatges',close:'Tancar',from:'des de',total12:'12 habitatges',dup3:'3 dúplex amb terrassa',walk5:'R4 a 5 min',floorsN:'PB + 2 + àtic',
 loadErr:'No s’han pogut carregar les dades de la promoció.'}};
 const t=k=>{const v=k.split('.').reduce((o,p)=>o&&o[p],T[L]);return v===undefined?k:v};
-const eur=n=>n==null?'—':new Intl.NumberFormat(L==='ca'?'ca-ES':'es-ES',{maximumFractionDigits:0}).format(Math.round(n))+' €';
+const eur=n=>n==null?'—':new Intl.NumberFormat(L==='ca'?'ca-ES':'es-ES',{maximumFractionDigits:0,useGrouping:'always'}).format(Math.round(n))+' €';
 const m2=n=>new Intl.NumberFormat(L==='ca'?'ca-ES':'es-ES',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+' m²';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const icon=id=>`<svg class="i"><use href="#i-${id}"/></svg>`;
@@ -106,7 +106,18 @@ const state={screen:'s-ed',hist:[],unit:null,view:'v1',floor:null,cmp:new Set(),
 /* ---------- navigation ---------- */
 const crumbs={'s-ed':'Metge Mir 24','s-viv':'dock.viv','s-pis':'','s-park':'dock.park','s-cfg':'dock.cfg','s-ent':'dock.ent','s-sol':'dock.sol','s-obra':'dock.obra','s-cal':'dock.cal','s-gal':'dock.gal','s-con':'dock.con'};
 const renders={'s-ed':renderEd,'s-viv':renderViv,'s-pis':renderPis,'s-park':renderPark,'s-cfg':renderCfg,'s-ent':renderEnt,'s-sol':renderSol,'s-obra':renderObra,'s-cal':renderCal,'s-gal':renderGal,'s-con':renderCon};
-function bgSync(id){{const ov=$('#obra-tl video');if(ov){id==='s-obra'?ov.play().catch(()=>{}):ov.pause()}}const bv=$('#bgv video'),pg=$('#'+id).classList.contains('page');$('#bgv').classList.toggle('on',pg);if(bv){pg?bv.play().catch(()=>{}):bv.pause()}}
+const NUDGE={t:0,off:false,clicks:0,t0:0,urg:false};
+function nudgeArm(id){clearTimeout(NUDGE.t);const n=$('#nudge');if(id==='s-cfg'){n.classList.remove('on','open');return}
+  if(NUDGE.off||n.classList.contains('on'))return;
+  NUDGE.t=setTimeout(()=>{if(state.screen==='s-cfg'||!$('#intro').classList.contains('out'))return;$('#nudge-m').textContent=L==='ca'?'Vols que resolguem dubtes?':'¿Quieres que resolvamos dudas?';n.classList.add('on','open');setTimeout(()=>n.classList.remove('open'),9000)},5000)}
+function urgCheck(){if(NUDGE.urg||!NUDGE.t0||state.screen==='s-cfg'||state.screen==='s-con'||!$('#intro').classList.contains('out'))return;
+  if(NUDGE.clicks>6&&Date.now()-NUDGE.t0>30000){NUDGE.urg=true;$('#urg-t').textContent=L==='ca'?'No et quedis sense el teu pis a Metge Mir, estan volant!':'¡No te quedes sin tu piso en Metge Mir, están volando!';$('#urg-go').textContent=L==='ca'?'Reserva’l ara':'Resérvalo ahora';$('#urg').classList.add('on')}}
+document.addEventListener('click',()=>{if(NUDGE.t0){NUDGE.clicks++;setTimeout(urgCheck,400)}},true);setInterval(urgCheck,2000);
+let splashed=false;
+function cfgSplash(){if(splashed)return;splashed=true;const s=$('#c-splash'),v=s.querySelector('video');s.classList.add('on');const end=()=>{s.classList.add('bye');setTimeout(()=>s.classList.remove('on','bye'),600)};
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){setTimeout(end,900);return}
+  v.currentTime=0;v.play().catch(()=>{});v.onended=end;s.onclick=end;setTimeout(end,4800)}
+function bgSync(id){nudgeArm(id);if(id==='s-cfg')cfgSplash();{const ov=$('#obra-tl video');if(ov){id==='s-obra'?ov.play().catch(()=>{}):ov.pause()}}const bv=$('#bgv video'),pg=$('#'+id).classList.contains('page');$('#bgv').classList.toggle('on',pg);if(bv){pg?bv.play().catch(()=>{}):bv.pause()}}
 function go(id,push=true){
   if(push&&state.screen!==id)state.hist.push(state.screen);
   state.screen=id;closeSheet();bgSync(id);
@@ -215,7 +226,7 @@ function renderPark(){
   $('#pk').innerHTML=`<svg class="pk" viewBox="0 0 1190 1152" preserveAspectRatio="xMidYMid meet"><image href="img/parking.webp" width="1190" height="1152"/>
   <path class="route" id="pk-route" d="" />
   ${sl.map(s=>{const r=s.rect,on=P.sel===s.id,off=P.filter!=='all'&&P.filter!==s.kind;return `<g class="slot ${s.kind} ${s.status}${on?' on':''}${off?' off':''}" data-slot="${s.id}" tabindex="0" role="button" aria-label="${s.id}"><rect x="${r[0]}" y="${r[1]}" width="${r[2]}" height="${r[3]}" rx="8"/>${on?`<text class="tag" x="${r[0]+r[2]/2}" y="${r[1]+r[3]/2+8}" text-anchor="middle">${s.id}</text>`:''}</g>`}).join('')}
-  <g id="pk-car" opacity="0"><rect x="-26" y="-48" width="52" height="96" rx="14" fill="#1f4d36"/><rect x="-20" y="-30" width="40" height="22" rx="5" fill="#cfe3d6"/><rect x="-20" y="16" width="40" height="16" rx="4" fill="#cfe3d6"/></g></svg>`;
+  <g id="pk-car" opacity="0"><g class="v-car"><rect x="-26" y="-48" width="52" height="96" rx="14" fill="#1f4d36"/><rect x="-20" y="-30" width="40" height="22" rx="5" fill="#cfe3d6"/><rect x="-20" y="16" width="40" height="16" rx="4" fill="#cfe3d6"/></g><g class="v-moto" style="display:none"><rect x="-5" y="-40" width="10" height="24" rx="5" fill="#1b211d"/><rect x="-5.5" y="18" width="11" height="26" rx="5.5" fill="#1b211d"/><rect x="-20" y="-22" width="40" height="6" rx="3" fill="#1b211d"/><path d="M-9-20Q0-30 9-20L10 6Q0 12-10 6Z" fill="#b8613a"/><rect x="-8" y="2" width="16" height="24" rx="7" fill="#2b2f2c"/><circle cx="0" cy="-6" r="7.5" fill="#f4ede1" stroke="#1b211d" stroke-width="2"/></g></g></svg>`;
   const s=sl.find(x=>x.id===P.sel);
   const cnt=k=>sl.filter(x=>x.kind===k).length;
   $('#pk-pan').innerHTML=`<span class="cat">${L==='ca'?'Soterrani':'Sótano'}</span><h2>${t('park')}</h2><p class="sub">${t('parkLead')}</p>
@@ -227,7 +238,7 @@ function renderPark(){
 }
 function animCar(s){
   const pts=routeFor(s.rect);$('#pk-route').setAttribute('d','M'+pts.map(p=>p.join(',')).join(' L'));
-  const car=$('#pk-car');if(!car||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const car=$('#pk-car');if(car){const mo=s.kind==='moto';car.querySelector('.v-car').style.display=mo?'none':'';car.querySelector('.v-moto').style.display=mo?'':'none'}if(!car||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   const segs=[];let tot=0;for(let i=1;i<pts.length;i++){const d=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);segs.push(d);tot+=d}
   const t0=performance.now(),dur=Math.min(3200,900+tot*1.6);car.setAttribute('opacity','1');
   const step=now=>{let k=Math.min(1,(now-t0)/dur);k=k<.5?2*k*k:1-(-2*k+2)**2/2;let d=k*tot,i=0;while(i<segs.length-1&&d>segs[i]){d-=segs[i];i++}
@@ -238,8 +249,14 @@ function animCar(s){
 
 /* ---------- configurador ---------- */
 const BATH=['bany_paviment','bany_parets','bany_paret_especial','bany_moble'];
-const ROOMS={S:{w:1280,h:960,cats:['paviment']},K:{w:1400,h:788,cats:['paviment','cuina_frontals_baixos','cuina_frontals_alts','cuina_taulell','cuina_led']},B1:{w:1280,h:960,cats:BATH},B2:{w:1280,h:960,cats:BATH}};
-const CSTEP=[{room:'S',cats:[]},{room:'S',cats:['paviment']},{room:'K',cats:['cuina_frontals_baixos','cuina_frontals_alts','cuina_taulell','cuina_led']},{room:'B1',cats:BATH},{room:'B2',cats:BATH},{room:'K',cats:['fusteria_vidres']},{room:'S',cats:[]},{room:'S',cats:[]}];
+const ROOMS={S:{w:1280,h:960,cats:['paviment']},K:{w:1400,h:788,cats:['paviment','cuina_frontals_baixos','cuina_frontals_alts','cuina_taulell','cuina_led']},B1:{w:1280,h:960,cats:BATH},B2:{w:1280,h:960,cats:BATH},I:{w:1280,h:960,cats:[]}};
+const S_INT=5,S_OTH=6,S_LEAD=7,S_SUM=8,IVIEWS=[['sal',{es:'Salón',ca:'Saló'}],['dor',{es:'Dormitorio',ca:'Dormitori'}],['cui',{es:'Cocina',ca:'Cuina'}]];
+const furnPrice=u=>u.built<80?4870:5690,furnSum=()=>{const c=state.cfg,u=D.units.find(x=>x.id===c.unit);return c.furn&&u?furnPrice(u):0};
+const cfgTotal=u=>u.price+annexSum()+furnSum(),cfgVat=u=>vat(u.price+annexSum())+Math.round(furnSum()*1.21);
+const IT={es:{tag:'Extra iShowi',h:'Interiorismo',p:'¿Quieres vivir en tu piso desde el primer día? Ahora es posible: hemos preparado un estudio de interiorismo a medida para tu vivienda con mobiliario IKEA y, por menos de lo que esperas, lo encontrarás todo montado e instalado en tu nuevo piso.',none:'Sin muebles',noneS:'La vivienda se entrega con cocina y baños equipados',furn:'Amueblado IKEA Premium',furnS:'Salón, comedor, dormitorio y decoración, montado e instalado',inc:'Qué incluye',incL:['Salón: sofá con chaise-longue, mesa de centro y auxiliar, alfombra y lámpara de pie','Comedor: mesa con cuatro sillas y dos taburetes de barra','Dormitorio: cama de 160 × 200 con colchón, dos mesitas, dos lámparas, banco y alfombra','Textiles, cortinas y decoración de cada estancia','Transporte, montaje e instalación'],note:'Selección propuesta por iShowi con productos IKEA; no es un servicio oficial de IKEA. Imágenes conceptuales: el mobiliario definitivo puede variar. Precio orientativo según la superficie de la vivienda, pendiente de validar por tipología.',empty:'Vacío',full:'Amueblado',cap:'Interiorismo · imagen conceptual',ln:'Interiorismo'},ca:{tag:'Extra iShowi',h:'Interiorisme',p:'Vols viure al teu pis des del primer dia? Ara és possible: hem preparat un estudi d’interiorisme a mida per al teu habitatge amb mobiliari IKEA i, per menys del que t’esperes, ho trobaràs tot muntat i instal·lat al teu nou pis.',none:'Sense mobles',noneS:'L’habitatge es lliura amb cuina i banys equipats',furn:'Moblat IKEA Premium',furnS:'Saló, menjador, dormitori i decoració, muntat i instal·lat',inc:'Què inclou',incL:['Saló: sofà amb chaise-longue, taula de centre i auxiliar, catifa i llum de peu','Menjador: taula amb quatre cadires i dos tamborets de barra','Dormitori: llit de 160 × 200 amb matalàs, dues tauletes, dos llums, banc i catifa','Tèxtils, cortines i decoració de cada estança','Transport, muntatge i instal·lació'],note:'Selecció proposada per iShowi amb productes IKEA; no és un servei oficial d’IKEA. Imatges conceptuals: el mobiliari definitiu pot variar. Preu orientatiu segons la superfície de l’habitatge, pendent de validar per tipologia.',empty:'Buit',full:'Moblat',cap:'Interiorisme · imatge conceptual',ln:'Interiorisme'}};
+function intHTML(){const c=state.cfg,v=c.iview||'sal';return `<div class="room enter iroom" data-room="I" style="aspect-ratio:4/3"><img src="int/i_${v}_0.webp" alt=""><img class="ly ifurn" src="int/i_${v}_1.webp" alt="" style="opacity:${c.furn?1:0}"><div class="itabs">${IVIEWS.map(([k,n])=>`<button data-iview="${k}" class="${k===v?'on':''}">${n[L]}</button>`).join('')}</div><span class="capt">${IT[L].cap}</span><div class="iseg"><button data-furn="0" class="${c.furn?'':'on'}">${IT[L].empty}</button><button data-furn="1" class="${c.furn?'on':''}">${IT[L].full}</button></div></div>`}
+function intPanel(u){const c=state.cfg,x=IT[L];return `<span class="cat">${S_INT+1} / 9 · ${uName(u)} · ${u.type}</span><h2>${x.h} <span class="xtag">${x.tag}</span></h2><p class="sub" style="margin-top:8px">${x.p}</p><div class="iops"><button class="iop ${c.furn?'':'on'}" data-furn="0"><span><b>${x.none}</b><small>${x.noneS}</small></span><em>${eur(0)}</em></button><button class="iop ${c.furn?'on':''}" data-furn="1"><span><b>${x.furn}</b><small>${x.furnS}</small></span><em>+ ${eur(furnPrice(u))}</em></button></div><details class="iinc"><summary>${x.inc}</summary><ul>${x.incL.map(l=>`<li>${l}</li>`).join('')}</ul></details><p class="note">${x.note}</p>`}
+const CSTEP=[{room:'S',cats:[]},{room:'S',cats:['paviment']},{room:'K',cats:['cuina_frontals_baixos','cuina_frontals_alts','cuina_taulell','cuina_led']},{room:'B1',cats:BATH},{room:'B2',cats:BATH},{room:'I',cats:[]},{room:'K',cats:['fusteria_vidres']},{room:'S',cats:[]},{room:'S',cats:[]}];
 const DEF={paviment:'SV.C',cuina_frontals_baixos:'FB.B',cuina_frontals_alts:'FA.B',cuina_taulell:'EC.A',cuina_led:'IL.B'};
 const skey=(room,cat)=>room[0]==='B'&&BATH.includes(cat)?room+':'+cat:cat;
 const opts=c=>D.finishes.options.filter(o=>o.cat===c);
@@ -254,42 +271,44 @@ function setLayer(room,cat){const rm=$('#c-board .room');if(!rm||rm.dataset.room
   if(!f){if(old){old.style.opacity=0;setTimeout(()=>{old.hidden=true;old.removeAttribute('src')},450)}return}
   const n=new Image();n.className='ly';n.dataset.ly=cat;n.alt='';n.style.opacity=0;n.onload=()=>{requestAnimationFrame(()=>{n.style.opacity=1});setTimeout(()=>old&&old.remove(),500)};n.src=f;old?old.after(n):rm.appendChild(n)}
 function renderCfg(){cfgInit();const c=state.cfg,st=CSTEP[c.step],u=D.units.find(x=>x.id===c.unit);
-  $('#c-blur').style.backgroundImage=`url(cfg/${st.room}_base.webp)`;
-  $('#c-steps').innerHTML=t('cfgSteps').map((s,i)=>`<button data-step="${i}" class="${i===c.step?'on':''} ${i<c.step?'done':''}" ${(i>0&&!c.unit)||(i===7&&!c.lead)?'disabled':''}><i>${i<c.step?'✓':i+1}</i>${s}</button>`).join('');
+  $('#c-blur').style.backgroundImage=st.room==='I'?'url(int/i_sal_0.webp)':`url(cfg/${st.room}_base.webp)`;
+  $('#c-steps').innerHTML=t('cfgSteps').map((s,i)=>`<button data-step="${i}" class="${i===c.step?'on':''} ${i<c.step?'done':''}" ${(i>0&&!c.unit)||(i===S_SUM&&!c.lead)?'disabled':''}><i>${i<c.step?'✓':i+1}</i>${s}</button>`).join('');
   const on=$('#c-steps .on');on&&on.scrollIntoView({inline:'center',block:'nearest'});
+  if(st.room==='I'){$('#c-board').innerHTML=intHTML();fitRoom();renderCfgPanel(true);return}
   $('#c-board').innerHTML=roomHTML(st.room,'enter')+'';const rm=$('#c-board .room');rm.insertAdjacentHTML('beforeend',`<div class="shine"></div><span class="capt">${t('roomCap.'+st.room)} · ${t('cfgAmb')}</span><button class="pill sm cmpb" data-hold>${t('holdBase')}</button>`);fitRoom();
   renderCfgPanel(true)}
 function renderCfgPanel(anim){const c=state.cfg,st=CSTEP[c.step],u=D.units.find(x=>x.id===c.unit),sc=$('#c-scroll');let h='';const keep=sc.scrollTop;
   if(c.step===0){h=`<span class="cat">1 · ${t('cfgSteps')[0]}</span><h2>${t('chooseUnit')}</h2><ul class="ulist">${D.units.map(x=>`<li><button data-cfgunit="${x.id}" style="${x.id===c.unit?'outline:2px solid var(--green);background:#fff':''}"><span class="badge ${x.status}"><i></i>${t('st.'+x.status)}</span><span><b>${uName(x)}</b><small>${x.type} · ${x.beds} ${t('beds')} · ${m2(x.built)}</small></span><span class="pr">${eur(x.price)}<small>${t('plusVat')}</small></span></button></li>`).join('')}</ul>`}
-  else if(c.step<=5){h=`<span class="cat">${c.step+1} / 8 · ${uName(u)} · ${u.type}</span><h2>${t('cfgSteps')[c.step]}</h2><p class="prov" style="margin-top:8px">${t('cfgProv')}</p>`+(c.step===4&&u.baths>2?`<p class="note">${t('bath3')}</p>`:'')+st.cats.map(cat=>{const k=skey(st.room,cat);return `<div class="grp"><h3>${t('cat.'+cat)} <small>${esc(optOf(c.sel[k]).name)}</small></h3><div class="ops">${opts(cat).map(o=>{const d=(DEF[cat]||opts(cat)[0].code)===o.code;return `<button class="op ${c.sel[k]===o.code?'on':''}" data-opt="${cat}|${o.code}"><div class="sw" style="${o.img?`background-image:url(sw/${o.img})`:o.code==='IL.B'?'background:linear-gradient(180deg,#fff6d8 0 20%,#3b3b3b 55%)':'background:#3b3b3b'}"></div><b>${esc(o.name)}</b><small>${esc(o.ref||o.code)}</small><em>${d?t('ref'):t('supp')}</em></button>`}).join('')}</div></div>`}).join('');
-    if(c.step===5)h+=`<div class="grp"><h3>${t('annexes')}</h3>${selAnnex('parking','park',t('noSlot'))}${selAnnex('moto','moto',t('noMoto'))}${selAnnex('storage','store',t('noStore'))}<button class="btn ghost" data-go="s-park" style="width:100%;margin-top:4px">${icon('car')} ${t('park')}</button></div>`}
-  else if(c.step===6){const ld=c.lead||{};h=`<span class="cat">7 / 8</span><h2>${t('cfgSteps')[6]}</h2><p class="sub">${t('gate')}</p><form id="lead-f" novalidate>
+  else if(c.step===S_INT){h=intPanel(u)}
+  else if(c.step<=S_OTH){h=`<span class="cat">${c.step+1} / 9 · ${uName(u)} · ${u.type}</span><h2>${t('cfgSteps')[c.step]}</h2><p class="prov" style="margin-top:8px">${t('cfgProv')}</p>`+(c.step===4&&u.baths>2?`<p class="note">${t('bath3')}</p>`:'')+st.cats.map(cat=>{const k=skey(st.room,cat);return `<div class="grp"><h3>${t('cat.'+cat)} <small>${esc(optOf(c.sel[k]).name)}</small></h3><div class="ops">${opts(cat).map(o=>{const d=(DEF[cat]||opts(cat)[0].code)===o.code;return `<button class="op ${c.sel[k]===o.code?'on':''}" data-opt="${cat}|${o.code}"><div class="sw" style="${o.img?`background-image:url(sw/${o.img})`:o.code==='IL.B'?'background:linear-gradient(180deg,#fff6d8 0 20%,#3b3b3b 55%)':'background:#3b3b3b'}"></div><b>${esc(o.name)}</b><small>${esc(o.ref||o.code)}</small><em>${d?t('ref'):t('supp')}</em></button>`}).join('')}</div></div>`}).join('');
+    if(c.step===S_OTH)h+=`<div class="grp"><h3>${t('annexes')}</h3>${selAnnex('parking','park',t('noSlot'))}${selAnnex('moto','moto',t('noMoto'))}${selAnnex('storage','store',t('noStore'))}<button class="btn ghost" data-go="s-park" style="width:100%;margin-top:4px">${icon('car')} ${t('park')}</button></div>`}
+  else if(c.step===S_LEAD){const ld=c.lead||{};h=`<span class="cat">8 / 9</span><h2>${t('cfgSteps')[S_LEAD]}</h2><p class="sub">${t('gate')}</p><form id="lead-f" novalidate>
    <div class="field"><label for="ld-n">${t('name')}</label><input id="ld-n" required autocomplete="name" value="${esc(ld.n||'')}"></div>
    <div class="field"><label for="ld-p">${t('phone')}</label><input id="ld-p" type="tel" required autocomplete="tel" value="${esc(ld.p||'')}"></div>
    <div class="field"><label for="ld-e">${t('email')}</label><input id="ld-e" type="email" autocomplete="email" value="${esc(ld.e||'')}"></div>
    <label class="chk"><input type="checkbox" id="ld-c" ${ld.c?'checked':''}><span>${t('consent')} <button type="button" data-legal style="text-decoration:underline">${t('privacy')}</button></span></label></form>`}
   else h=summaryHTML();
   sc.innerHTML=h;if(anim){sc.classList.remove('anim');void sc.offsetWidth;sc.classList.add('anim');sc.scrollTop=0}else{sc.classList.remove('anim');sc.scrollTop=keep}
-  const tot=u?u.price+annexSum():0;
-  $('#c-bar').innerHTML=`<div class="tot"><small>${t('total')} · ${t('plusVat')}</small><b>${u?eur(tot):'—'}</b></div>${c.step>0?`<button class="btn ghost" data-cstep="-1">${t('prev')}</button>`:''}${c.step<6?`<button class="btn" data-cstep="1" ${!c.unit?'disabled':''}>${t('next')}</button>`:c.step===6?`<button class="btn" id="ld-go">${t('seeSum')}</button>`:''}`}
+  const tot=u?cfgTotal(u):0;
+  $('#c-bar').innerHTML=`<div class="tot"><small>${t('total')} · ${t('plusVat')}</small><b>${u?eur(tot):'—'}</b></div>${c.step>0?`<button class="btn ghost" data-cstep="-1">${t('prev')}</button>`:''}${c.step<S_LEAD?`<button class="btn" data-cstep="1" ${!c.unit?'disabled':''}>${t('next')}</button>`:c.step===S_LEAD?`<button class="btn" id="ld-go">${t('seeSum')}</button>`:''}`}
 function selAnnex(kind,key,none){const c=state.cfg;const sl=D.annexes.filter(s=>s.kind===kind&&s.status==='available');return `<div class="field"><label>${t(kind)} · ${eur(sl[0]?.price)}</label><select data-annex="${key}"><option value="">${none}</option>${sl.map(s=>`<option value="${s.id}" ${c[key]===s.id?'selected':''}>${s.id}</option>`).join('')}</select></div>`}
 function annexSum(){const c=state.cfg;return ['park','moto','store'].reduce((a,k)=>a+(c[k]?D.annexes.find(s=>s.id===c[k]).price:0),0)}
 function summaryLines(){const c=state.cfg,out=[];[['S',['paviment']],['K',CSTEP[2].cats],['B1',BATH],['B2',BATH],['K',['fusteria_vidres']]].forEach(([room,cats])=>cats.forEach(cat=>out.push({room,cat,o:optOf(c.sel[skey(room,cat)])})));return out}
 function summaryHTML(){
   const c=state.cfg,u=D.units.find(x=>x.id===c.unit);
   const ann=['park','moto','store'].filter(k=>c[k]).map(k=>D.annexes.find(s=>s.id===c[k]));
-  return `<span class="cat">8 / 8</span><h2>${t('sumTitle')}</h2><div class="sum">
-  <div class="rooms4">${['S','K','B1','B2'].map(r=>`<figure>${roomHTML(r)}<figcaption>${t('roomCap.'+r)}</figcaption></figure>`).join('')}</div>
+  return `<span class="cat">9 / 9</span><h2>${t('sumTitle')}</h2><div class="sum">
+  <div class="rooms4">${['S','K','B1','B2'].map(r=>`<figure>${roomHTML(r)}<figcaption>${t('roomCap.'+r)}</figcaption></figure>`).join('')}${c.furn?`<figure style="grid-column:1/-1"><div class="room" style="aspect-ratio:4/3"><img src="int/i_sal_1.webp" alt=""></div><figcaption>${IT[L].furn} · ${IT[L].cap}</figcaption></figure>`:''}</div>
   <div class="blk"><h3>${uName(u)} · ${u.type} <small>${t('plusVat')}</small></h3><div class="ln"><i style="background-image:url(iso/${u.img}.webp);background-size:contain;background-repeat:no-repeat"></i><span>${u.beds} ${t('beds')} · ${m2(u.built)}${u.ext?' · '+t(u.extKind)+' '+m2(u.ext):''}</span><b>${eur(u.price)}</b></div>
-  ${ann.map(s=>`<div class="ln"><i></i><span>${s.id}<small>${t(s.kind)}</small></span><b>${eur(s.price)}</b></div>`).join('')}</div>
+  ${ann.map(s=>`<div class="ln"><i></i><span>${s.id}<small>${t(s.kind)}</small></span><b>${eur(s.price)}</b></div>`).join('')}${c.furn?`<div class="ln"><i style="background-image:url(int/i_sal_1.webp)"></i><span>${IT[L].furn}<small>${IT[L].ln} · ${IT[L].tag}</small></span><b>${eur(furnPrice(u))}</b></div>`:''}</div>
   <div class="blk"><h3>${t('finishes')} <small>${t('supp')}</small></h3>${summaryLines().map(({room,cat,o})=>`<div class="ln"><i style="${o.img?`background-image:url(sw/${o.img})`:''}"></i><span>${esc(o.name)}<small>${t('roomCap.'+room)} · ${t('cat.'+cat)}</small></span><b>${o.code}</b></div>`).join('')}</div>
-  <div class="grand"><small>${t('total')} · ${t('plusVat')}</small><small style="text-align:right">${t('vatIncl')}</small><b>${eur(u.price+annexSum())}</b><b style="text-align:right;font-size:18px">${eur(vat(u.price+annexSum()))}</b></div>
+  <div class="grand"><small>${t('total')} · ${t('plusVat')}</small><small style="text-align:right">${t('vatIncl')}</small><b>${eur(cfgTotal(u))}</b><b style="text-align:right;font-size:18px">${eur(cfgVat(u))}</b></div>
   <div class="row2"><a class="btn" href="${mailto(summaryText())}">${icon('mail')} ${t('sendMail')}</a><button class="btn ghost" data-copy="sum">${t('copy')}</button></div>
   <p class="note">${t('mailHint')} <b>${D.contact.email}</b></p><p class="note">${t('sumNote')}</p></div>`;
 }
 function summaryText(){const c=state.cfg,u=D.units.find(x=>x.id===c.unit),ld=c.lead||{};
   const ann=['park','moto','store'].filter(k=>c[k]).map(k=>D.annexes.find(s=>s.id===c[k]));
-  return [`Metge Mir 24 · ${t('sumTitle')}`,'',`${t('name')}: ${ld.n||''}`,`${t('phone')}: ${ld.p||''}`,`${t('email')}: ${ld.e||''}`,'',`${uName(u)} (${u.type}) · ${m2(u.built)} · ${eur(u.price)} ${t('plusVat')}`,...ann.map(s=>`${s.id} · ${t(s.kind)} · ${eur(s.price)} ${t('plusVat')}`),`${t('total')}: ${eur(u.price+annexSum())} ${t('plusVat')}`,'',t('finishes')+':',...summaryLines().map(({room,cat,o})=>`- ${t('roomCap.'+room)} · ${t('cat.'+cat)}: ${o.name} (${o.code})`),'',t('sumNote')].join('\n')}
+  return [`Metge Mir 24 · ${t('sumTitle')}`,'',`${t('name')}: ${ld.n||''}`,`${t('phone')}: ${ld.p||''}`,`${t('email')}: ${ld.e||''}`,'',`${uName(u)} (${u.type}) · ${m2(u.built)} · ${eur(u.price)} ${t('plusVat')}`,...ann.map(s=>`${s.id} · ${t(s.kind)} · ${eur(s.price)} ${t('plusVat')}`),...(c.furn?[`${IT[L].furn} · ${eur(furnPrice(u))} ${t('plusVat')}`]:[]),`${t('total')}: ${eur(cfgTotal(u))} ${t('plusVat')}`,'',t('finishes')+':',...summaryLines().map(({room,cat,o})=>`- ${t('roomCap.'+room)} · ${t('cat.'+cat)}: ${o.name} (${o.code})`),'',t('sumNote')].join('\n')}
 const mailto=(body,subj)=>`mailto:${D.contact.email}?subject=${encodeURIComponent(subj||'Metge Mir 24 · iShowi')}&body=${encodeURIComponent(body)}`;
 async function copyText(s){try{await navigator.clipboard.writeText(s);toast(t('copied'))}catch(e){modal(`<h2>${t('copy')}</h2><textarea style="width:100%;height:260px;border-radius:12px;border:1.5px solid var(--line);padding:10px;font-size:13px" readonly>${esc(s)}</textarea>`)}}
 
@@ -386,7 +405,7 @@ function renderObra(){
   const u=state.unit||D.units[0];const pay=t('pay');
   const keep=$('#obra-tl');
   $('#obra').innerHTML=`<h1>${t('obraTitle')}</h1><p class="lead">${t('obraLead')}</p><div id="obra-slot"></div><div class="grid2">
-  <div class="box"><h2>${L==='ca'?'Calendari d’obra':'Calendario de obra'}</h2><ul class="tl">${t('miles').map((m,i)=>`<li class="${i===0?'next':''}"><b>${m[0]}</b><small>${m[1]}</small></li>`).join('')}</ul></div>
+  <div class="box"><h2>${L==='ca'?'Calendari d’obra':'Calendario de obra'}</h2><ul class="tl">${t('miles').map((m,i)=>`<li class="${m[2]||''}"><b>${m[0]}</b><small>${m[1]}</small></li>`).join('')}</ul></div>
   <div class="box"><h2>${t('payTitle')}</h2><p class="sub">${t('payFor')} <select id="pay-u" style="height:40px;border-radius:999px;border:1.5px solid var(--line);padding:0 10px">${D.units.map(x=>`<option value="${x.id}" ${x.id===u.id?'selected':''}>${uName(x)} · ${eur(x.price)}</option>`).join('')}</select></p>
   <div class="bar">${pay.filter(p=>p[2]).map((p,i)=>`<i style="width:${p[2]*100}%;background:${['#1f4d36','#2f6b4c','#5a8f6f','#b8613a'][i]}"></i>`).join('')}</div>
   <ul class="pay">${pay.map(p=>`<li><span>${p[0]}<small>${p[1]}${p[2]?' · '+Math.round(p[2]*100)+' %':''}</small></span><b>${p[2]?eur(u.price*p[2]):'—'}</b></li>`).join('')}</ul><p class="note">${t('payNote')}</p></div></div>`;
@@ -448,17 +467,23 @@ document.addEventListener('click',e=>{
   if(el=g('[data-ag]')){toast(t('agentToast'));return}
   if(el=g('[data-slot]')){state.park.sel=el.dataset.slot;renderPark();return}
   if(el=g('[data-pf]')){state.park.filter=el.dataset.pf;renderPark();return}
-  if(el=g('[data-addslot]')){const s=D.annexes.find(x=>x.id===el.dataset.addslot);state.cfg[{parking:'park',moto:'moto',storage:'store'}[s.kind]]=s.id;if(!state.cfg.unit){state.cfg.step=0}else state.cfg.step=5;go('s-cfg');return}
+  if(el=g('[data-addslot]')){const s=D.annexes.find(x=>x.id===el.dataset.addslot);state.cfg[{parking:'park',moto:'moto',storage:'store'}[s.kind]]=s.id;if(!state.cfg.unit){state.cfg.step=0}else state.cfg.step=S_OTH;go('s-cfg');return}
   if(el=g('[data-askslot]')){go('s-con');setTimeout(()=>{$('#cf-m').value=`${el.dataset.askslot} · `},50);return}
+  if(el=g('[data-furn]')){state.cfg.furn=el.dataset.furn==='1';const f=$('#c-board .ifurn');if(f)f.style.opacity=state.cfg.furn?1:0;$$('#c-board .iseg button').forEach(b=>b.classList.toggle('on',(b.dataset.furn==='1')===state.cfg.furn));renderCfgPanel(false);return}
+  if(el=g('[data-iview]')){state.cfg.iview=el.dataset.iview;$('#c-board').innerHTML=intHTML();fitRoom();return}
+  if(g('#nudge-x')){$('#nudge').classList.remove('on','open');NUDGE.off=true;return}
+  if(g('#nudge')){$('#nudge').classList.remove('open');go('s-con');return}
+  if(g('#urg-x')){$('#urg').classList.remove('on');return}
+  if(g('#urg-go')){$('#urg').classList.remove('on');go('s-con');return}
   if(el=g('[data-step]')){if(!el.disabled){state.cfg.step=+el.dataset.step;renderCfg()}return}
   if(el=g('[data-cfgunit]')){state.cfg.unit=el.dataset.cfgunit;renderCfg();return}
   if(el=g('[data-opt]')){const [c,o]=el.dataset.opt.split('|'),rm=CSTEP[state.cfg.step].room;state.cfg.sel[skey(rm,c)]=o;setLayer(rm,c);renderCfgPanel(false);return}
   if(el=g('[data-solmode]')){state.sol.mode=el.dataset.solmode;renderSol();return}
   if(el=g('[data-solplay]')){solPlay(!state.sol.play);return}
-  if(el=g('[data-cstep]')){state.cfg.step=Math.max(0,Math.min(7,state.cfg.step+ +el.dataset.cstep));renderCfg();return}
+  if(el=g('[data-cstep]')){state.cfg.step=Math.max(0,Math.min(S_SUM,state.cfg.step+ +el.dataset.cstep));renderCfg();return}
   if(el=g('#ld-go')){const n=$('#ld-n').value.trim(),p=$('#ld-p').value.trim(),em=$('#ld-e').value.trim(),c=$('#ld-c').checked;
     if(!n||p.replace(/\D/g,'').length<9||!c){toast(L==='ca'?'Omple nom, telèfon i accepta la privacitat':'Rellena nombre, teléfono y acepta la privacidad');return}
-    state.cfg.lead={n,p,e:em,c};state.cfg.step=7;renderCfg();return}
+    state.cfg.lead={n,p,e:em,c};state.cfg.step=S_SUM;renderCfg();return}
   if(el=g('[data-copy]')){copyText(el.dataset.copy==='sum'?summaryText():D.contact.email);return}
   if(el=g('[data-esc]')){state.ent.scale=+el.dataset.esc;state.ent.sel=null;renderEnt();return}
   if(el=g('[data-ecat]')){state.ent.cat=el.dataset.ecat;renderEnt();return}
@@ -487,7 +512,7 @@ $('#b-agent').onclick=()=>{if(state.agent){state.agent=false;$('#agentbar').hidd
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeSheet();$('#lb').classList.remove('on');$('#menu').classList.remove('on')}
   if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.slot){state.park.sel=e.target.dataset.slot;renderPark()}});
 new ResizeObserver(()=>fitRoom()).observe($('#c-board'));
-$('#enter').onclick=()=>{const i=$('#intro');i.classList.add('zoom');const v=$('#intro video');if(v){v.pause();v.muted=true;const b=$('#snd');b.classList.remove('on');b.setAttribute('aria-pressed','false')}setTimeout(()=>i.classList.add('out'),900);bgSync(state.screen)};
+$('#enter').onclick=()=>{const i=$('#intro');i.classList.add('zoom');const v=$('#intro video');if(v){v.pause();v.muted=true;const b=$('#snd');b.classList.remove('on');b.setAttribute('aria-pressed','false')}setTimeout(()=>{i.classList.add('out');NUDGE.t0=NUDGE.t0||Date.now();nudgeArm(state.screen)},900);bgSync(state.screen)};
 function showIntro(){const i=$('#intro'),v=$('#intro video');closeSheet();{const ov=$('#obra-tl video');ov&&ov.pause()}i.classList.add('back');i.classList.remove('zoom');void i.offsetWidth;i.classList.remove('out','back');if(v){v.currentTime=0;v.play().catch(()=>{})}}
 const hold=(e,on)=>{const b=e.target.closest&&e.target.closest('[data-hold]');if(b||!on)$$('#c-board .ly').forEach(l=>l.style.visibility=on&&b?'hidden':'')};
 document.addEventListener('pointerdown',e=>hold(e,true));document.addEventListener('pointerup',e=>hold(e,false));document.addEventListener('pointercancel',e=>hold(e,false));
@@ -498,5 +523,5 @@ fetch('data/promocion.json').then(r=>r.json()).then(j=>{D=j;
   const mkv=(src,o={})=>{const v=document.createElement('video');Object.assign(v,{src,muted:true,loop:true,autoplay:true,playsInline:true},o);v.setAttribute('playsinline','');v.setAttribute('muted','');v.onerror=()=>v.remove();return v};
   if(D.media.intro){const v=mkv(D.media.intro,{poster:'video/intro.jpg',autoplay:!h});$('#intro .kb').after(v);const b=$('#snd');b.hidden=false;b.onclick=()=>{v.muted=!v.muted;if(!v.muted){v.currentTime=0;v.play()}b.classList.toggle('on',!v.muted);b.setAttribute('aria-pressed',!v.muted)}}
   if(D.media.general){$('#c-blur').appendChild(mkv(D.media.general));$('#bgv').appendChild(mkv(D.media.general,{autoplay:false,preload:'none'}))}
-  if(h)$('#intro').classList.add('out');applyLang();bgSync(state.screen)}).catch(()=>{document.querySelector('.intro-c p').textContent=T[L].loadErr});
+  if(h){$('#intro').classList.add('out');NUDGE.t0=Date.now()}applyLang();bgSync(state.screen)}).catch(()=>{document.querySelector('.intro-c p').textContent=T[L].loadErr});
 }

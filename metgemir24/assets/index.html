@@ -385,6 +385,39 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 #intro.back{transition:none!important}
 @media(max-width:560px){.top .homebtn span{display:none}.top .homebtn{width:36px;padding:0;justify-content:center}}
 .intro-c{background:radial-gradient(closest-side,rgba(10,20,14,.38),transparent);padding:48px 56px}
+
+/* v0.4 */
+.c-bz{position:absolute;z-index:4;right:16px;top:calc(max(14px,env(safe-area-inset-top)) + 58px);width:30px;opacity:.38;pointer-events:none}.c-bz svg{display:block;width:100%}
+#c-splash{position:absolute;inset:0;z-index:40;background:#000;display:none;place-items:center;cursor:pointer;transition:opacity .55s}
+#c-splash.on{display:grid}#c-splash.bye{opacity:0}#c-splash video{width:min(86%,900px);max-height:80%;object-fit:contain}
+.iroom .ifurn{transition:opacity .3s}
+.itabs{position:absolute;left:50%;top:10px;transform:translateX(-50%);display:flex;gap:3px;padding:3px;border-radius:999px;background:rgba(0,0,0,.5);backdrop-filter:blur(6px)}
+.itabs button,.iseg button{border:0;background:none;color:#fff;font-weight:600;font-size:12.5px;font-family:inherit;padding:7px 13px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.itabs button.on,.iseg button.on{background:#fff;color:#1b211d}
+.iseg{position:absolute;right:10px;bottom:10px;display:flex;gap:3px;padding:3px;border-radius:999px;background:rgba(0,0,0,.5);backdrop-filter:blur(6px)}
+.xtag{display:inline-block;vertical-align:middle;margin-left:8px;font-weight:700;font-size:10.5px;line-height:1;font-family:var(--fb,'Plus Jakarta Sans',sans-serif);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:#f38735;border-radius:999px;padding:4px 9px}
+.iops{display:grid;gap:10px;margin:16px 0 12px}
+.iop{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;padding:14px 16px;border-radius:16px;background:#fff;border:1.5px solid var(--line);cursor:pointer;font-family:inherit;transition:border-color .2s,box-shadow .2s}
+.iop.on{border-color:var(--green);box-shadow:0 0 0 3px rgba(31,77,54,.14)}
+.iop b{display:block;font-family:var(--fh);font-weight:500;font-size:17px;color:var(--ink)}.iop small{color:var(--mute);font-size:12.5px}.iop em{font-style:normal;font-weight:700;color:var(--green);white-space:nowrap}
+.iinc{margin:4px 0 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0}.iinc summary{cursor:pointer;font-weight:600;font-size:14px}.iinc ul{margin:10px 0 2px;padding-left:18px;font-size:13.5px;color:var(--ink2);display:grid;gap:5px}
+#nudge{position:absolute;z-index:28;right:16px;bottom:max(84px,calc(env(safe-area-inset-bottom) + 84px));display:flex;align-items:center;gap:10px;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .4s,transform .4s,visibility .4s}
+#nudge.on{opacity:1;visibility:visible;transform:none}
+#nudge .ni{flex:none;width:56px;height:56px;border-radius:50%;background:#1faa59;display:grid;place-items:center;box-shadow:0 10px 28px rgba(0,0,0,.3)}
+#nudge.on .ni{animation:npulse 2.4s ease-out 3}@keyframes npulse{0%{box-shadow:0 0 0 0 rgba(31,170,89,.55),0 10px 28px rgba(0,0,0,.3)}70%{box-shadow:0 0 0 16px rgba(31,170,89,0),0 10px 28px rgba(0,0,0,.3)}100%{box-shadow:0 0 0 0 rgba(31,170,89,0),0 10px 28px rgba(0,0,0,.3)}}
+#nudge .nb{position:relative;max-width:230px;background:#fff;color:#1b211d;border-radius:16px 16px 4px 16px;padding:10px 30px 11px 14px;font-size:14px;line-height:1.3;box-shadow:0 10px 28px rgba(0,0,0,.22);opacity:0;transform:translateX(10px) scale(.96);transform-origin:right bottom;transition:opacity .35s,transform .35s;pointer-events:none}
+#nudge.open .nb{opacity:1;transform:none;pointer-events:auto}
+#nudge .nb b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#1faa59;margin-bottom:2px}
+#nudge-x,#urg-x{position:absolute;right:6px;top:4px;width:24px;height:24px;border:0;background:none;font-size:18px;line-height:1;color:#7b827c;cursor:pointer}
+body.on-cfg #nudge{display:none}.iop em{flex:none}.iop>span{min-width:0}@media(max-width:560px){.iroom .capt{display:none}}
+#urg{position:absolute;z-index:45;inset:0;display:grid;place-items:end center;padding:0 16px max(96px,calc(env(safe-area-inset-bottom) + 96px));pointer-events:none;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+#urg.on{opacity:1;visibility:visible}
+#urg .uc{pointer-events:auto;position:relative;width:min(560px,100%);background:#16201a;color:#fff;border-radius:22px;padding:20px 22px;display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:center;box-shadow:0 24px 70px rgba(0,0,0,.45);transform:translateY(24px);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+#urg.on .uc{transform:none}
+#urg small{grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f0b98c}
+#urg p{margin:0;font-family:var(--fh);font-size:clamp(18px,2.4vw,22px);line-height:1.2}
+#urg .btn{background:#b8613a;white-space:nowrap}#urg-x{color:#fff;opacity:.7}.oph button,.oplay{font-family:inherit}
+@media(max-width:560px){#urg .uc{grid-template-columns:1fr}#urg .btn{width:100%}}
 </style>
 </head>
 <body>
@@ -420,6 +453,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 </div>
 
 <div id="app">
+  <div id="nudge" role="button" tabindex="0"><span class="nb"><b>WhatsApp</b><span id="nudge-m"></span><button id="nudge-x" aria-label="Cerrar">×</button></span><span class="ni"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 19z"/><path d="M9 10.5h6M9 13.5h4"/></svg></span></div>
+  <div id="urg"><div class="uc"><button id="urg-x" aria-label="Cerrar">×</button><small>Metge Mir 24</small><p id="urg-t"></p><button class="btn" id="urg-go"></button></div></div>
   <div id="bgv"></div>
   <div class="top">
     <button class="pill round dark" id="b-menu" aria-label="Menú"><svg class="i"><use href="#i-menu"/></svg></button>
@@ -477,10 +512,18 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 
   <!-- Configurador -->
   <section class="screen" id="s-cfg">
+    <div id="c-splash"><video src="video/ishowi.mp4" muted playsinline preload="auto"></video></div>
     <div class="c-stage">
       <div class="blur" id="c-blur"></div>
       
       <div class="c-steps" id="c-steps"></div>
+      <div class="c-bz" title="iShowi by BoomBizz"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0.0 20.0 500.0 480.0" aria-hidden="true">
+<defs><clipPath id="bztop"><rect x="0" y="0" width="500" height="225.72"/></clipPath></defs>
+<circle clip-path="url(#bztop)" cx="251.26" cy="251.26" r="205.95" fill="none" stroke="#FFFFFF" stroke-width="23"/>
+<path fill="#F38735" d="M250.7 391.8Q250.7 425.2 228.6 443.3Q206.5 461.5 165.2 461.5H32V207.2H161.7Q200.4 207.2 222.7 224.1Q245 241 245 273.3Q245 295.5 233.3 310.8Q221.6 326.1 202.2 331.1Q225.2 336.5 238 353.2Q250.7 369.9 250.7 391.8ZM111.7 306.3H142.6Q153.4 306.3 158.6 302Q163.8 297.7 163.8 288.7Q163.8 279.4 158.6 274.9Q153.4 270.4 142.6 270.4H111.7ZM169.2 379.9Q169.2 361.6 148 361.6H111.7V397.5H148Q158.8 397.5 164 393.4Q169.2 389.3 169.2 379.9Z M366 397.9H468V461.5H277.7V401.5L378.2 270.4H277.7V207.2H468V267.2Z"/>
+<path fill="#FFFFFF" transform="translate(97.57 75.32) scale(11.6230)" d="M9.19 6.35c-2.04 2.29-3.44 5.58-3.57 5.89L2 10.69l4.05-4.05c.47-.47 1.15-.68 1.81-.55l1.33.26zM11.17 17s3.74-1.55 5.89-3.7c5.4-5.4 4.5-9.62 4.21-10.57-.95-.3-5.17-1.19-10.57 4.21C8.55 9.09 7 12.83 7 12.83L11.17 17zm6.48-2.19c-2.29 2.04-5.58 3.44-5.89 3.57L13.31 22l4.05-4.05c.47-.47.68-1.15.55-1.81l-.26-1.33zM9 18c0 .83-.34 1.58-.88 2.12C6.94 21.3 2 22 2 22s.7-4.94 1.88-6.12A2.996 2.996 0 0 1 9 18zm4-9c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/>
+<path fill="#FFFFFF" transform="translate(14.04 202.09) scale(1.1905 1.1905)" d="M27,0L34.2,12.8L48.7,10.4L43.1,24L54,33.9L39.9,38L39,52.6L27,44.2L15,52.6L14.1,38L0,33.9L10.9,24L5.3,10.4L19.8,12.8Z"/>
+</svg></div>
       <div class="c-board" id="c-board"></div>
     </div>
     <div class="c-panel">
