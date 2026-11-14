@@ -199,11 +199,12 @@ function renderViv(){
   <div class="in"><h3>${uName(u)} <small>${u.type}${u.duplex?' · '+t('duplex'):''}</small></h3>
   <div class="chips"><span>${u.beds} ${t('beds')}${u.studio?' '+t('studio'):''}</span><span>${u.baths} ${L==='ca'?'banys':'baños'}</span><span>${m2(u.built)}</span>${u.ext?`<span>${t(u.extKind)} ${m2(u.ext)}</span>`:''}</div>
   <div class="price">${eur(u.price)} <small>${t('plusVat')} · ${eur(vat(u.price))} ${t('vatIncl')}</small></div>
-  <label class="cmp"><input type="checkbox" data-cmp="${u.id}" ${state.cmp.has(u.id)?'checked':''}> ${t('compare')}</label>
+  <div class="crow"><button class="cmpb2 ${state.cmp.has(u.id)?'on':''}" data-cmpt="${u.id}" aria-pressed="${state.cmp.has(u.id)}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7.5" height="16" rx="2"/><rect x="13.5" y="4" width="7.5" height="16" rx="2"/></svg>${state.cmp.has(u.id)?(L==='ca'?'Al comparador':'En el comparador'):t('compare')}</button></div>
   <div class="acts"><button class="btn ghost" data-unit="${u.id}">${t('view')}</button><button class="btn" data-cfg="${u.id}">${t('config')}</button></div></div></article>`).join('');
   updCmp();
 }
-function updCmp(){const b=$('#cmpbar');b.textContent=t('compareN').replace('{n}',state.cmp.size);b.classList.toggle('on',state.cmp.size>=2&&state.screen==='s-viv')}
+function updTools(){const f=$('#t-fav'),c=$('#t-cmp');if(!f)return;const nf=[...FAV].length;f.innerHTML=`<span class="hh">${HEART}</span>${tx('fav')}${nf?' ('+nf+')':''}`;c.innerHTML=`<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7.5" height="16" rx="2"/><rect x="13.5" y="4" width="7.5" height="16" rx="2"/></svg>${tx('cmpH')}${state.cmp.size?' ('+state.cmp.size+')':''}`}
+function updCmp(){updTools();const b=$('#cmpbar');b.textContent=t('compareN').replace('{n}',state.cmp.size);b.classList.toggle('on',state.cmp.size>=2&&state.screen==='s-viv')}
 function showCmp(){
   const us=[...state.cmp].map(id=>D.units.find(u=>u.id===id));
   const rows=[[t('typeL'),u=>u.type],[t('floorL'),u=>fl(u.floor)],[t('bedsL'),u=>u.beds+(u.studio?' '+t('studio'):'')],[t('bathsL'),u=>u.baths],[t('built'),u=>m2(u.built)],[t('useful'),u=>m2(u.useful)],[t('ext'),u=>u.ext?m2(u.ext):'—'],[t('priceL'),u=>`<b>${eur(u.price)}</b> ${t('plusVat')}`]];
@@ -217,7 +218,7 @@ const HEART='<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColo
 const TX={es:{fav:'Mis favoritos',favAdd:'Añadir a favoritos',favDel:'Quitar de favoritos',favEmpty:'Aún no has guardado nada. Toca el corazón en una vivienda o en una plaza para tenerla aquí.',favU:'Viviendas',favS:'Plazas y trastero',favSend:'Pedir información de mi selección',cmp:'Comparar',cmpH:'Comparador de viviendas',zin:'Acercar',zout:'Alejar',zfit:'Ver entero',pick:'Elegir vivienda',diff:'Diferencia de precio',m2p:'Precio por m²',added:'Guardado en favoritos',removed:'Quitado de favoritos'},ca:{fav:'Els meus favorits',favAdd:'Afegir a favorits',favDel:'Treure de favorits',favEmpty:'Encara no has desat res. Toca el cor en un habitatge o en una plaça per tenir-la aquí.',favU:'Habitatges',favS:'Places i traster',favSend:'Demanar informació de la meva selecció',cmp:'Comparar',cmpH:'Comparador d’habitatges',zin:'Apropar',zout:'Allunyar',zfit:'Veure sencer',pick:'Triar habitatge',diff:'Diferència de preu',m2p:'Preu per m²',added:'Desat a favorits',removed:'Tret de favorits'}};
 const tx=k=>TX[L][k];
 const FAV=new Set();try{JSON.parse(localStorage.getItem('mm24fav')||'[]').forEach(x=>FAV.add(x))}catch(e){}
-function favSave(){try{localStorage.setItem('mm24fav',JSON.stringify([...FAV]))}catch(e){}const b=$('#b-fav');if(b){b.classList.toggle('has',FAV.size>0);b.querySelector('em').textContent=FAV.size||''}}
+function favSave(){try{updTools()}catch(e){}try{localStorage.setItem('mm24fav',JSON.stringify([...FAV]))}catch(e){}const b=$('#b-fav');if(b){b.classList.toggle('has',FAV.size>0);b.querySelector('em').textContent=FAV.size||''}}
 function favBtn(id,cls=''){const on=FAV.has(id);return `<button class="hbtn ${cls} ${on?'on':''}" data-fav="${id}" aria-pressed="${on}" aria-label="${on?tx('favDel'):tx('favAdd')}">${HEART}</button>`}
 function favToggle(id){FAV.has(id)?FAV.delete(id):FAV.add(id);favSave();$$(`[data-fav="${id}"]`).forEach(b=>{const on=FAV.has(id);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);if(on){b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop')}});toast(FAV.has(id)?tx('added'):tx('removed'))}
 function favSheet(){const us=D.units.filter(u=>FAV.has(u.id)),ss=D.annexes.filter(s=>FAV.has(s.id));
@@ -527,7 +528,9 @@ document.addEventListener('click',e=>{
   if(el=g('[data-view]')){state.view=el.dataset.view;state.floor=null;closeSheet();renderEd();return}
   if(el=g('[data-floor]')){floorSheet(el.dataset.floor);return}
   if(el=g('[data-fav]')){favToggle(el.dataset.fav);if($('#sheet').classList.contains('on')&&$('#sh-body .favl'))favSheet();return}
-  if(g('#b-fav')){favSheet();return}
+  if(g('#b-fav')||g('#t-fav')){favSheet();return}
+  if(g('#t-cmp')){openCmp([...state.cmp,...[...FAV].filter(id=>D.units.some(u=>u.id===id))]);return}
+  if(el=g('[data-cmpt]')){const id=el.dataset.cmpt;if(state.cmp.has(id))state.cmp.delete(id);else if(state.cmp.size<3)state.cmp.add(id);else toast(L==='ca'?'Màxim 3 habitatges al comparador':'Máximo 3 viviendas en el comparador');renderViv();return}
   if(el=g('[data-zv]')){el.dataset.zv==='fit'?(ZV.s=1,ZV.x=0,ZV.y=0,zvApply(true)):zvZoom(el.dataset.zv==='in'?1.5:1/1.5);return}
   if(el=g('[data-cmpu]')){openCmp([el.dataset.cmpu,...FAV,...state.cmp].filter(id=>D.units.some(u=>u.id===id)));return}
   if(g('[data-cmpfav]')){closeSheet();openCmp([...FAV].filter(id=>D.units.some(u=>u.id===id)));return}
