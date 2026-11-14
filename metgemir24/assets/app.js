@@ -34,7 +34,7 @@ entNote:'Mapas de referencia del estudio de entorno. Distancias y tiempos estima
 cats:{tr:'Conexiones',sh:'Compras',ed:'Educación',he:'Salud',le:'Ocio y parques',ce:'Centro y cultura'},allCats:'Todo',
 sol:'Sol',solLead:'Gira la maqueta y mueve el mes y la hora para ver el sol y las sombras sobre el edificio.',month:'Mes',hour:'Hora',
 months:['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],sunUp:'Sol a',elev:'de altura',night:'El sol está bajo el horizonte',
-litToday:'Horas de sol directo ese día por fachada (cielo despejado)',solNote:'Simulación orientativa. Maqueta construida con las medidas del modelo 3D del proyecto (17,7 × 18,3 m, 4 niveles) y vecinos aproximados; orientación estimada sobre cartografía (Metge Mir 341°, Bonavista 71°), pendiente de validar por el arquitecto. Las imágenes reales corresponden al mes de mayo.',
+litToday:'Horas de sol directo ese día por fachada (cielo despejado)',solNote:'Simulación orientativa. Modelo 3D del proyecto con su entorno; orientación estimada sobre cartografía (Metge Mir 341°, Bonavista 71°), pendiente de validar por el arquitecto. Las imágenes reales corresponden al mes de mayo.',
 obraTitle:'Obra y forma de pago',obraLead:'Calendario y forma de pago orientativos, pendientes de confirmar por el promotor.',
 miles:[['Licencia de obras','En tramitación'],['Inicio de obras','Por confirmar'],['Estructura','Por confirmar'],['Cubierta y cerramientos','Por confirmar'],['Entrega de llaves','Por confirmar']],
 payTitle:'Forma de pago orientativa',pay:[['Reserva','Se descuenta del primer pago',null],['Contrato privado (arras)','A la firma',.10],['Durante la obra','Según hitos de obra',.10],['Durante la obra','Cubierta',.20],['Escritura','A la entrega',.60]],
@@ -78,7 +78,7 @@ entNote:'Mapes de referència de l’estudi d’entorn. Distàncies i temps esti
 cats:{tr:'Connexions',sh:'Compres',ed:'Educació',he:'Salut',le:'Lleure i parcs',ce:'Centre i cultura'},allCats:'Tot',
 sol:'Sol',solLead:'Gira la maqueta i mou el mes i l’hora per veure el sol i les ombres sobre l’edifici.',month:'Mes',hour:'Hora',
 months:['gen','febr','març','abr','maig','juny','jul','ag','set','oct','nov','des'],sunUp:'Sol a',elev:'d’altura',night:'El sol és sota l’horitzó',
-litToday:'Hores de sol directe aquell dia per façana (cel serè)',solNote:'Simulació orientativa. Maqueta construïda amb les mides del model 3D del projecte (17,7 × 18,3 m, 4 nivells) i veïns aproximats; orientació estimada sobre cartografia (Metge Mir 341°, Bonavista 71°), pendent de validar per l’arquitecte. Les imatges reals corresponen al mes de maig.',
+litToday:'Hores de sol directe aquell dia per façana (cel serè)',solNote:'Simulació orientativa. Model 3D del projecte amb el seu entorn; orientació estimada sobre cartografia (Metge Mir 341°, Bonavista 71°), pendent de validar per l’arquitecte. Les imatges reals corresponen al mes de maig.',
 obraTitle:'Obra i forma de pagament',obraLead:'Calendari i forma de pagament orientatius, pendents de confirmar pel promotor.',
 miles:[['Llicència d’obres','En tràmit'],['Inici d’obres','Per confirmar'],['Estructura','Per confirmar'],['Coberta i tancaments','Per confirmar'],['Lliurament de claus','Per confirmar']],
 payTitle:'Forma de pagament orientativa',pay:[['Reserva','Es descompta del primer pagament',null],['Contracte privat (arres)','A la signatura',.10],['Durant l’obra','Segons fites d’obra',.10],['Durant l’obra','Coberta',.20],['Escriptura','Al lliurament',.60]],
@@ -106,9 +106,10 @@ const state={screen:'s-ed',hist:[],unit:null,view:'v1',floor:null,cmp:new Set(),
 /* ---------- navigation ---------- */
 const crumbs={'s-ed':'Metge Mir 24','s-viv':'dock.viv','s-pis':'','s-park':'dock.park','s-cfg':'dock.cfg','s-ent':'dock.ent','s-sol':'dock.sol','s-obra':'dock.obra','s-cal':'dock.cal','s-gal':'dock.gal','s-con':'dock.con'};
 const renders={'s-ed':renderEd,'s-viv':renderViv,'s-pis':renderPis,'s-park':renderPark,'s-cfg':renderCfg,'s-ent':renderEnt,'s-sol':renderSol,'s-obra':renderObra,'s-cal':renderCal,'s-gal':renderGal,'s-con':renderCon};
+function bgSync(id){if(id!=='s-obra'){const ov=$('#obra-tl video');ov&&ov.pause()}const bv=$('#bgv video'),pg=$('#'+id).classList.contains('page');$('#bgv').classList.toggle('on',pg);if(bv){pg?bv.play().catch(()=>{}):bv.pause()}}
 function go(id,push=true){
   if(push&&state.screen!==id)state.hist.push(state.screen);
-  state.screen=id;closeSheet();
+  state.screen=id;closeSheet();bgSync(id);
   $$('.screen').forEach(s=>s.classList.toggle('on',s.id===id));
   $('#b-back').hidden=id==='s-ed';document.body.classList.toggle('on-cfg',id==='s-cfg');
   document.body.classList.toggle('lightTop',['s-viv','s-obra','s-cal','s-gal','s-con','s-pis','s-park','s-sol'].includes(id));
@@ -130,7 +131,7 @@ function applyLang(){
   ['#lang-intro','#lang-top'].forEach(s=>{$(s).innerHTML=['es','ca'].map(l=>`<button data-l="${l}" class="${l===L?'on':''}">${l.toUpperCase()}</button>`).join('')});
   $('#m-addr').innerHTML=`<b>${esc(D.address)}</b>`;
   const nav=[['s-ed','home','home'],['s-viv','dock.viv','list'],['s-park','dock.park','car'],['s-cfg','dock.cfg','brush'],['s-ent','dock.ent','pin'],['s-sol','dock.sol','sun'],['s-obra','dock.obra','crane'],['s-cal','dock.cal','list'],['s-gal','dock.gal','img'],['s-con','dock.con','mail']];
-  $('#m-nav').innerHTML=nav.map(([id,k,ic])=>`<a data-go="${id}">${icon(ic)}${t(k)}</a>`).join('');
+  $('#b-home span').textContent=L==='ca'?'Inici':'Inicio';$('#m-nav').innerHTML=`<a data-intro>${icon('play')}${L==='ca'?'Inici · vídeo':'Inicio · vídeo'}</a>`+nav.map(([id,k,ic])=>`<a data-go="${id}">${icon(ic)}${t(k)}</a>`).join('');
   $('#m-foot').innerHTML=`<p>${t('cookies')}</p><button data-legal>${t('legal')}</button><p style="margin-top:12px">${esc(D.marketing)} · iShowi by BoomBizz</p>`;
   $('#dock').innerHTML=[['s-viv','viv','list'],['s-park','park','car'],['s-cfg','cfg','brush'],['s-ent','ent','pin'],['s-sol','sol','sun'],['s-obra','obra','crane'],['s-cal','cal','list'],['s-gal','gal','img'],['s-con','con','mail']].map(([id,k,ic])=>`<button data-go="${id}">${icon(ic)}${t('dock.'+k)}</button>`).join('');
   const minP=Math.min(...D.units.map(u=>u.price));
@@ -317,22 +318,22 @@ function sunPos(ms,lat,lon){const n=ms/86400000+2440587.5-2451545;const Lm=(280.
   const el=Math.asin(Math.sin(la)*Math.sin(dec)+Math.cos(la)*Math.cos(dec)*Math.cos(H));const az=Math.atan2(-Math.sin(H),Math.tan(dec)*Math.cos(la)-Math.sin(la)*Math.cos(H));return {el:el/R,az:(az/R+360)%360}}
 function lastSun(y,m){const d=new Date(Date.UTC(y,m+1,0));return d.getUTCDate()-d.getUTCDay()}
 function madridMs(m,h){const y=2026,dst=(m>2&&m<9)||(m===2&&21>=lastSun(y,2))||(m===9&&21<lastSun(y,9));const off=dst?2:1;return Date.UTC(y,m,21,0,0)+(h-off)*3600000}
-let S3=null;
+let S3=null,S3g=null;
 function sol3dInit(){
   if(S3||!window.THREE)return;const T=THREE,cv=$('#sol-3d');
   const rn=new T.WebGLRenderer({canvas:cv,antialias:true});rn.setPixelRatio(Math.min(devicePixelRatio,2));rn.shadowMap.enabled=true;rn.shadowMap.type=T.PCFSoftShadowMap;
   const sc=new T.Scene(),cam=new T.PerspectiveCamera(38,1,1,600);
   const hemi=new T.HemisphereLight(0xdfe9f5,0x8a7a66,.75);sc.add(hemi);
   const sun=new T.DirectionalLight(0xfff1d6,1.25);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-60,right:60,top:60,bottom:-60,near:1,far:300});sun.shadow.bias=-.0006;sc.add(sun);sc.add(sun.target);sun.target.position.set(-9,0,-9);
-  const M=c=>new T.MeshLambertMaterial({color:c});
-  const box=(x0,x1,y0,y1,z0,z1,m,cast=true)=>{const g=new T.Mesh(new T.BoxGeometry(x1-x0,y1-y0,z1-z0),m);g.position.set((x0+x1)/2,(y0+y1)/2,(z0+z1)/2);g.castShadow=cast;g.receiveShadow=true;sc.add(g);return g};
-  const gr=new T.Mesh(new T.PlaneGeometry(260,260),M(0xb9b3a8));gr.rotation.x=-Math.PI/2;gr.receiveShadow=true;sc.add(gr);
+  const M=c=>new T.MeshLambertMaterial({color:c});const proc=new T.Group();sc.add(proc);
+  const box=(x0,x1,y0,y1,z0,z1,m,cast=true)=>{const g=new T.Mesh(new T.BoxGeometry(x1-x0,y1-y0,z1-z0),m);g.position.set((x0+x1)/2,(y0+y1)/2,(z0+z1)/2);g.castShadow=cast;g.receiveShadow=true;proc.add(g);return g};
+  const gr=new T.Mesh(new T.PlaneGeometry(260,260),M(0xb9b3a8));gr.rotation.x=-Math.PI/2;gr.receiveShadow=true;sc.add(gr);S3g=gr;
   const road=M(0x6f6f72);box(0,8,0,.03,-60,60,road,false);box(-60,60,0,.03,0,8,road,false);
   const est=M(0xeadcc0),soc=M(0xd9c7a6),grn=M(0x1f4d36),ter=M(0xb8613a),vei=M(0xcfc9c1),vei2=M(0xbdb6ad);
   box(-17.7,0,0,2.96,-18.3,0,soc);box(-17.7,0,2.96,9.2,-18.3,0,est);
   box(-17.7,0,9.2,10.1,-18.3,-18.0,est);box(-17.7,-17.4,9.2,10.1,-18.3,0,est);box(-.3,0,9.2,10.1,-18.3,0,est);box(-17.7,0,9.2,10.1,-.3,0,est);
   box(-17.5,-3.8,9.2,11.3,-18.1,-4.4,est);
-  const roof=new T.Mesh(new T.ConeGeometry(1,1.3,4),ter);roof.rotation.y=Math.PI/4;roof.scale.set(13.7/1.414,1,13.7/1.414);roof.position.set(-10.65,11.95,-11.25);roof.castShadow=true;sc.add(roof);
+  const roof=new T.Mesh(new T.ConeGeometry(1,1.3,4),ter);roof.rotation.y=Math.PI/4;roof.scale.set(13.7/1.414,1,13.7/1.414);roof.position.set(-10.65,11.95,-11.25);roof.castShadow=true;proc.add(roof);
   for(let f=0;f<3;f++)for(let i=0;i<5;i++){const y=f===0?.6:3.6+(f-1)*3.05,h=f===0?1.9:2.3;box(0,.08,y,y+h,-16.6+i*3.4,-15.2+i*3.4,grn,false);box(-16.6+i*3.4,-15.2+i*3.4,y,y+h,0,.08,grn,false)}
   [[-9,-5.5,3.5],[-9,-5.5,6.55]].forEach(([a,b,y])=>box(a,b,y,y+.12,0,.9,M(0x8d8d8d)));[[-12,-8.5,3.5],[-12,-8.5,6.55]].forEach(([a,b,y])=>box(0,.6,y,y+.12,a,b,M(0x8d8d8d)));
   box(-29,-17.7,0,8.6,-18.3,0,vei);box(-17.7,0,0,9.5,-29.4,-18.3,vei2);box(-29,-17.7,0,8.2,-29.4,-18.3,vei);
@@ -342,6 +343,7 @@ function sol3dInit(){
   const nd=[Math.cos(-341*R),Math.sin(-341*R)];const ar=new T.ArrowHelper(new T.Vector3(nd[0],0,nd[1]),new T.Vector3(10,.2,12),7,0xc0473c,2.2,1.4);sc.add(ar);label('N',10+nd[0]*8.5,1,12+nd[1]*8.5,2.2);
   const sph=new T.Mesh(new T.SphereGeometry(1.6,20,20),new T.MeshBasicMaterial({color:0xf6c443}));sc.add(sph);
   S3={rn,sc,cam,sun,hemi,sph,th:.85,ph:.95,rad:74};
+  if(D.media.model&&T.GLTFLoader){rn.outputEncoding=T.sRGBEncoding;new T.GLTFLoader().load(D.media.model,g=>{g.scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;if(o.material&&o.material.transparent){o.castShadow=false;o.material.depthWrite=false}}});sc.remove(proc);S3g.position.y=-.7;sc.add(g.scene);S3.real=true;sol3dDraw()},undefined,()=>{rn.outputEncoding=T.LinearEncoding;sol3dDraw()})}
   let drag=null;cv.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY];cv.setPointerCapture(e.pointerId)});cv.addEventListener('pointermove',e=>{if(!drag)return;S3.th-=(e.clientX-drag[0])*.008;S3.ph=Math.max(.25,Math.min(1.45,S3.ph-(e.clientY-drag[1])*.006));drag=[e.clientX,e.clientY];sol3dDraw()});
   ['pointerup','pointercancel'].forEach(v=>cv.addEventListener(v,()=>drag=null));cv.addEventListener('wheel',e=>{e.preventDefault();S3.rad=Math.max(40,Math.min(130,S3.rad+e.deltaY*.05));sol3dDraw()},{passive:false});
   new ResizeObserver(()=>sol3dDraw()).observe(cv.parentElement);
@@ -382,11 +384,31 @@ function solPlay(on){state.sol.play=on;clearInterval(solTimer);if(on)solTimer=se
 /* ---------- obra, calidades, galería, contacto ---------- */
 function renderObra(){
   const u=state.unit||D.units[0];const pay=t('pay');
-  $('#obra').innerHTML=`<h1>${t('obraTitle')}</h1><p class="lead">${t('obraLead')}</p><div class="grid2">
+  const keep=$('#obra-tl');
+  $('#obra').innerHTML=`<h1>${t('obraTitle')}</h1><p class="lead">${t('obraLead')}</p><div id="obra-slot"></div><div class="grid2">
   <div class="box"><h2>${L==='ca'?'Calendari d’obra':'Calendario de obra'}</h2><ul class="tl">${t('miles').map((m,i)=>`<li class="${i===0?'next':''}"><b>${m[0]}</b><small>${m[1]}</small></li>`).join('')}</ul></div>
   <div class="box"><h2>${t('payTitle')}</h2><p class="sub">${t('payFor')} <select id="pay-u" style="height:40px;border-radius:999px;border:1.5px solid var(--line);padding:0 10px">${D.units.map(x=>`<option value="${x.id}" ${x.id===u.id?'selected':''}>${uName(x)} · ${eur(x.price)}</option>`).join('')}</select></p>
   <div class="bar">${pay.filter(p=>p[2]).map((p,i)=>`<i style="width:${p[2]*100}%;background:${['#1f4d36','#2f6b4c','#5a8f6f','#b8613a'][i]}"></i>`).join('')}</div>
   <ul class="pay">${pay.map(p=>`<li><span>${p[0]}<small>${p[1]}${p[2]?' · '+Math.round(p[2]*100)+' %':''}</small></span><b>${p[2]?eur(u.price*p[2]):'—'}</b></li>`).join('')}</ul><p class="note">${t('payNote')}</p></div></div>`;
+  if(D.media.obra){if(keep&&keep.dataset.l===L)$('#obra-slot').replaceWith(keep);else{keep&&keep.querySelector('video').pause();obraTL()}}
+}
+function obraTL(){
+  const ph=L==='ca'?['Estat actual','Enderroc i excavació','Estructura','Edifici acabat']:['Estado actual','Derribo y excavación','Estructura','Edificio terminado'];
+  const el=document.createElement('div');el.id='obra-tl';el.className='box otl';el.dataset.l=L;
+  el.innerHTML=`<div class="ovid"><video src="${D.media.obra}" poster="video/obra.jpg" muted playsinline preload="metadata"></video><button class="oplay" aria-label="${L==='ca'?'Reproduir':'Reproducir'}"><svg viewBox="0 0 24 24" width="26" height="26"><path class="pl" d="M8 5v14l11-7z" fill="currentColor"/><path class="pa" d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg></button><span class="otag">${L==='ca'?'Recreació il·lustrativa':'Recreación ilustrativa'}</span></div>
+  <div class="octl"><h2>${L==='ca'?'Timelapse de l’obra':'Timelapse de la obra'}</h2><p class="sub">${L==='ca'?'Del solar actual a l’edifici acabat. Arrossega per avançar o retrocedir.':'Del solar actual al edificio terminado. Arrastra para avanzar o retroceder.'}</p>
+  <input type="range" id="obra-r" min="0" max="1000" value="0" aria-label="Timelapse"><div class="oph">${ph.map((p,i)=>`<button data-ph="${i}">${p}</button>`).join('')}</div></div>`;
+  $('#obra-slot').replaceWith(el);
+  const v=el.querySelector('video'),r=el.querySelector('#obra-r'),bs=[...el.querySelectorAll('[data-ph]')],pb=el.querySelector('.oplay');
+  const cuts=[0,.22,.5,.82];
+  const sync=()=>{const k=v.duration?v.currentTime/v.duration:0;if(document.activeElement!==r||!v.paused)r.value=k*1000;let n=0;cuts.forEach((c,i)=>{if(k>=c-.001)n=i});bs.forEach((b,i)=>b.classList.toggle('on',i===n));el.classList.toggle('playing',!v.paused)};
+  const loop=()=>{sync();if(!v.paused)requestAnimationFrame(loop)};
+  v.addEventListener('play',loop);v.addEventListener('pause',sync);v.addEventListener('seeked',sync);v.addEventListener('loadedmetadata',sync);v.addEventListener('ended',sync);
+  const tog=()=>{if(v.paused){if(v.ended||v.currentTime>=v.duration-.05)v.currentTime=0;v.play().catch(()=>{})}else v.pause()};
+  pb.onclick=tog;v.onclick=tog;
+  r.oninput=()=>{v.pause();if(v.duration)v.currentTime=r.value/1000*v.duration};
+  bs.forEach((b,i)=>b.onclick=()=>{v.pause();if(v.duration)v.currentTime=Math.min(v.duration-.05,(i===3?.97:cuts[i]+.03)*v.duration)});
+  sync();
 }
 const CAL={es:[['Fachadas y zonas comunes',['Fachadas estucadas con zócalo cerámico en la fachada principal','Carpintería exterior de aluminio con rotura de puente térmico y aislamiento acústico','Persianas térmicas motorizadas','Vestíbulo con revestimiento de madera y gres porcelánico de gran formato','Ascensor OTIS o similar']],['Terrazas, aparcamiento y trasteros',['Pavimento de gres porcelánico antideslizante en terrazas y balcones','Punto de luz y enchufe en terrazas','Barandillas de hierro pintadas','Puerta de garaje automática y pavimento de hormigón','Trasteros enyesados y pintados con punto de luz']],['Interiores',['Parquet flotante laminado','Baños con revestimiento cerámico en todas las zonas','Platos de ducha de resinas minerales','Sanitarios ROCA y grifería IMEX o similar','Lavabo cerámico con mueble suspendido de dos cajones']],['Cocina',['Muebles altos y bajos según distribución','Placa de inducción, campana integrada y horno multifunción Balay o similar','Encimera y frontal de 70 cm en material tipo Corian','Fregadero de acero inoxidable encastado']],['Carpintería e instalaciones',['Puertas block de DM lacadas en blanco','Puerta de seguridad de acceso','Aerotermia para agua caliente sanitaria','Climatización por conductos frío/calor (fan-coil)','Videoportero y preinstalación de lavadora y secadora']]],
 ca:[['Façanes i zones comunes',['Façanes estucades amb sòcol ceràmic a la façana principal','Fusteria exterior d’alumini amb trencament de pont tèrmic i aïllament acústic','Persianes tèrmiques motoritzades','Vestíbul amb revestiment de fusta i gres porcel·lànic de gran format','Ascensor OTIS o similar']],['Terrasses, aparcament i trasters',['Paviment de gres porcel·lànic antilliscant a terrasses i balcons','Punt de llum i endoll a les terrasses','Baranes de ferro pintades','Porta de garatge automàtica i paviment de formigó','Trasters enguixats i pintats amb punt de llum']],['Interiors',['Parquet flotant laminat','Banys amb revestiment ceràmic a totes les zones','Plats de dutxa de resines minerals','Sanitaris ROCA i aixetes IMEX o similar','Lavabo ceràmic amb moble suspès de dos calaixos']],['Cuina',['Mobles alts i baixos segons distribució','Placa d’inducció, campana integrada i forn multifunció Balay o similar','Taulell i frontal de 70 cm en material tipus Corian','Aigüera d’acer inoxidable encastada']],['Fusteria i instal·lacions',['Portes block de DM lacades en blanc','Porta de seguretat d’accés','Aerotèrmia per a aigua calenta sanitària','Climatització per conductes fred/calor (fan-coil)','Videoporter i preinstal·lació de rentadora i assecadora']]]};
@@ -410,6 +432,7 @@ document.addEventListener('click',e=>{
   const g=k=>e.target.closest(k);let el;
   if(el=g('[data-l]')){L=el.dataset.l;try{localStorage.setItem('mm24-lang',L)}catch(x){}applyLang();return}
   if(el=g('[data-legal]')){e.preventDefault();modal(`<h2>${t('legal')}</h2>${t('legalTxt')}`);return}
+  if(g('[data-intro]')){$('#menu').classList.remove('on');showIntro();return}
   if(el=g('[data-go]')){$('#menu').classList.remove('on');if(el.dataset.go==='s-cfg'&&!state.cfg.unit&&state.unit)cfgInit(state.unit.id);go(el.dataset.go);return}
   if(el=g('[data-view]')){state.view=el.dataset.view;state.floor=null;closeSheet();renderEd();return}
   if(el=g('[data-floor]')){floorSheet(el.dataset.floor);return}
@@ -460,14 +483,16 @@ $('#b-agent').onclick=()=>{if(state.agent){state.agent=false;$('#agentbar').hidd
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeSheet();$('#lb').classList.remove('on');$('#menu').classList.remove('on')}
   if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.slot){state.park.sel=e.target.dataset.slot;renderPark()}});
 new ResizeObserver(()=>fitRoom()).observe($('#c-board'));
-$('#enter').onclick=()=>{const i=$('#intro');i.classList.add('zoom');const v=$('#intro video');v&&v.pause();setTimeout(()=>i.classList.add('out'),900)};
+$('#enter').onclick=()=>{const i=$('#intro');i.classList.add('zoom');const v=$('#intro video');if(v){v.pause();v.muted=true;const b=$('#snd');b.classList.remove('on');b.setAttribute('aria-pressed','false')}setTimeout(()=>i.classList.add('out'),900);bgSync(state.screen)};
+function showIntro(){const i=$('#intro'),v=$('#intro video');closeSheet();{const ov=$('#obra-tl video');ov&&ov.pause()}i.classList.add('back');i.classList.remove('zoom');void i.offsetWidth;i.classList.remove('out','back');if(v){v.currentTime=0;v.play().catch(()=>{})}}
 const hold=(e,on)=>{const b=e.target.closest&&e.target.closest('[data-hold]');if(b||!on)$$('#c-board .ly').forEach(l=>l.style.visibility=on&&b?'hidden':'')};
 document.addEventListener('pointerdown',e=>hold(e,true));document.addEventListener('pointerup',e=>hold(e,false));document.addEventListener('pointercancel',e=>hold(e,false));
 
 /* ---------- boot ---------- */
 fetch('data/promocion.json').then(r=>r.json()).then(j=>{D=j;
   const h=(location.hash||'').slice(1);if(h&&$('#s-'+h))state.screen='s-'+h;
-  if(D.media.intro){const v=document.createElement('video');Object.assign(v,{src:D.media.intro,muted:true,loop:true,autoplay:true,playsInline:true});v.onerror=()=>v.remove();$('#intro .kb').after(v)}
-  if(D.media.general){const v=document.createElement('video');Object.assign(v,{src:D.media.general,muted:true,loop:true,autoplay:true,playsInline:true});v.onerror=()=>v.remove();$('#c-blur').appendChild(v)}
-  if(h)$('#intro').classList.add('out');applyLang()}).catch(()=>{document.querySelector('.intro-c p').textContent=T[L].loadErr});
+  const mkv=(src,o={})=>{const v=document.createElement('video');Object.assign(v,{src,muted:true,loop:true,autoplay:true,playsInline:true},o);v.setAttribute('playsinline','');v.setAttribute('muted','');v.onerror=()=>v.remove();return v};
+  if(D.media.intro){const v=mkv(D.media.intro,{poster:'video/intro.jpg',autoplay:!h});$('#intro .kb').after(v);const b=$('#snd');b.hidden=false;b.onclick=()=>{v.muted=!v.muted;if(!v.muted){v.currentTime=0;v.play()}b.classList.toggle('on',!v.muted);b.setAttribute('aria-pressed',!v.muted)}}
+  if(D.media.general){$('#c-blur').appendChild(mkv(D.media.general));$('#bgv').appendChild(mkv(D.media.general,{autoplay:false,preload:'none'}))}
+  if(h)$('#intro').classList.add('out');applyLang();bgSync(state.screen)}).catch(()=>{document.querySelector('.intro-c p').textContent=T[L].loadErr});
 }
