@@ -229,7 +229,7 @@ function unitFacts(u){
 
 /* ---------- aparcamiento ---------- */
 const kindL=k=>t(k);
-function routeFor(r){const cx=r[0]+r[2]/2,cy=r[1]+r[3]/2;const pts=[[205,330],[215,640],[330,860],[640,820]];if(r[1]<330&&r[0]<300)return [[205,330],[205,300],[cx,cy]];pts.push([640,cy]);pts.push([cx,cy]);return pts}
+function routeFor(r){const cx=r[0]+r[2]/2,cy=r[1]+r[3]/2;const pts=[[205,330],[212,620],[250,770],[340,870],[480,890],[600,850],[640,790]];if(cy<790)pts.push([640,cy]);else{pts.pop();pts.push([640,cy])}pts.push([cx,cy]);return pts}
 function renderPark(){
   const P=state.park, sl=D.annexes;
   $('#pk').innerHTML=`<svg class="pk" viewBox="0 0 1190 1152" preserveAspectRatio="xMidYMid meet"><image href="img/parking.webp" width="1190" height="1152"/>
